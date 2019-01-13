@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+  <package name="cn.com.topit.gl.product" namespace="/product" extends="cn.com.topit.gl">
+    <action name="vWorkbench" class="vWorkbenchAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="vOffice" class="vOfficeAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="vTelRoom" class="vTelRoomAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="vMeetingRoom" class="vMeetingRoomAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="vVipRoom" class="vVipRoomAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="vCultivateRoom" class="vCultivateRoomAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="vExhibitionRoom" class="vExhibitionRoomAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="officeType" class="officeTypeAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="workbenchType" class="workbenchTypeAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="city" class="cityAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="vArea" class="vAreaAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="vCircle" class="vCircleAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="vBuilding" class="vBuildingAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="vFloor" class="vFloorAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="roomFacilities" class="roomFacilitiesAction">
+    	<result type="json" name="managerExt">
+    		<param name="root">records</param>  
+        	<param name="noCache">true</param> 
+        </result>
+    </action>
+    <action name="building" class="buildingAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="floor" class="floorAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="area" class="areaAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="circle" class="circleAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+  </package>
+</struts>

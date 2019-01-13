@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.Receipt" table="receipt" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="timeEntry" type="java.util.Date">
+			<column name="time_entry" length="10"/>
+		</property>
+		<property name="accountNumber" type="java.lang.String">
+			<column name="account_number" length="50"/>
+		</property>
+	    <property name="outTradeNo" type="java.lang.String">
+			<column name="out_trade_no" length="50"/>
+		</property>
+		 <property name="tradeNo" type="java.lang.String">
+			<column name="trade_no" length="50"/>
+		</property>
+		<property name="city" type="java.lang.String">
+			<column name="city" length="50"/>
+		</property>
+		<property name="serviceItems" type="java.lang.String">
+			<column name="service_items" length="50"/>
+		</property>
+		<property name="productName" type="java.lang.String">
+			<column name="product_name" length="50"/>
+		</property>
+		<property name="price" type="java.lang.String">
+			<column name="price" length="50"/>
+		</property>
+		<property name="amount" type="java.lang.Integer">
+			<column name="amount" length="4"/>
+		</property>
+		<property name="receiptAmount" type="java.lang.String">
+			<column name="receipt_amount" length="50"/>
+		</property>
+		<property name="accountBalance" type="java.lang.String">
+			<column name="account_balance" length="50"/>
+		</property>
+	</class>
+</hibernate-mapping>

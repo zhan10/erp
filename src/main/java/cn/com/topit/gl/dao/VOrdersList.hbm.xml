@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.VOrdersList" table="v_orders_list" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="numbers" type="java.lang.Integer">
+			<column name="numbers" length="4" not-null="true"/>
+		</property>
+		<property name="total" type="java.lang.Double">
+			<column name="total" length="5" not-null="true"/>
+		</property>
+		<property name="memo" type="java.lang.String">
+			<column name="memo" length="500"/>
+		</property>
+		<property name="recipeName" type="java.lang.String">
+			<column name="recipe_name" length="100" not-null="true"/>
+		</property>
+		<property name="price" type="java.lang.Double">
+			<column name="price" length="9" not-null="true"/>
+		</property>
+		<property name="consumerName" type="java.lang.String">
+			<column name="consumer_name" length="200" not-null="true"/>
+		</property>
+		<property name="address" type="java.lang.String">
+			<column name="address" length="500" not-null="true"/>
+		</property>
+		<property name="ordersTime" type="java.util.Date">
+			<column name="orders_time" length="8" not-null="true"/>
+		</property>
+		<property name="recipeId" type="java.lang.Long">
+			<column name="recipe_id" length="8" not-null="true"/>
+		</property>
+		<property name="consumerId" type="java.lang.Long">
+			<column name="consumer_id" length="8" not-null="true"/>
+		</property>
+		<property name="bookingId" type="java.lang.Long">
+			<column name="booking_id" length="8" not-null="true"/>
+		</property>
+		<property name="buildingId" type="java.lang.Long">
+			<column name="building_id" length="8" not-null="true"/>
+		</property>
+		<property name="ordersId" type="java.lang.Long">
+			<column name="orders_id" length="8" not-null="true"/>
+		</property>
+		<property name="status" type="java.lang.Integer">
+			<column name="status" length="4" not-null="true"/>
+		</property>
+		<property name="code" type="java.lang.String">
+			<column name="code" length="100" not-null="true"/>
+		</property>
+		<property name="tel" type="java.lang.String">
+			<column name="tel" length="50" not-null="true"/>
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.VStore" table="v_store" >
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" length="50" not-null="true"/>
+		</property>
+		<property name="manager" type="java.lang.Long">
+			<column name="manager" length="19"/>
+		</property>
+		<property name="position" type="java.lang.String">
+			<column name="position" length="50"/>
+		</property>
+		<property name="memo" type="java.lang.String">
+			<column name="memo" length="500"/>
+		</property>
+		<property name="userName" type="java.lang.String">
+			<column name="user_name" length="20" not-null="true"/>
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,604 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #titlediv{border:0px;top:0px;height:50px;position:relative;}
+        #titles{text-align:center;color:gray;}
+        #yearView{border:1px solid #c7bcbc;height:30px;line-height:30px;width:1000px;background-color:#d3e1f1;}
+        #yearViewLeft{font-size:11px;font-weight:bold;line-height:30px;margin-left:5px;width:58px;float:left}
+        #yearViewRight{font-size:11px;line-height:30px;width:320px;float:right;} 
+	    #yearViewRight div{font-size:11px;line-height:20px;width:45px;padding-left:5px;height:20px;margin-top:5px;display:inline-block;float:left;}
+        #bigContain{top:0px;position:relative;}
+        #yearContain{border:0px; position:relative; text-align:center;}
+        #yearContain div{border-left: solid 1px #c7bcbc; border-bottom:1px solid #c7bcbc;  float: left;font-size:12px; height:25px;margin:0px;
+        line-height:25px}
+		#D{border: 0; float: left; text-align:center; position:relative;}
+		.smallContain{border: solid 1px #c7bcbc; border-left: 0px; border-top: 0px; border-bottom:0px;  float: left; text-align:center;margin:0px;}
+        .smallContain div{border-left: solid 1px  #c7bcbc; border-bottom:1px solid #c7bcbc;  float: left;font-size:12px; height:25px;overflow:hidden;}
+        #moveBlock {top:0;width:60px;background-color:gray; border:0px; position:absolute;}
+        .colorBar { position:absolute;}
+        #divMonth{border:1px solid #c7bcbc;height:30px;background-color:#d3e1f1;font-size:11px;font-weight:bold;line-height:30px;}
+        #divMonth div{border:0;width:55px;height:30px;margin-left:5px;float:left;position:absolute;}
+        #divss1{height:24px;line-height:24px;}
+        #divss1 table{ border-collapse: collapse;}
+        #div1 table{ border-collapse: collapse;table-layout:fixed;}
+		#div1 table td{
+          border:1px solid #E8E8E8;
+          text-align:center;
+          padding:0;
+          margin:0;
+          height:26px;
+          font-size:12px;
+          overflow:hidden; 
+          white-space:nowrap;
+        }
+        #div1 table td:hover{
+          overflow:visible;
+        }
+        #divss1 table td{
+          border:1px solid #E8E8E8;
+          text-align:center;
+          padding:0;
+          margin:0;
+          height:24px;
+          font-size:12px;
+        }
+        .touMing {
+            opacity: .3;
+            filter: alpha(opacity=30);
+            -ms-filter: "alpha(opacity=30)";
+            -khtml-opacity: .30;
+            -moz-opacity: .30;
+        }
+    </style>
+</head>
+<body>
+    <div id="titlediv">
+    <h1 id="titles"></h1>
+    </div>
+    <div id="yearView">
+      <div id="yearViewLeft">年度视图</div>
+      <div id="yearViewRight">
+       <div style="background-color:gray">&nbsp;</div>
+       <div>过去</div>
+       <div style="background-color:#33ccff">&nbsp;</div>
+       <div>剩余</div>
+       <div style="background-color:#00CD66">&nbsp;</div>
+       <div>预定</div>
+      </div>
+    </div>
+    <div id="bigContain">
+    <div id="yearContain"></div>
+	<div id="D" onscroll="document.getElementById('div1').scrollTop = this.scrollTop;"></div>
+    <div id="moveBlock" class="touMing"></div>
+    </div>
+	<div id="divMonth">
+	  <div>放大视图</div>
+	</div>
+	<div id="divss1">
+	  <table>
+	    <tbody>
+	      <tr>
+	        <td id="lzcs"></td>
+	        <td id="lzcs1"></td>
+	        <td id="lzcs2"></td>
+	        <td id="lzcs3"></td>
+	        <td id="lzcs4"></td>
+	        <td id="lzcs5"></td>
+	        <td id="lzcs6"></td>
+	        <td id="lzcs7"></td>
+	        <td id="lzcs8"></td>
+	        <td id="lzcs9"></td>
+	        <td id="lzcs10"></td>
+	        <td id="lzcs11"></td>
+	        <td id="lzcs12"></td>
+	        <td id="lzcs13"></td>
+	        <td id="lzcs14"></td>
+	        <td id="lzcs15"></td>
+	        <td id="lzcs16"></td>
+	        <td id="lzcs17"></td>
+	        <td id="lzcs18"></td>
+	        <td id="lzcs19"></td>
+	        <td id="lzcs20"></td>
+	        <td id="lzcs21"></td>
+	        <td id="lzcs22"></td>
+	        <td id="lzcs23"></td>
+	        <td id="lzcs24"></td>
+	        <td id="lzcs25"></td>
+	        <td id="lzcs26"></td>
+	        <td id="lzcs27"></td>
+	        <td id="lzcs28"></td>
+	        <td id="lzcs29"></td>
+	        <td id="lzcs30"></td>
+	        <td id="lzcs31"></td>
+	      </tr>
+	    </tbody>
+	  </table>
+	</div>
+	<div id="div1" onscroll="document.getElementById('D').scrollTop = this.scrollTop;"></div>
+</body>
+<html>
+<script src="../jquery.min.js"></script>
+<script type="text/javascript">
+      $.ajax({
+        type: "post",//数据发送的方式（post 或者 get）
+        url: "/gl/product/vWorkbench!getType",//要发送的后台地址
+        data: {"id":""+getQueryString("type_id")},//要发送的数据（参数）格式为{'val1':"1","val2":"2"}
+        dataType: "json",//后台处理后返回的数据格式
+        success: function (datas) {
+          $.ajax({
+            type: "post",//数据发送的方式（post 或者 get）
+            url: "/gl/produce/vBookingWorkbench!getGenre",//要发送的后台地址
+            data: {"typeId":""+getQueryString("type_id")},//要发送的数据（参数）格式为{'val1':"1","val2":"2"}
+            dataType: "json",//后台处理后返回的数据格式
+            success: function (data) {//ajax请求成功后触发的方法
+            if(datas.records!=""){
+              var s=datas.records[0][1];
+            }else{
+              var s="没有工位！";
+            }
+            var locationType=[];
+            var locationTypeId=[];
+            var j1={};
+            
+            for(var i=0;i<data.records.length;i++){
+              var kfY=(new Date((data.records[i][3].replace("T"," ")).replace(/-/g,"/"))).getFullYear();
+              var kfM=((new Date((data.records[i][3].replace("T"," ")).replace(/-/g,"/"))).getMonth()+1).toString().length==1 ? "0"+((new Date((data.records[i][3].replace("T"," ")).replace(/-/g,"/"))).getMonth()+1).toString():((new Date((data.records[i][3].replace("T"," ")).replace(/-/g,"/"))).getMonth()+1);
+              var kfD=(new Date((data.records[i][3].replace("T"," ")).replace(/-/g,"/"))).getDate().toString().length==1 ? "0"+(new Date((data.records[i][3].replace("T"," ")).replace(/-/g,"/"))).getDate().toString():(new Date((data.records[i][3].replace("T"," ")).replace(/-/g,"/"))).getDate();
+              var kfYMD=parseInt(kfY+""+kfM+""+kfD); 
+        
+              var klY=(new Date((data.records[i][4].replace("T"," ")).replace(/-/g,"/"))).getFullYear();
+              var klM=((new Date((data.records[i][4].replace("T"," ")).replace(/-/g,"/"))).getMonth()+1).toString().length==1 ? "0"+((new Date((data.records[i][4].replace("T"," ")).replace(/-/g,"/"))).getMonth()+1).toString():((new Date((data.records[i][4].replace("T"," ")).replace(/-/g,"/"))).getMonth()+1);
+              var klD=(new Date((data.records[i][4].replace("T"," ")).replace(/-/g,"/"))).getDate().toString().length==1 ? "0"+(new Date((data.records[i][4].replace("T"," ")).replace(/-/g,"/"))).getDate().toString():(new Date((data.records[i][4].replace("T"," ")).replace(/-/g,"/"))).getDate();
+              var klYMD=parseInt(klY+""+klM+""+klD);
+              
+              if(i==0){
+                locationType[i]=data.records[i][2]; 
+                locationTypeId[i]=data.records[i][5];
+                j1[data.records[i][2]]=[[kfYMD,klYMD]];
+              }else{
+                var kg=false;
+                for(var j=0;j<locationType.length;j++){
+                if(data.records[i][2]==locationType[j]){
+                j1[data.records[i][2]][j1[data.records[i][2]].length]=[kfYMD,klYMD];
+                kg=true;
+                 }
+                }
+               if(kg==false){
+               locationType[locationType.length]=data.records[i][2];
+               locationTypeId[locationTypeId.length]=data.records[i][5];
+               j1[data.records[i][2]]=[[kfYMD,klYMD]];
+             }
+             }
+            }
+            
+            if(data.records==""){
+              for(var i=0;i<datas.records.length;i++){
+                if(i==0){
+                  locationType[i]=datas.records[i][0];
+                  locationTypeId[i]=datas.records[i][2];
+                }else{
+                  var dss=false;
+                  for(var j=0;j<locationType.length;j++){
+                    if(datas.records[i][0]==locationType[j]){
+                      dss=true;
+                      break;
+                    }
+                  }
+                  if(dss==false){
+                    locationType[locationType.length]=datas.records[i][0];
+                    locationTypeId[locationTypeId.length]=datas.records[i][2];
+                  }
+                }
+              }
+            }
+            
+            $("#titles").html("房态管理("+s+")");        
+            var hkDays = 30;   //滑块天数 
+            // var pixelsOfDay=3.5;//每天的像素数 
+            var widthArray=[100];	
+	        var beginDate;
+	        var begin;
+	        var endDate;
+	        var endTime;
+	        var getNumbers;
+	        var windowWidth=$(window).width();
+	        var now3 = new Date();
+	        var aTime=addMonths(now3,11);
+	        var tTime=getDaysInOneMonth(aTime.getFullYear(),aTime.getMonth()+1);
+	        var yTime=aTime.getFullYear();
+	        var mTime=aTime.getMonth()+1;
+	        var now4 = new Date();
+	        var chaTime=((new Date(yTime+"/"+mTime+"/"+tTime))-(new Date(now4.getFullYear()+'/'+(now4.getMonth()+1)+'/1')))/(1000*60*60*24)+1;
+	        var pixelsOfDay=(windowWidth-101-windowWidth*0.03)/chaTime;
+	        //var pixelsOfDay=3;
+	        //获取当前时间
+            var ds=new Date();
+	        var Y=ds.getFullYear().toString();
+            var M = (ds.getMonth() + 1).toString().length == 1 ?( "0" + (ds.getMonth()+1).toString() ): (ds.getMonth()+1).toString();
+            var D = ds.getDate().toString().length == 1 ? ("0" + ds.getDate().toString()) : ds.getDate().toString();
+	        var YMD=Y+M+D;//把当前时间进行拼接
+	        var dss=new Date(Y+"/"+M+"/"+D);
+            //var
+	        //var locationType=["D1","D2","D3","D4","D5"];
+	        //var j1 = { "D5": [[20161120, 20161221]], "D3": [[20161130,20161205],[20161208, 20161220], [20161226, 20170101]], "D1": [[20170620, 20170831], [20161220, 20161225]] };
+            var ju = new Array();
+            var now1 = new Date();
+            var now2 = new Date();
+            var yearAllDays = 0; //getDaysOfYear(year);
+            var curDate1 = now1;
+            var curDate = now2;
+            for (var i = 0; i < 12; i++) {
+              yearAllDays += getDaysOfMonth(curDate1.getFullYear(), curDate1.getMonth());
+              curDate1 = addMonths(now1, 1);
+             }
+            var ycWidth = yearAllDays * pixelsOfDay+102
+            var hkWidth = hkDays * pixelsOfDay;
+            $(" #yearContain").css("width", ycWidth);
+            $(" #yearView").css("width", ycWidth-2);
+            $(" #divMonth").css("width", ycWidth-2);
+            $(" #bigContain").css("width", ycWidth+2);
+            if(locationTypeId.length>=8){
+              $("#bigContain").css("height",208);
+              $("#moveBlock").css("height",208);
+              $("#D").css("height",182);
+              $("#div1").css("height",183);
+              $("#div1").css("overflow-Y","scroll");
+              $("#D").css("overflow-Y","scroll");
+            }else{
+               $("#bigContain").css("height",(locationType.length+1)*26);
+               $("#moveBlock").css("height",(locationType.length+1)*26);
+               $("#D").css("height",(locationType.length)*26);
+               $("#div1").css("height",(locationType.length)*27);
+               $("#divMonth").css("border-top",1);
+            }
+            $(" #divss1").css("width", ycWidth);
+            $(" #div1").css("width", ycWidth+17);
+            $(" #divss1 table").css("width", ycWidth);
+            $(" #div1 table").css("width", ycWidth);
+	        //$(" #D").css("height",(locationType.length)*31);
+	        $(" #D").css("width", ycWidth+18);
+	        $(" #moveBlock").css("width", hkWidth);
+	        
+	        //画年表的头栏
+            for (var i = 0; i < 13; i++) {
+	          if(i==0){
+		        var div = "<div id='D0'></div>";       
+                $("#yearContain").append(div);
+		        $("#D0").css("width", 100);
+		        $("#D0").css("background-color","#dfe8f6");
+		      }else{
+		        var cellYear = curDate.getFullYear();
+		        //alert(cellYear);
+                var cellMonth = curDate.getMonth(); 
+                //alert(cellMonth);
+                var widthOfMonth = getDaysOfMonth(cellYear, cellMonth) * pixelsOfDay;
+                var id="m"+ i.toString();
+                var div = "<div id='" + id + "'></div>";       
+                $("#yearContain").append(div);
+                $("#" + id).css("width", widthOfMonth-1);
+                $("#" + id).css("background-color","#dfe8f6");
+                $("#" + id).html(cellYear + "." + (cellMonth + 1));
+		        widthArray.push(widthOfMonth);
+                curDate = addMonths(now2, 1);
+		        if(i==1){
+		          if((cellMonth + 1)<10){begin=cellYear + "0" + (cellMonth + 1)+"01";}
+			      else{begin=cellYear + "" + (cellMonth + 1)+"01";}
+	  	          beginDate=cellYear + "/" + (cellMonth + 1)+"/01";
+		        }
+		        if(i==12){
+		          if((cellMonth + 1)<10){endDate=cellYear + "0" + (cellMonth + 1)+""+((widthOfMonth+1)/pixelsOfDay);}
+		          else{endDate=cellYear + "" + (cellMonth + 1)+""+((widthOfMonth+1)/pixelsOfDay);}
+		          endTime=cellYear + "/" + (cellMonth + 1)+"/"+Math.floor((widthOfMonth+1)/pixelsOfDay);
+		          $("#" +id).css("border-right", "1px solid #c7bcbc");
+		        }
+	          }
+	          $("#" + id).css("background-color","#dfe8f6");
+            }
+            //画年表的工位栏
+	        for(var i=0;i<locationType.length;i++){
+	          var div = "<div id='S"+locationTypeId[i]+"' class='smallContain'></div>";       
+              $("#D").append(div);
+	          for(var j=0;j<13;j++){
+	            if(j==0){
+		          var div = "<div id='DA"+i+j+"'>"+locationType[i]+"</div>";      
+                  $("#S"+locationTypeId[i]).append(div);
+                  $("#DA"+i+j).attr("title",locationType[i]);  
+		          $("#DA"+i+j).css("width", widthArray[j]);
+		          $("#DA"+i+j).css("font-size","12px");
+		          $("#DA"+i+j).css("line-height","25px");
+		        }else{
+		          var div = "<div id='D"+locationTypeId[i]+i+j + "'></div>";       
+                  $("#S"+locationTypeId[i]).append(div);
+                  $("#D" +locationTypeId[i]+i+j).css("width", widthArray[j]-1);
+		        }
+	          }
+	        }
+	        
+	        var startTime=new Date(beginDate);
+	        var endsTime=new Date(endTime);
+	        //给年表添加颜色div，并进行定位
+	        for(var s=0;s<locationType.length;s++){
+	          if(j1[locationType[s]]!=undefined){
+	            for(var i=0;i<j1[locationType[s]].length;i++){
+	              var year=j1[locationType[s]][i][0].toString().substr(0,4);
+	              var month=j1[locationType[s]][i][0].toString().substr(4,2);
+	              var days=j1[locationType[s]][i][0].toString().substr(6,2)
+	              var years=j1[locationType[s]][i][1].toString().substr(0,4);
+	              var months=j1[locationType[s]][i][1].toString().substr(4,2);
+	              var dayss=j1[locationType[s]][i][1].toString().substr(6,2);
+	              var time=new Date(year+"/"+month+"/"+days);//[0]
+	              var startLengths=(time-startTime)/(1000*60*60*24)*pixelsOfDay+101;
+	              var times=new Date(years+"/"+months+"/"+dayss);//[1]
+	              var widthLengths=((times-time)/(1000*60*60*24))*pixelsOfDay;//位置的宽
+		          var div = "<div id='DS"+locationTypeId[s]+i+"' class='colorBar'></div>"; 
+		          if(YMD<j1[locationType[s]][i][0]){
+		            $("#S"+locationTypeId[s]).append(div);
+		            $("#DS"+locationTypeId[s]+i).css("background-color","#00CD66");
+		            if(endDate<j1[locationType[s]][i][1]){$("#DS"+locationTypeId[s]+i).css("width",((endsTime-time)/(1000*60*60*24))*pixelsOfDay)+pixelsOfDay;}
+		            else{$("#DS"+locationTypeId[s]+i).css("width",widthLengths+pixelsOfDay);}
+		            $("#DS"+locationTypeId[s]+i).css("left",startLengths+pixelsOfDay);
+		            $("#DS"+locationTypeId[s]+i).css("border",0);
+		          }else if(j1[locationType[s]][i][1]<YMD){
+		            $("#S"+locationTypeId[s]).append(div);
+		            $("#DS"+locationTypeId[s]+i).css("background-color","gray");
+			        if(j1[locationType[s]][i][0]<begin){
+			          if(j1[locationType[s]][i][1]>begin){
+			            $("#DS"+locationTypeId[s]+i).css("width",((times-startTime)/(1000*60*60*24))*pixelsOfDay+pixelsOfDay);
+			            $("#DS"+locationTypeId[s]+i).css("left",101);
+			          }
+			        }else{
+			          $("#DS"+locationTypeId[s]+i).css("width",widthLengths+pixelsOfDay);
+			          $("#DS"+locationTypeId[s]+i).css("left",startLengths+pixelsOfDay);
+			        }
+			        $("#DS"+locationTypeId[s]+i).css("border",0);
+		          }else{
+		            if(j1[locationType[s]][i][0]<begin){
+			          $("#S"+locationTypeId[s]).append(div);
+		              $("#DS"+locationTypeId[s]+i).css("background-color","gray");
+			          $("#DS"+locationTypeId[s]+i).css("width",((dss-startTime)/(1000*60*60*24))*pixelsOfDay+pixelsOfDay);
+			          $("#DS"+locationTypeId[s]+i).css("left",101);
+			          $("#DS"+locationTypeId[s]+i).css("border",0);
+			        }else{
+			          $("#S"+locationTypeId[s]).append(div);
+		              $("#DS"+locationTypeId[s]+i).css("background-color","gray");
+			          $("#DS"+locationTypeId[s]+i).css("width",((dss-time)/(1000*60*60*24))*pixelsOfDay+pixelsOfDay);
+			          $("#DS"+locationTypeId[s]+i).css("left",startLengths+pixelsOfDay);
+			          $("#DS"+locationTypeId[s]+i).css("border",0);
+			        }
+		            if(j1[locationType[s]][i][1]>endDate){
+			          var divs = "<div id='D" + locationTypeId[s] + i + "' class='colorBar'></div>";
+		              $("#S"+locationTypeId[s]).append(divs);
+		              $("#D"+locationTypeId[s] + i).css("background-color","#33ccff");
+			          $("#D"+locationTypeId[s] + i).css("width",((endsTime-dss)/(1000*60*60*24))*pixelsOfDay+pixelsOfDay);
+			          $("#D"+locationTypeId[s]+i).css("border",0);
+			        }else{
+			          var divs = "<div id='D" + locationTypeId[s] + i + "' class='colorBar'></div>";
+		              $("#S"+locationTypeId[s]).append(divs);
+		              $("#D"+locationTypeId[s] + i).css("background-color","#33ccff");
+			          $("#D"+locationTypeId[s] + i).css("width",((times-dss)/(1000*60*60*24))*pixelsOfDay+pixelsOfDay);
+			          $("#D"+locationTypeId[s]+i).css("border",0);
+			        }
+			        $("#D"+locationTypeId[s] + i).css("left",startLengths+((dss-time)/(1000*60*60*24))*pixelsOfDay+pixelsOfDay);
+			        $("#D"+locationTypeId[s] + i).css("height",25);
+		          }
+	              $("#DS"+locationTypeId[s]+i).css("height",25);
+	            }
+	          }
+	        }
+	
+	        sk();
+	        //移动滑块
+            $("#bigContain").mousemove(function (e) {
+              var offset = $(this).offset();
+              var relativeX = e.pageX - offset.left+1;
+		      doWidth=$("#D0").width();
+		      doWidth+=1;
+		      yearContainWidth=$("#yearContain").width();
+		      yearContainWidth+=2;
+		      if(relativeX>=doWidth+1 && relativeX<=yearContainWidth-$("#m12").width()){
+		        $("#moveBlock").css("left", relativeX-1);
+		        getNumbers=getMonthNumbers(relativeX);
+		      }
+		      $("table#tab td").css("background","none");
+		      sm(getNumbers);
+		      $("#DDD"+locationTypeId[0]+0).css("width",100);
+		      $("#lzcs").css("width",99);
+		      $("table#tab").css("width",ycWidth);
+		      for(var i=1;i<=31;i++){
+		        $("#DDS"+locationTypeId[0]+i).css("width",(ycWidth-117)/31);
+		        $("#lzcs"+i).css("width",(ycWidth-131)/31);
+		      }
+		      $("#trs1").css("display","none");
+		      $("#DDS0").css("width",99);
+		      //alert($("table").find("tr").width());
+		      
+            });
+
+            var cellDate = new Date(); 
+            //画月表格
+            function sk(){
+              var dom_tbody = $('<tbody></tbody>');
+              for (var j = 0; j <= locationType.length; j++) {
+                if(j==0){
+                  var dom_tr = $("<tr id='trs1'></tr>");
+                }else{
+                  var dom_tr = $("<tr></tr>");
+                }
+                for (var i = 0; i <= 31; i++) {
+		          if(j==0){//把第一行分开赋值
+                    var dom_td = $("<td id='DDS"+i+"'></td>");
+		            dom_tr.append(dom_td);
+                  }else{
+                    var dom_td = $("<td id='DDD"+locationTypeId[j-1]+i+"'></td>");
+                    dom_tr.append(dom_td);
+                  }
+	            }
+	            dom_tbody.append(dom_tr);
+	          }
+	          var dom_table = $('<table id="tab"></table>').append(dom_tbody);
+              $("#div1").append(dom_table); 
+              $("#tab").hide();
+            }
+            //给月表格填充颜色
+            function sm(time){
+              $("#tab").show();
+              var starts;
+              var ends;
+              var fY=getDay(0,time).getFullYear();
+              var fM=(getDay(0,time).getMonth()+1).toString().length == 1 ? "0"+(getDay(-1,time).getMonth()+1) : getDay(-1,time).getMonth()+1;
+              var fD=getDay(0,time).getDate().toString().length==1 ? "0"+getDay(-1,time).getDate() : getDay(-1,time).getDate();
+              var fYMD=parseInt(fY+""+fM+""+fD);//first
+              var lY=getDay(31,time).getFullYear();
+              var lM=(getDay(31,time).getMonth()+1).toString().length == 1 ? "0"+(getDay(31,time).getMonth()+1) : getDay(31,time).getMonth()+1;
+              var lD=getDay(31,time).getDate().toString().length==1 ? "0"+getDay(31,time).getDate() : getDay(31,time).getDate();
+              var lYMD=parseInt(lY+""+lM+""+lD);//last 
+              ju=[fYMD,lYMD];
+              for (var j = 0; j <= locationType.length; j++) {
+                for (var i = 0; i <= 31; i++) {
+                  if(j==0){//把第一行分开赋值
+                    if(i!=0){//把第一列分开赋值
+                      cellDate=getDay(i-1,time);
+                      $("#DDS"+i).html(cellDate.getDate());
+                      $("#lzcs"+i).html(cellDate.getDate());
+			          if(i==1){//这个是给第一行第二列的单元格填写年月日
+			            starts=cellDate.getFullYear()+"/"+(cellDate.getMonth()+1)+"/"+cellDate.getDate();
+			          }
+			          if(i==31){ends=cellDate.getFullYear()+"/"+(cellDate.getMonth()+1)+"/"+cellDate.getDate();}
+                    }else{$("#DDS"+i).html("");}
+                  }else{
+                    if(i==0){$("#DDD"+locationTypeId[j-1]+i).html(locationType[j-1]);} //把第一列赋值（从第二行开始）
+		            else {
+                      var dd = getDay(i - 1,time);
+                      var inputY = dd.getFullYear().toString();
+                      var inputM = (dd.getMonth() + 1).toString().length == 1 ?( "0" + (dd.getMonth()+1).toString() ): (dd.getMonth()+1).toString();
+                      var inputD = dd.getDate().toString().length == 1 ? ("0" + dd.getDate().toString()) : dd.getDate().toString();
+			          if(j1[locationType[j-1]]!=undefined){//给相对应的单元格染色
+			            for(var s=0;s<j1[locationType[j-1]].length;s++){//单个工位类型的长度
+			              var ss=s; 
+				          var p=j1[locationType[j-1]][s][1].toString().substr(0,4)+"/"+j1[locationType[j-1]][s][1].toString().substr(4,2)+"/"+j1[locationType[j-1]][s][1].toString().substr(6,2);
+			              var h=j1[locationType[j-1]][s][0].toString().substr(0,4)+"/"+j1[locationType[j-1]][s][0].toString().substr(4,2)+"/"+j1[locationType[j-1]][s][0].toString().substr(6,2);
+				          var TDOA=(new Date(p)-new Date(h))/(1000*60*60*24);
+				          for(var k=0;k<=TDOA;k++){
+				            var tY = new Date(h);
+				            tY.setTime(tY.getTime()+1000*60*60*24*k);
+				            var tY1 = tY.getFullYear();
+				            var tM2 = doHandleMonth(tY.getMonth()+1);
+				            var tD3 = doHandleMonth(tY.getDate());
+				            var sj=new Date(tY1+"/"+tM2+"/"+tD3);
+				            var tM3=tM2.length==1 ? ("0"+tM2) : tM2;
+				            var tD4=tD3.length==1 ? ("0"+tD3) :tD3;
+				            var sososo=tY1+""+tM3+""+tD4;
+				            var first=new Date(starts);//时间表的第一个值
+				            var last=new Date(ends);
+				            var color = t(sososo,ss,j1[locationType[j-1]]);
+				            if(first<=sj && sj<=last){
+				              var lh=(sj-first)/(1000*60*60*24)+1;
+				              if("DDD"+locationTypeId[j-1]+i=="DDD"+locationTypeId[j-1]+lh){
+				                $("#DDD"+locationTypeId[j-1]+i).css("background-color",color);
+				                break;
+				              }
+				            }
+				          }
+			            }
+			          }			   
+                    }
+                  }
+                }
+              }
+            }
+            //计算时间
+            function getDay(day,tm){
+              var today = new Date(""+tm);
+              var targetday_milliseconds=today.getTime() + 1000*60*60*24*day;          
+              today.setTime(targetday_milliseconds); //注意，这行是关键代码      
+              var tYear = today.getFullYear();  
+              var tMonth = today.getMonth(); 	   
+              var tDate = today.getDate();  
+              tMonth = doHandleMonth(tMonth + 1);  
+              tDate = doHandleMonth(tDate);  
+              var d=new Date(tYear+"/"+tMonth+"/"+tDate);
+              return d;  
+            }  
+
+            function doHandleMonth(month){  
+              var m = month;  
+              if(month.toString().length == 1){m = "0" + month;}return m;  
+            }
+            //返回颜色
+            function t(d,ss,jss){   
+              var ds1=new Date();//获取当前时间
+	          var Y=ds1.getFullYear().toString();
+              var M = (ds1.getMonth() + 1).toString().length == 1 ?( "0" + (ds1.getMonth()+1).toString() ): (ds1.getMonth()+1).toString();
+              var D = ds1.getDate().toString().length == 1 ? ("0" + ds1.getDate().toString()) : ds1.getDate().toString();
+	          var YMD=Y+M+D;//把当前时间进行拼接
+	          var color = "";
+	          if(YMD<ju[0]&&jss[ss][0]>YMD){color="#00CD66";}
+	          else if(YMD>ju[1]){color="gray";}
+	          else{
+	            if(d<ju[0] && d>ju[1]){color="";}
+	            else{
+	              if(jss[ss][0]>YMD){color="#00CD66";}
+		          else{
+		            if(d<YMD){color="gray";}
+		            else{color="#33ccff";}
+	              }
+	            }
+	          }
+              return color;
+            }
+            
+            function getDaysInOneMonth(year, month){  
+              month = parseInt(month,10);  
+              var d= new Date(year,month,0);  
+              return d.getDate();  
+            }  
+            
+            function getDaysOfYear(year) {var days = 365;if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)days = 366;return days;}
+            function getDaysOfMonth(year, month) {
+            return 32 - (new Date(year, month, 32)).getDate();
+            }
+	        function addMonths(date, number) {var rtnDate = date;rtnDate.setMonth(date.getMonth() + number);return rtnDate;}
+	        function getMonthNumbers(relativeX){
+	          var m=new Array();
+	          var getMonthText;
+	          var str=Array();
+	          for(var i=0;i<12;i++){
+	            m[i]=$("#m"+(i+1)).width();
+	            if(i==0){m[i]=m[i]+102+1;}
+		        else{m[i]=m[i]+m[i-1]+1;}
+	          }
+	          for(var i=0;i<m.length;i++){
+	            if(relativeX<=m[i]){
+	              if(i==0){relativeX=relativeX-102;}
+		          else{relativeX=relativeX-m[i-1];}
+		          relativeX=parseInt(relativeX/pixelsOfDay);
+		          if(relativeX==0){relativeX=1};
+		          getMonthText=$("#m"+(i+1)).text();
+		          str=getMonthText.split(".");
+		          relativeX=str[0]+"/"+str[1]+"/"+relativeX;	
+	            }
+	          }
+	          return relativeX;
+	        }
+          },
+          error: function (msg) {//ajax请求失败后触发的方法
+            alert("请求失败:"+msg);//弹出错误信息
+          }
+        });
+      },
+      error: function (msg) {//ajax请求失败后触发的方法
+        alert("请求失败:"+msg);//弹出错误信息
+      }
+    });
+        function getQueryString(name) {
+          url = window.location.href;
+          name = name.replace(/[\[\]]/g, "\\$&");
+          var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+          results = regex.exec(url);
+          if (!results) return null;
+          if (!results[2]) return '';
+          return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+</script>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	<!-- 不要过滤图片等静态资源，其中**代表可以跨越目录，*不可以跨越目录。 -->
+	
+	<http pattern="/css/**" security="none" />
+	<http pattern="/ext/**" security="none" />
+	<http pattern="/img/**" security="none" />
+	<http pattern="/jsComm/**" security="none" />
+	<http pattern="/jspComm/**" security="none" />
+	<http pattern="/login.jsp*" security="none" />
+	<http pattern="/forgotPassword.jsp" security="none" />
+	<http pattern="/accessDenied.jsp**" security="none" />
+	<!-- <http pattern="/top.jsp**" security="none" /> -->
+	<beans:bean id="topitFilter" class="cn.com.topit.base.TopitFilterSecurityInterceptor">
+		<beans:property name="accessDecisionManager" ref="topitAccessDecisionManagerBean"></beans:property>
+		<beans:property name="fisMetadataSource" ref="securityMetadataSource"></beans:property>
+		<beans:property name="authenticationManager" ref="authManager"></beans:property>
+	</beans:bean>
+	<beans:bean id="topitWebInvocationPrivilegeEvaluator" class="cn.com.topit.base.TopitWebInvocationPrivilegeEvaluator">
+		<beans:constructor-arg name="securityInterceptor" ref="topitFilter" />
+	</beans:bean>	
+	<http auto-config="true" access-denied-page="/accessDenied.jsp" use-expressions="true">
+		<!-- default-target-url 指定了从登录页面登录后进行跳转的页面 always-use-default-target true表示登录成功后强制跳转 authentication-failure-url 表示验证失败后进入的页面 
+			login-processing-url 设置验证登录验证地址，如果不设置，默认是j_spring_security_check username-parameter,password-parameter 设置登录用户名和密码的请求name，默认：j_username,j_password 
+			default-target-url="/user/home" -->
+			<intercept-url pattern="/index.jsp**" access="isAuthenticated()"/> 
+		<intercept-url pattern="/top.jsp**" access="isAuthenticated()"/>  
+		<form-login login-page="/login.jsp" authentication-failure-url="/login.jsp?error=true" default-target-url="/index.jsp"
+			always-use-default-target='true' />
+		<logout logout-success-url="/login.jsp" />
+		<remember-me/>
+		<!-- <remember-me key="topit_wsyyasfas" data-source-ref="dataSource"/> -->
+		<!-- <intercept-url pattern="/**/*.jsp**" access="denyAll"/> 禁止直接访问jsp-->
+		<!-- <intercept-url pattern="/**" access="hasRole('user') or hasRole('管理员')" /> -->
+		<!-- session-management是针对session的管理. 这里可以不配置. 如有需求可以配置. -->
+		<!-- id登陆唯一. 后登陆的账号会挤掉第一次登陆的账号 error-if-maximum-exceeded="true" 禁止2次登陆; error-if-maximum-exceeded="false" 第2次登陆将注销前一次登录 
+			session-fixation-protection="none" 防止伪造sessionid攻击. 用户登录成功后会销毁用户当前的session. 创建新的session,并把用户信息复制到新session中. -->
+		<session-management invalid-session-url="/sessionTimeout.jsp">
+			<concurrency-control max-sessions="1" error-if-maximum-exceeded="false" />
+		</session-management>
+		<!-- 增加一个filter，这点与Acegi是不一样的，不能修改默认的filter了，这个filter位于FILTER_SECURITY_INTERCEPTOR之前 -->
+		<custom-filter before="FILTER_SECURITY_INTERCEPTOR" ref="topitFilter" />
+	</http>
+
+	<!-- -->
+
+
+	<!-- 权限管理操作 -->
+	<!-- erase-credentials="true"表明验证成功后清除掉Authentication中的password信息 ,这将导致AbstractRememberMeServices不会将username和password存储到cookie中，因此使用remember 
+		me功能时会得不到正确的authentication对象 -->
+	<authentication-manager  erase-credentials="false" alias="authManager">
+		<authentication-provider user-service-ref="userDetailsService">
+			<password-encoder hash="md5">
+				<!-- <salt-source user-property="username" /> -->
+				<!-- 由于登录名为code字段，在userDetailsService中作处理对应其usernaem属性，所以加密密码明文为:"密码明文{code}"] -->
+			</password-encoder>
+			<!-- <jdbc-user-service data-source-ref="dataSource" users-by-username-query="select code,password,enable from users where 
+				code = ? and enable = 1" authorities-by-username-query="select u.name,r.name from users u join user_role ur on u.id = ur.user_id 
+				join roles r on r.id = ur.role_id where u.code = ?" /> -->
+		</authentication-provider>
+	</authentication-manager>
+	<!-- security登录时获取用户所有角色，implements org.springframework.security.core.userdetails.UserDetailsService -->
+	<beans:bean id="userDetailsService" class="cn.com.topit.base.TopitUserDetailsServiceImpl">
+		<beans:property name="usersService" ref="usersService" />
+		<beans:property name="userRoleService" ref="userRoleService" />
+	</beans:bean>
+	<!-- 访问决策器，决定某个用户具有的角色，是否有足够的权限去访问某个资源 -->
+	<beans:bean id="topitAccessDecisionManagerBean" class="cn.com.topit.base.TopitAccessDecisionManager">
+	</beans:bean>
+
+	<!-- 资源源数据定义，即定义某一资源可以被哪些角色访问 -->
+	<beans:bean id="securityMetadataSource" class="cn.com.topit.base.TopitInvocationSecurityMetadataSource">
+		<beans:constructor-arg name="rolesService" ref="rolesService" />
+		<beans:constructor-arg name="roleResourceService" ref="roleResourceService" />
+	</beans:bean>
+</beans:beans>

@@ -1,0 +1,30 @@
+.x-component-default {
+	text-align: center !important;
+}
+
+.empty .x-panel-body {
+	padding-top: 20px;
+	text-align: center;
+	background-color: #eff3f8;
+	color: gray;
+	font-size: 11px;
+	
+}
+a { 
+	text-decoration: none;
+}
+a:link {
+	color: gray;
+}
+a:visited {
+	color: gray;
+}
+
+a:hover {
+	color: black;	
+}
+
+
+				
+
+				

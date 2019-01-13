@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xsi:schemaLocation="http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans-3.1.xsd  http://www.springframework.org/schema/tx      http://www.springframework.org/schema/tx/spring-tx-3.1.xsd    http://www.springframework.org/schema/aop                   http://www.springframework.org/schema/aop/spring-aop-3.1.xsd ">  
+  <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"> 
+    <property name="basenames"> 
+      <list> 
+        <value>dbMessage</value>  
+        <value>daoMessage</value>  
+        <value>errorMessage</value> 
+      </list> 
+    </property> 
+  </bean>  
+  <!-- <bean id="cacheLoder" lazy-init="false" class="cn.com.topit.job.LoadJobs" 
+		init-method="run"> <property name="departmentService"> <ref bean="departmentService" 
+		/> </property> </bean> -->  
+  <!-- 普通类调用spring对象的配置,可以不配置id属性.  -->  
+  <bean id="toolSpring" class="cn.com.topit.common.util.ToolSpring"/>  
+  <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close"> 
+    <!-- 基本属性 url、user、password -->  
+    <property name="url" value="jdbc:jtds:sqlserver://127.0.0.1:1433;DatabaseName=splus"/>  
+    <property name="username" value="sa"/>  
+    <property name="password" value="123456"/>  
+    <!-- 配置初始化大小、最小、最大 -->  
+    <property name="initialSize" value="1"/>  
+    <property name="minIdle" value="1"/>  
+    <property name="maxActive" value="20"/>  
+    <!-- 配置获取连接等待超时的时间 -->  
+    <property name="maxWait" value="60000"/>  
+    <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->  
+    <property name="timeBetweenEvictionRunsMillis" value="60000"/>  
+    <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->  
+    <property name="minEvictableIdleTimeMillis" value="300000"/>  
+    <property name="validationQuery" value="SELECT 'x'"/>  
+    <property name="testWhileIdle" value="true"/>  
+    <property name="testOnBorrow" value="false"/>  
+    <property name="testOnReturn" value="false"/>  
+    <!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->  
+    <property name="poolPreparedStatements" value="true"/>  
+    <property name="maxPoolPreparedStatementPerConnectionSize" value="20"/>  
+    <!-- 配置监控统计拦截的filters，去掉后监控界面sql无法统计 -->  
+    <property name="filters" value="stat"/> 
+  </bean>  
+  <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"> 
+    <property name="dataSource" ref="dataSource"/>  
+    <property name="hibernateProperties"> 
+      <props> 
+        <prop key="hibernate.dialect">org.hibernate.dialect.SQLServer2008Dialect</prop>  
+        <prop key="hibernate.show_sql">true</prop>  
+        <prop key="default_schema">dbo</prop>  
+        <prop key="default_catalog">gl</prop>  
+        <!-- 将SQL脚本进行格式化后再输出 -->  
+        <prop key="hibernate.format_sql">true</prop>  
+        <prop key="hibernate.use_sql_comments">true</prop>  
+        <prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop>  
+        <prop key="flushmode">commit</prop> 
+      </props> 
+    </property>  
+    <property name="mappingResources"> 
+      <list> 
+      	<value>cn/com/topit/gl/dao/VInventory.hbm.xml</value> 
+      	<value>cn/com/topit/gl/dao/Inventory.hbm.xml</value> 
+        <value>cn/com/topit/gl/dao/Mater.hbm.xml</value> 
+      	<value>cn/com/topit/gl/dao/MateType.hbm.xml</value>  
+      	<value>cn/com/topit/gl/dao/WarehouseSite.hbm.xml</value>  
+      	<value>cn/com/topit/gl/dao/Warehouse.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/RentContract.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VRentContract.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/Receipt.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VPrintRecord.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/PrintRecord.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/PrintRate.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/PrintStatistics.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/MemberLevel.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VCultivateRoomBooking.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/CultivateRoomBooking.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VCultivateRoom.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/CultivateRoom.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VCultivateManager.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/CultivateManager.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/Marketing.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VGenre.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/Genre.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VProduct.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VBookingList.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/TheMonthReport.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/ToDayReport.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/OrdersList.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VBookingVisit.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/News.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/RequirementBooking.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/Serve.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VMonthlyReportDate.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VDailyReportDate.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VDailyReport.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VMonthlyReport.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/ConsumeType.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/PaymentType.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/ConsumeArea.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/Users.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/Roles.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/Resource.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/RoleResource.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VCustom.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/UserRole.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/City.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/Area.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VArea.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/Building.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/Circle.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VCircle.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VBuilding.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/Floor.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VFloor.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/Workbench.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VWorkbench.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/WorkbenchType.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/Office.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VOffice.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/OfficeType.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/ProductType.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/Consumer.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/Booking.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VBooking.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/WorkbenchBooking.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VBookingOffice.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VBookingWorkbench.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/MeetingRoom.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VMeetingRoom.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/ExhibitionRoom.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VExhibitionRoom.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/TelRoom.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VTelRoom.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VVipRoom.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VipRoom.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/Health.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VHealth.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/OfficeBooking.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/ConsumeRecord.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VConsumeRecord.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/RechargeRecord.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VRechargeRecord.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/RefundRecord.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VRefundRecord.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VDamage.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/Damage.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/MeetingRoomBooking.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/TelRoomBooking.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VipRoomBooking.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/ExhibitionRoomBooking.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VBookingExhibitionRoom.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VBookingVipRoom.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VBookingTelRoom.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VBookingMeetingRoom.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/RecipeType.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/Recipe.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VRecipe.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/Orders.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VOrders.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VOrdersList.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/RoomFacilities.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/Products.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VVisit.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VFloorLock.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/FloorLock.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VNewWorkbench.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/NewWorkbench.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VNewOffice.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/NewOffice.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VNewMeetingRoom.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/NewMeetingRoom.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VWorkbenchLock.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/WorkbenchLock.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VOfficeLock.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/OfficeLock.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VMeetingRoomLock.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/MeetingRoomLock.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VNewBookingList.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/NewBooking.hbm.xml</value>  
+        <value>cn/com/topit/gl/dao/VisitService.hbm.xml</value>
+      </list> 
+    </property> 
+  </bean>  
+  <!-- 通过JSTL调用Spring里的bean，用于调用TopitAccessDecisionManager中的权限方法用 -->  
+  <bean name="springCtxLoader" class="cn.com.topit.base.SpringCtxLoader" lazy-init="false"/>  
+  <!-- 声明式事务 -->  
+  <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager"> 
+    <property name="sessionFactory" ref="sessionFactory"/> 
+  </bean>  
+  <tx:advice id="txAdvice" transaction-manager="transactionManager"> 
+    <tx:attributes> 
+      <tx:method name="save*"/>  
+      <tx:method name="delete*" propagation="REQUIRED"/>  
+      <tx:method name="*" propagation="REQUIRED" read-only="true"/> 
+    </tx:attributes> 
+  </tx:advice>  
+  <aop:config> 
+    <aop:pointcut id="productServiceMethods" expression="execution(* cn.com.topit.gl.service..*.*(..)) or execution(* cn.com.topit.base.AbstractService.*(..))"/>  
+    <aop:advisor advice-ref="txAdvice" pointcut-ref="productServiceMethods"/> 
+  </aop:config> 
+</beans>

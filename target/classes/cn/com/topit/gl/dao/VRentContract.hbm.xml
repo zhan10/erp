@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.VRentContract" table="v_rent_contract" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="floorId" type="java.lang.Long">
+			<column name="floor_id" length="8" not-null="true"/>
+		</property>
+		<property name="buildingId" type="java.lang.Long">
+			<column name="building_id" length="8" not-null="true"/>
+		</property>
+		<property name="areaId" type="java.lang.Long">
+			<column name="area_id" length="8" not-null="true"/>
+		</property>
+		<property name="cityId" type="java.lang.Long">
+			<column name="city_id" length="8" not-null="true"/>
+		</property>
+		<property name="floorName" type="java.lang.String">
+			<column name="floor_name" length="200" not-null="true"/>
+		</property>
+		<property name="buildingName" type="java.lang.String">
+			<column name="building_name" length="200" not-null="true"/>
+		</property>
+		<property name="areaName" type="java.lang.String">
+			<column name="area_name" length="50" not-null="true"/>
+		</property>
+		<property name="cityName" type="java.lang.String">
+			<column name="city_name" length="50" not-null="true"/>
+		</property>
+		<property name="contractNumber" type="java.lang.String">
+			<column name="contract_number" length="100" not-null="true"/>
+		</property>
+		<property name="state" type="java.lang.Integer">
+			<column name="state" length="4" not-null="true"/>
+		</property>
+		<property name="customerName" type="java.lang.String">
+			<column name="customer_name" length="100" not-null="true"/>
+		</property>
+		<property name="contractDate" type="java.util.Date">
+			<column name="contract_date" not-null="true" />
+		</property>
+		<property name="usefulLife" type="java.util.Date">
+			<column name="useful_life" not-null="true" />
+		</property>
+		<property name="validDate" type="java.util.Date">
+			<column name="valid_date" not-null="true" />
+		</property>
+		<property name="acreage" type="java.lang.Integer">
+			<column name="acreage"/>
+		</property>
+		<property name="population" type="java.lang.Integer">
+			<column name="population"/>
+		</property>
+		<property name="monthRent" type="java.lang.Double">
+			<column name="month_rent" precision="18"  scale="2" not-null="true"/>
+		</property>
+		<property name="downPayment" type="java.lang.Double">
+			<column name="down_payment" precision="18"  scale="2" not-null="true"/>
+		</property>
+		<property name="margin" type="java.lang.Double">
+			<column name="margin" precision="18"  scale="2" not-null="true"/>
+		</property>
+		<property name="roomNumber" type="java.lang.String">
+			<column name="room_number" length="100" not-null="true"/>
+		</property>
+		<property name="pic" type="java.lang.String">
+			<column name="pic" length="128"/>
+		</property>
+		<property name="comment" type="java.lang.String">
+			<column name="comment" length="2000"/>
+		</property>
+	</class>
+</hibernate-mapping>

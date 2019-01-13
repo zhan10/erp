@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.PrintRecord" table="print_record" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="printTime" type="java.util.Date">
+			<column name="print_time" length="8"/>
+		</property>
+		<property name="comsumerId" type="java.lang.Long">
+			<column name="comsumer_id" length="8" not-null="true"/>
+		</property>
+		<property name="printerModel" type="java.lang.String">
+			<column name="printer_model" length="100"/>
+		</property>
+		<property name="printerMac" type="java.lang.String">
+			<column name="printer_mac" length="20"/>
+		</property>
+		<property name="printerIp" type="java.lang.String">
+			<column name="printer_ip" length="20"/>
+		</property>
+		<property name="printFormat" type="java.lang.Short">
+			<column name="print_format"/>
+		</property>
+		<property name="paperFormat" type="java.lang.String">
+			<column name="paper_format" length="5"/>
+		</property>
+		<property name="paperCount" type="java.lang.Integer">
+			<column name="paper_count"/>
+		</property>
+		<property name="syncTime" type="java.util.Date">
+			<column name="sync_time" length="8"/>
+		</property>
+		<property name="cardNumber" type="java.lang.String">
+			<column name="card_number" length="50"/>
+		</property>
+	</class>
+</hibernate-mapping>

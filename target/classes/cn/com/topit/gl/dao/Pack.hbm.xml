@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.Pack" table="pack"  dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="status" type="java.lang.Integer">
+			<column name="status" length="10"/>
+		</property>
+		<property name="caseNum" type="java.lang.String">
+			<column name="case_num" length="50"/>
+		</property>
+		<property name="packDate" type="java.util.Date">
+			<column name="pack_date" length="23"/>
+		</property>
+		<property name="packGrade" type="java.lang.String">
+			<column name="pack_grade" length="20"/>
+		</property>
+		<property name="faultCode" type="java.lang.String">
+			<column name="fault_code" length="30"/>
+		</property>
+		<property name="packThickness" type="java.math.BigDecimal">
+			<column name="pack_thickness" length="18"/>
+		</property>
+		<property name="packWidth" type="java.math.BigDecimal">
+			<column name="pack_width" length="18"/>
+		</property>
+		<property name="packGross" type="java.math.BigDecimal">
+			<column name="pack_gross" length="18"/>
+		</property>
+		<property name="packNet" type="java.math.BigDecimal">
+			<column name="pack_net" length="18"/>
+		</property>
+		<property name="rolls" type="java.lang.Integer">
+			<column name="rolls" length="10"/>
+		</property>
+		<property name="packAlloy" type="java.lang.String">
+			<column name="pack_alloy" length="20"/>
+		</property>
+		<property name="produceOrderId" type="java.lang.Long">
+			<column name="produce_order_Id" length="19"/>
+		</property>
+		<property name="ordersNum" type="java.lang.String">
+			<column name="orders_num" length="50"/>
+		</property>
+		<property name="ordersItemId" type="java.lang.Integer">
+			<column name="orders_item_id" length="10"/>
+		</property>
+		<property name="packTeam" type="java.lang.String">
+			<column name="pack_team" length="50"/>
+		</property>
+		<property name="packTeamNum" type="java.lang.String">
+			<column name="pack_team_num" length="50"/>
+		</property>
+		<property name="isPacked" type="java.lang.Boolean">
+			<column name="is_packed" length="1" not-null="true"/>
+		</property>
+		<property name="frameNum" type="java.lang.String">
+			<column name="frame_num" length="20"/>
+		</property>
+		<property name="storeDate" type="java.util.Date">
+			<column name="store_date" length="23"/>
+		</property>
+		<property name="memo" type="java.lang.String">
+			<column name="memo" length="500"/>
+		</property>
+	</class>
+</hibernate-mapping>

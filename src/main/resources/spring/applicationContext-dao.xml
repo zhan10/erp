@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">  
+  <bean id="vInventoryDao" class="cn.com.topit.gl.dao.VInventoryDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VInventory</value> 
+    </constructor-arg> 
+  </bean>
+  <bean id="inventoryDao" class="cn.com.topit.gl.dao.InventoryDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Inventory</value> 
+    </constructor-arg> 
+  </bean>
+  <bean id="materDao" class="cn.com.topit.gl.dao.MaterDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Mater</value> 
+    </constructor-arg> 
+  </bean>
+  <bean id="mateTypeDao" class="cn.com.topit.gl.dao.MateTypeDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.MateType</value> 
+    </constructor-arg> 
+  </bean>
+  <bean id="warehouseSiteDao" class="cn.com.topit.gl.dao.WarehouseSiteDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.WarehouseSite</value> 
+    </constructor-arg> 
+  </bean>
+  <bean id="warehouseDao" class="cn.com.topit.gl.dao.WarehouseDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Warehouse</value> 
+    </constructor-arg> 
+  </bean>
+  <bean id="rentContractDao" class="cn.com.topit.gl.dao.RentContractDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.RentContract</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vRentContractDao" class="cn.com.topit.gl.dao.VRentContractDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VRentContract</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="receiptDao" class="cn.com.topit.gl.dao.ReceiptDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Receipt</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vPrintRecordDao" class="cn.com.topit.gl.dao.VPrintRecordDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VPrintRecord</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="printRecordDao" class="cn.com.topit.gl.dao.PrintRecordDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.PrintRecord</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="printStatisticsDao" class="cn.com.topit.gl.dao.PrintStatisticsDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.PrintStatistics</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="printRateDao" class="cn.com.topit.gl.dao.PrintRateDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.PrintRate</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="memberLevelDao" class="cn.com.topit.gl.dao.MemberLevelDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.MemberLevel</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vCultivateRoomBookingDao" class="cn.com.topit.gl.dao.VCultivateRoomBookingDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VCultivateRoomBooking</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="cultivateRoomBookingDao" class="cn.com.topit.gl.dao.CultivateRoomBookingDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.CultivateRoomBooking</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vCultivateRoomDao" class="cn.com.topit.gl.dao.VCultivateRoomDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VCultivateRoom</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="cultivateRoomDao" class="cn.com.topit.gl.dao.CultivateRoomDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.CultivateRoom</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="marketingDao" class="cn.com.topit.gl.dao.MarketingDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Marketing</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vGenreDao" class="cn.com.topit.gl.dao.VGenreDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VGenre</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="genreDao" class="cn.com.topit.gl.dao.GenreDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Genre</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vProductDao" class="cn.com.topit.gl.dao.VProductDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VProduct</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vBookingListDao" class="cn.com.topit.gl.dao.VBookingListDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VBookingList</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="theMonthReportDao" class="cn.com.topit.gl.dao.TheMonthReportDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.TheMonthReport</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="toDayReportDao" class="cn.com.topit.gl.dao.ToDayReportDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.ToDayReport</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="ordersListDao" class="cn.com.topit.gl.dao.OrdersListDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.OrdersList</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vBookingVisitDao" class="cn.com.topit.gl.dao.VBookingVisitDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VBookingVisit</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="newsDao" class="cn.com.topit.gl.dao.NewsDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.News</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="requirementBookingDao" class="cn.com.topit.gl.dao.RequirementBookingDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.RequirementBooking</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vMonthlyReportDateDao" class="cn.com.topit.gl.dao.VMonthlyReportDateDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VMonthlyReportDate</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="serveDao" class="cn.com.topit.gl.dao.ServeDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Serve</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vDailyReportDateDao" class="cn.com.topit.gl.dao.VDailyReportDateDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VDailyReportDate</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vDailyReportDao" class="cn.com.topit.gl.dao.VDailyReportDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VDailyReport</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vMonthlyReportDao" class="cn.com.topit.gl.dao.VMonthlyReportDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VMonthlyReport</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="consumeTypeDao" class="cn.com.topit.gl.dao.ConsumeTypeDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.ConsumeType</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="paymentTypeDao" class="cn.com.topit.gl.dao.PaymentTypeDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.PaymentType</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="consumeAreaDao" class="cn.com.topit.gl.dao.ConsumeAreaDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.ConsumeArea</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="usersDao" class="cn.com.topit.gl.dao.UsersDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <!-- <property name="tableName" value="Users" /> 缺省值为类名，否则在此赋值 -->  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Users</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="userRoleDao" class="cn.com.topit.gl.dao.UserRoleDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.UserRole</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="rolesDao" class="cn.com.topit.gl.dao.RolesDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Roles</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="resourceDao" class="cn.com.topit.gl.dao.ResourceDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Resource</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="roleResourceDao" class="cn.com.topit.gl.dao.RoleResourceDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.RoleResource</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="customDao" class="cn.com.topit.gl.dao.CustomDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Custom</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vCustomDao" class="cn.com.topit.gl.dao.VCustomDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VCustom</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="workbenchDao" class="cn.com.topit.gl.dao.WorkbenchDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Workbench</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="cityDao" class="cn.com.topit.gl.dao.CityDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.City</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="areaDao" class="cn.com.topit.gl.dao.AreaDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Area</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vAreaDao" class="cn.com.topit.gl.dao.VAreaDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VArea</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="buildingDao" class="cn.com.topit.gl.dao.BuildingDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Building</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="circleDao" class="cn.com.topit.gl.dao.CircleDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Circle</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vCircleDao" class="cn.com.topit.gl.dao.VCircleDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VCircle</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vBuildingDao" class="cn.com.topit.gl.dao.VBuildingDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VBuilding</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="floorDao" class="cn.com.topit.gl.dao.FloorDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Floor</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vFloorDao" class="cn.com.topit.gl.dao.VFloorDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VFloor</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vWorkbenchDao" class="cn.com.topit.gl.dao.VWorkbenchDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VWorkbench</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="workbenchTypeDao" class="cn.com.topit.gl.dao.WorkbenchTypeDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.WorkbenchType</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="officeDao" class="cn.com.topit.gl.dao.OfficeDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Office</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vOfficeDao" class="cn.com.topit.gl.dao.VOfficeDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VOffice</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="officeTypeDao" class="cn.com.topit.gl.dao.OfficeTypeDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.OfficeType</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="productTypeDao" class="cn.com.topit.gl.dao.ProductTypeDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.ProductType</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="consumerDao" class="cn.com.topit.gl.dao.ConsumerDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Consumer</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="bookingDao" class="cn.com.topit.gl.dao.BookingDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Booking</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vBookingDao" class="cn.com.topit.gl.dao.VBookingDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VBooking</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="workbenchBookingDao" class="cn.com.topit.gl.dao.WorkbenchBookingDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.WorkbenchBooking</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vBookingWorkbenchDao" class="cn.com.topit.gl.dao.VBookingWorkbenchDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VBookingWorkbench</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="officeBookingDao" class="cn.com.topit.gl.dao.OfficeBookingDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.OfficeBooking</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vBookingOfficeDao" class="cn.com.topit.gl.dao.VBookingOfficeDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VBookingOffice</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="meetingRoomDao" class="cn.com.topit.gl.dao.MeetingRoomDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.MeetingRoom</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vMeetingRoomDao" class="cn.com.topit.gl.dao.VMeetingRoomDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VMeetingRoom</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="exhibitionRoomDao" class="cn.com.topit.gl.dao.ExhibitionRoomDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.ExhibitionRoom</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vExhibitionRoomDao" class="cn.com.topit.gl.dao.VExhibitionRoomDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VExhibitionRoom</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="telRoomDao" class="cn.com.topit.gl.dao.TelRoomDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.TelRoom</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vTelRoomDao" class="cn.com.topit.gl.dao.VTelRoomDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VTelRoom</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vVipRoomDao" class="cn.com.topit.gl.dao.VVipRoomDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VVipRoom</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vipRoomDao" class="cn.com.topit.gl.dao.VipRoomDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VipRoom</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="healthDao" class="cn.com.topit.gl.dao.HealthDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Health</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vHealthDao" class="cn.com.topit.gl.dao.VHealthDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VHealth</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="consumeRecordDao" class="cn.com.topit.gl.dao.ConsumeRecordDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.ConsumeRecord</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vConsumeRecordDao" class="cn.com.topit.gl.dao.VConsumeRecordDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VConsumeRecord</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="rechargeRecordDao" class="cn.com.topit.gl.dao.RechargeRecordDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.RechargeRecord</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vRechargeRecordDao" class="cn.com.topit.gl.dao.VRechargeRecordDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VRechargeRecord</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="refundRecordDao" class="cn.com.topit.gl.dao.RefundRecordDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.RefundRecord</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vRefundRecordDao" class="cn.com.topit.gl.dao.VRefundRecordDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VRefundRecord</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="damageDao" class="cn.com.topit.gl.dao.DamageDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Damage</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vDamageDao" class="cn.com.topit.gl.dao.VDamageDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VDamage</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="meetingRoomBookingDao" class="cn.com.topit.gl.dao.MeetingRoomBookingDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.MeetingRoomBooking</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="telRoomBookingDao" class="cn.com.topit.gl.dao.TelRoomBookingDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.TelRoomBooking</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vipRoomBookingDao" class="cn.com.topit.gl.dao.VipRoomBookingDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VipRoomBooking</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="exhibitionRoomBookingDao" class="cn.com.topit.gl.dao.ExhibitionRoomBookingDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.ExhibitionRoomBooking</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vBookingExhibitionRoomDao" class="cn.com.topit.gl.dao.VBookingExhibitionRoomDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VBookingExhibitionRoom</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vBookingVipRoomDao" class="cn.com.topit.gl.dao.VBookingVipRoomDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VBookingVipRoom</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vBookingTelRoomDao" class="cn.com.topit.gl.dao.VBookingTelRoomDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VBookingTelRoom</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vBookingMeetingRoomDao" class="cn.com.topit.gl.dao.VBookingMeetingRoomDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VBookingMeetingRoom</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="recipeTypeDao" class="cn.com.topit.gl.dao.RecipeTypeDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.RecipeType</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="recipeDao" class="cn.com.topit.gl.dao.RecipeDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Recipe</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vRecipeDao" class="cn.com.topit.gl.dao.VRecipeDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VRecipe</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="ordersDao" class="cn.com.topit.gl.dao.OrdersDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Orders</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vOrdersDao" class="cn.com.topit.gl.dao.VOrdersDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VOrders</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vOrdersListDao" class="cn.com.topit.gl.dao.VOrdersListDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VOrdersList</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="roomFacilitiesDao" class="cn.com.topit.gl.dao.RoomFacilitiesDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.RoomFacilities</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="productsDao" class="cn.com.topit.gl.dao.ProductsDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.Products</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vVisitDao" class="cn.com.topit.gl.dao.VVisitDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VVisit</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vFloorLockDao" class="cn.com.topit.gl.dao.VFloorLockDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VFloorLock</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="floorLockDao" class="cn.com.topit.gl.dao.FloorLockDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.FloorLock</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vNewWorkbenchDao" class="cn.com.topit.gl.dao.VNewWorkbenchDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VNewWorkbench</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="newWorkbenchDao" class="cn.com.topit.gl.dao.NewWorkbenchDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.NewWorkbench</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vNewOfficeDao" class="cn.com.topit.gl.dao.VNewOfficeDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VNewOffice</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="newOfficeDao" class="cn.com.topit.gl.dao.NewOfficeDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.NewOffice</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vNewMeetingRoomDao" class="cn.com.topit.gl.dao.VNewMeetingRoomDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VNewMeetingRoom</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="newMeetingRoomDao" class="cn.com.topit.gl.dao.NewMeetingRoomDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.NewMeetingRoom</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vWorkbenchLockDao" class="cn.com.topit.gl.dao.VWorkbenchLockDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VWorkbenchLock</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="workbenchLockDao" class="cn.com.topit.gl.dao.WorkbenchLockDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.WorkbenchLock</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vOfficeLockDao" class="cn.com.topit.gl.dao.VOfficeLockDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VOfficeLock</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="officeLockDao" class="cn.com.topit.gl.dao.OfficeLockDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.OfficeLock</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vMeetingRoomLockDao" class="cn.com.topit.gl.dao.VMeetingRoomLockDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VMeetingRoomLock</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="meetingRoomLockDao" class="cn.com.topit.gl.dao.MeetingRoomLockDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.MeetingRoomLock</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="vNewBookingListDao" class="cn.com.topit.gl.dao.VNewBookingListDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.VNewBookingList</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="newBookingDao" class="cn.com.topit.gl.dao.NewBookingDao"> 
+    <property name="sessionFactory" ref="sessionFactory"/>  
+    <constructor-arg> 
+      <value>cn.com.topit.gl.dao.NewBooking</value> 
+    </constructor-arg> 
+  </bean>  
+  <bean id="visitServiceDao" class="cn.com.topit.gl.dao.VisitServiceDao">
+    <property name="sessionFactory" ref="sessionFactory"/>
+    <constructor-arg>
+      <value>cn.com.topit.gl.dao.VisitService</value>
+    </constructor-arg>
+  </bean>
+</beans>

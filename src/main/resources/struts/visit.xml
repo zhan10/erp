@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+  <package name="cn.com.topit.gl.visit" namespace="/visit" extends="cn.com.topit.gl">
+    <action name="vVisit" class="vVisitAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="vFloorLock" class="vFloorLockAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="floorLock" class="floorLockAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="visitService" class="visitServiceAction">
+      <result type="json" name="managerExt">
+        <param name="root">records</param>
+        <param name="noCache">true</param>
+      </result>
+    </action>
+  </package>
+</struts>

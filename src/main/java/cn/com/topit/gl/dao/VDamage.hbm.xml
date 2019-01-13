@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.VDamage" table="v_damage" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="consumerName" type="java.lang.String">
+			<column name="consumer_name" length="200" not-null="true"/>
+		</property>
+		<property name="payTime" type="java.util.Date">
+			<column name="pay_time" length="8" not-null="true"/>
+		</property>
+		<property name="code" type="java.lang.String">
+			<column name="code" length="100" not-null="true"/>
+		</property>
+		<property name="status" type="java.lang.Integer">
+			<column name="status" length="4" not-null="true"/>
+		</property>
+		<property name="digest" type="java.lang.String">
+			<column name="digest" length="50" not-null="true"/>
+		</property>
+		<property name="payment" type="java.lang.Double">
+			<column name="payment" length="8" not-null="true"/>
+		</property>
+		<property name="memo" type="java.lang.String">
+			<column name="memo" length="2000"/>
+		</property>
+		<property name="bookingId" type="java.lang.Long">
+			<column name="booking_id" length="8" not-null="true"/>
+		</property>
+		<property name="consumerId" type="java.lang.Long">
+			<column name="consumer_id" length="8" not-null="true"/>
+		</property>
+	</class>
+</hibernate-mapping>

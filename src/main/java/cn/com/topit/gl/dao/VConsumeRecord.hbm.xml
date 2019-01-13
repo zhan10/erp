@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.VConsumeRecord" table="v_consume_records"
+		dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="balance" type="java.lang.Boolean">
+			<column name="balance" length="1" not-null="true" />
+		</property>
+		<property name="consumerName" type="java.lang.String">
+			<column name="consumer_name" length="200" not-null="true" />
+		</property>
+		<property name="consumeName" type="java.lang.String">
+			<column name="consume_name" length="200" not-null="true" />
+		</property>
+		<property name="consumeAmount" type="java.lang.Double">
+			<column name="consume_amount" />
+		</property>
+		<property name="paymentName" type="java.lang.String">
+			<column name="payment_name" length="200" not-null="true"/>
+		</property>
+		<property name="bookingCode" type="java.lang.String">
+			<column name="booking_code" not-null="true" />
+		</property>
+		<property name="consumeFrom" type="java.util.Date">
+			<column name="consume_from" length="8" not-null="true" />
+		</property>
+		<property name="consumeTo" type="java.util.Date">
+			<column name="consume_to" length="8"></column>
+		</property>
+		<property name="consumerId" type="java.lang.Long">
+			<column name="consumer_id" length="8" not-null="true" />
+		</property>
+		<property name="bookingId" type="java.lang.Long">
+			<column name="booking_id" length="8" not-null="true" />
+		</property>
+		<property name="relatedId" type="java.lang.Long">
+			<column name="related_id" length="8" />
+		</property>
+		<property name="relatedType" type="java.lang.Integer">
+			<column name="related_type" />
+		</property>
+		<property name="consumeTypeId" type="java.lang.Long">
+			<column name="consume_type_id" length="8" not-null="true" />
+		</property>
+		<property name="paymentTypeId" type="java.lang.Long">
+			<column name="payment_type_id" length="8" not-null="true" />
+		</property>
+		<property name="usersName" type="java.lang.String">
+			<column name="users_name" length="200" not-null="true"/>
+		</property>
+		<property name="bookingBalance" type="java.lang.Boolean">
+			<column name="booking_balance" not-null="true" />
+		</property>
+		<property name="consumeAreaId" type="java.lang.Long">
+			<column name="consume_area_id" length="8" not-null="true" />
+		</property>
+		<property name="consumeAreaName" type="java.lang.String">
+			<column name="consume_area_name" length="200" not-null="true" />
+		</property>
+		<property name="price" type="java.lang.Double">
+			<column name="price" precision="18"  scale="2" not-null="true"/>
+		</property>
+		<property name="number" type="java.lang.Integer">
+			<column name="number" />
+		</property>
+	</class>
+</hibernate-mapping>

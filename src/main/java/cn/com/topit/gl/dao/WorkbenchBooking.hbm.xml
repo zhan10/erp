@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.WorkbenchBooking" table="workbench_booking" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="workbenchId" type="java.lang.Long">
+			<column name="workbench_id" length="8" not-null="true"/>
+		</property>
+		<property name="bookingId" type="java.lang.Long">
+			<column name="booking_id" length="8" not-null="true"/>
+		</property>
+		<property name="dateFrom" type="java.util.Date">
+			<column name="date_from" length="8" not-null="true"/>
+		</property>
+		<property name="dateTo" type="java.util.Date">
+			<column name="date_to" length="8" not-null="true"/>
+		</property>
+		<property name="total" type="java.lang.Double">
+			<column name="total" precision="18"  scale="2" not-null="true"/>
+		</property>
+		<property name="price" type="java.lang.Double">
+			<column name="price" precision="18"  scale="2" not-null="true"/>
+		</property>
+		<property name="balance" type="java.lang.Boolean">
+			<column name="balance" length="1"/>
+		</property>
+		<property name="consumerId" type="java.lang.Long">
+			<column name="consumer_id" length="8"/>
+		</property>
+			<property name="balancePrice" type="java.lang.Double">
+			<column name="balance_price" precision="18" scale="2" />
+		</property>
+		<property name="balanceTime" type="java.util.Date">
+			<column name="balance_time" length="14" />
+		</property>
+		<property name="state" type="java.lang.Integer">
+			<column name="state" length="50" not-null="true"/>
+		</property>
+		<property name="badge" type="java.lang.Long">
+			<column name="badge" length="8" not-null="false"/>
+		</property>
+	</class>
+</hibernate-mapping>

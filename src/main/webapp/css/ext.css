@@ -1,0 +1,100 @@
+body {
+	width: 100%;
+    height: 100%;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color:#dfe8f6;
+}
+.open {
+    background-image:url(../img/toolbar/open.png) !important;
+}
+.add {
+    background-image:url(../img/toolbar/add.gif) !important;
+}
+.edit {
+    background-image:url(../img/toolbar/edit.gif) !important;
+}
+.delete {
+    background-image:url(../img/toolbar/delete.gif) !important;
+}
+.search {
+    background-image:url(../img/toolbar/search.gif) !important;
+}
+.comSearch {
+    background-image:url(../img/toolbar/comSearch.gif) !important;
+}
+.copy {
+    background-image:url(../img/toolbar/copy.gif) !important;
+}
+.batch {
+    background-image:url(../img/toolbar/batch.gif) !important;
+}
+.check {
+    background-image:url(../img/toolbar/checked.gif) !important;
+}
+.balance {
+    background-image:url(../img/toolbar/balance.gif) !important;
+}
+.cancelBalance {
+    background-image:url(../img/toolbar/cancel.gif) !important;
+}
+.resetPwd {
+    background-image:url(../img/toolbar/resetPwd.gif) !important;
+}
+.toProduce{
+    background-image:url(../img/toolbar/toProduce.gif) !important;
+}
+.moveRight {
+    background-image:url(../img/toolbar/moveRight.png) !important;
+}
+.moveLeft {
+    background-image:url(../img/toolbar/moveLeft.png) !important;
+}
+.uploadPic {
+    background-image:url(../img/toolbar/picture.png) !important;
+}
+/* grid中行号水平居中 ,ext缺省右对齐*/
+.x-grid-cell-inner-row-numberer{
+	text-align:center!important;
+}
+/* grid中操作图标水平居中 */
+.x-grid-cell-inner-action-col {	
+	text-align:center!important;		
+}
+/* //grid中操作图标垂直居中 */
+.x-action-col-icon{		
+	vertical-align:middle!important;	
+}
+.x-grid-cell{
+	vertical-align:bottom!important;
+}
+/* grid内单元格格式 */
+.x-grid-cell-inner {
+	/* grid内column换行
+	white-space: normal; 
+	word-wrap: break-word;   */
+	line-height:25px; /*垂直居中 */
+	min-height: 25px;/* grid行最小高度	 */
+}
+.panelCls:{
+	background-image:url(../img/toolbar/edit.gif) !important;bgColor:red;font-size:22;
+		background-color:#cc00cc; background: '#ffc'
+		
+}
+/*树图标居中对齐*/
+.x-tree-elbow-img,.x-tree-icon{
+	vertical-align:middle!important;	
+}
+/*树节点勾选框垂直居中*/
+.x-tree-checkbox,.x-tree-checkbox-checked{
+	/*vertical-align:middle;	*/
+	margin-top: 2px;
+}
+/* input{background-color:expression((this.readOnly && this.readOnly == true)? "#ff00ff":"");}
+input[readonly]{  
+    background-color: #ff00ff;  
+}
+ */
+				

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.OrdersList" table="orders_list" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="ordersId" type="java.lang.Long">
+			<column name="orders_id" length="8" not-null="true"/>
+		</property>
+		<property name="recipeId" type="java.lang.Long">
+			<column name="recipe_id" length="8" not-null="true"/>
+		</property>
+		<property name="numbers" type="java.lang.Integer">
+			<column name="numbers" length="4" not-null="true"/>
+		</property>
+		<property name="total" type="java.lang.Double">
+			<column name="total" length="5" not-null="true"/>
+		</property>
+		<property name="memo" type="java.lang.String">
+			<column name="memo" length="500"/>
+		</property>
+	</class>
+</hibernate-mapping>

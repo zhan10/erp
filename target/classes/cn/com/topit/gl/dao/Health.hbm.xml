@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.Health" table="health" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="userId" type="java.lang.Long">
+			<column name="user_id" length="8" not-null="true"/>
+		</property>
+		<property name="checkedTime" type="java.util.Date">
+			<column name="checked_time" length="8" not-null="true"/>
+		</property>
+		<property name="height" type="java.lang.Integer">
+			<column name="height" length="2"/>
+		</property>
+		<property name="weight" type="java.lang.Double">
+			<column name="weight" length="9"/>
+		</property>
+		<property name="diastolicPressure" type="java.lang.Integer">
+			<column name="diastolic_pressure" length="2"/>
+		</property>
+		<property name="systolicPressure" type="java.lang.Integer">
+			<column name="systolic_pressure" length="2"/>
+		</property>
+		<property name="bodyFatRatio" type="java.lang.Integer">
+			<column name="body_fat_ratio" length="2"/>
+		</property>
+		<property name="oxygenSaturation" type="java.lang.Integer">
+			<column name="oxygen_saturation" length="2"/>
+		</property>
+		<property name="pulse" type="java.lang.Integer">
+			<column name="pulse" length="2"/>
+		</property>
+	</class>
+</hibernate-mapping>

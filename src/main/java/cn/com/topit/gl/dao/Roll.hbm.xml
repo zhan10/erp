@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.Roll" table="roll" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="techCardId" type="java.lang.Long">
+			<column name="tech_card_id" length="8" not-null="true"/>
+		</property>
+		<property name="rollDate" type="java.util.Date">
+			<column name="roll_date" length="8" not-null="true"/>
+		</property>
+		<property name="pass" type="java.lang.Integer">
+			<column name="pass" length="4" not-null="true"/>
+		</property>
+		<property name="smallNo" type="java.lang.String">
+			<column name="small_no" length="50"/>
+		</property>
+		<property name="thickness" type="java.math.BigDecimal">
+			<column name="thickness" length="9"/>
+		</property>
+		<property name="width" type="java.math.BigDecimal">
+			<column name="width" length="9"/>
+		</property>
+		<property name="weight" type="java.math.BigDecimal">
+			<column name="weight" length="9"/>
+		</property>
+		<property name="brokenEnds" type="java.lang.String">
+			<column name="broken_ends" length="50"/>
+		</property>
+		<property name="rackNo" type="java.lang.String">
+			<column name="rack_no" length="50"/>
+		</property>
+		<property name="operator" type="java.lang.String">
+			<column name="operator" length="50"/>
+		</property>
+		<property name="operatorId" type="java.lang.Long">
+			<column name="operator_id" length="8"/>
+		</property>
+		<property name="memo" type="java.lang.String">
+			<column name="memo" length="500"/>
+		</property>
+		<property name="rollMachine" type="java.lang.String">
+			<column name="roll_machine" length="50"/>
+		</property>
+		<property name="rollType" type="java.lang.Integer">
+			<column name="roll_type" length="4" not-null="true"/>
+		</property>
+	</class>
+</hibernate-mapping>

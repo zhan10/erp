@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.TechCard" table="tech_card" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="status" type="java.lang.Integer">
+			<column name="status" length="4"/>
+		</property>
+		<property name="checkStatus" type="java.lang.Integer">
+			<column name="check_status" length="4"/>
+		</property>
+		<property name="alNo" type="java.lang.String">
+			<column name="al_no" length="50" not-null="true"/>
+		</property>
+		<property name="billetNo" type="java.lang.String">
+			<column name="billet_no" length="50" not-null="true"/>
+		</property>
+		<property name="rackNo" type="java.lang.String">
+			<column name="rack_no" length="50"/>
+		</property>
+		<property name="alloyModel" type="java.lang.String">
+			<column name="alloy_model" length="50"/>
+		</property>
+		<property name="billetWeight" type="java.math.BigDecimal">
+			<column name="billet_weight" length="9" not-null="true"/>
+		</property>
+		<property name="allotWeight" type="java.math.BigDecimal">
+			<column name="allot_weight" length="9"/>
+		</property>
+		<property name="thickness" type="java.math.BigDecimal">
+			<column name="thickness" length="9"/>
+		</property>
+		<property name="width" type="java.math.BigDecimal">
+			<column name="width" length="9"/>
+		</property>
+		<property name="produceReq" type="java.lang.String">
+			<column name="produce_req" length="300"/>
+		</property>
+		<property name="planMan" type="java.lang.String">
+			<column name="plan_man" length="50"/>
+		</property>
+		<property name="planManId" type="java.lang.Long">
+			<column name="plan_man_id" length="8"/>
+		</property>
+		<property name="produceDate" type="java.util.Date">
+			<column name="produce_date" length="3"/>
+		</property>
+		<property name="techReq" type="java.lang.String">
+			<column name="tech_req" length="300"/>
+		</property>
+		<property name="technician" type="java.lang.String">
+			<column name="technician" length="50"/>
+		</property>
+		<property name="technicianId" type="java.lang.Long">
+			<column name="technician_id" length="8"/>
+		</property>
+		<property name="memo" type="java.lang.String">
+			<column name="memo" length="500"/>
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.RoomFacilities" table="room_facilities" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="facilities" type="java.lang.String">
+			<column name="facilities" length="50"/>
+		</property>
+		<property name="intro" type="java.lang.String">
+			<column name="intro" length="1000"/>
+		</property>
+		<property name="pic" type="java.lang.String">
+			<column name="pic" length="100"/>
+		</property>		
+	</class>
+</hibernate-mapping>

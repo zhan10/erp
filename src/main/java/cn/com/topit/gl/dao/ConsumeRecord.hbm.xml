@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.ConsumeRecord" table="consume_record" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="consumeTypeId" type="java.lang.Long">
+			<column name="consume_type_id" length="2" not-null="true"/>
+		</property>
+		<property name="consumeFrom" type="java.util.Date">
+			<column name="consume_from" length="8" not-null="true"/>
+		</property>
+		<property name="consumeTo" type="java.util.Date">
+			<column name="consume_to" length="8"/>
+		</property>
+		<property name="consumerId" type="java.lang.Long">
+			<column name="consumer_id" length="8" not-null="true"/>
+		</property>
+		<property name="bookingId" type="java.lang.Long">
+			<column name="booking_id" length="8" not-null="true"/>
+		</property>
+		<property name="balance" type="java.lang.Boolean">
+			<column name="balance" not-null="true" />
+		</property>
+		<property name="relatedId" type="java.lang.Long">
+			<column name="related_id" length="8"/>
+		</property>
+		<property name="consumeAmount" type="java.lang.Double">
+			<column name="consume_amount" precision="18"  scale="2" not-null="true"/>
+		</property>
+		<property name="relatedType" type="java.lang.Integer">
+			<column name="related_type" />
+		</property>
+		<property name="paymentTypeId" type="java.lang.Long">
+			<column name="payment_type_id" length="2" not-null="true"/>
+		</property>
+		<property name="usersName" type="java.lang.String">
+			<column name="users_name" length="50"/>
+		</property>
+		<property name="consumeAreaId" type="java.lang.Long">
+			<column name="consume_area_id" length="2" not-null="true" />
+		</property>
+		<property name="number" type="java.lang.Integer">
+			<column name="number" />
+		</property>
+	</class>
+</hibernate-mapping>

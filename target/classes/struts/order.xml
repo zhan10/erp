@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+  <package name="cn.com.topit.gl.order" namespace="/order" extends="cn.com.topit.gl">
+    <action name="vBookingVisit" class="vBookingVisitAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+     </action>
+  </package>
+</struts>

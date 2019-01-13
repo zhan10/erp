@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.VDailyReport" table="v_daily_report" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="consumeAreaId" type="java.lang.Long">
+			<column name="consume_area_id" length="8" not-null="true"/>
+		</property>
+		<property name="consumeAreaName" type="java.lang.String">
+			<column name="consume_area_name" length="100" not-null="true"/>
+		</property>
+		<property name="consumerId" type="java.lang.Long">
+			<column name="consumer_id" length="8" not-null="true"/>
+		</property>
+		<property name="consumerName" type="java.lang.String">
+			<column name="consumer_name" length="100" not-null="true"/>
+		</property>
+		<property name="paymentTypeId" type="java.lang.Long">
+			<column name="payment_type_id" length="8" not-null="true"/>
+		</property>
+		<property name="paymentTypeName" type="java.lang.String">
+			<column name="payment_type_name" length="100" not-null="true"/>
+		</property>
+		<property name="consumeRecord" type="java.lang.Double">
+			<column name="consume_record" not-null="true"/>
+		</property>
+		<property name="reportYear" type="java.lang.Integer">
+			<column name="report_year" length="8" not-null="true" />
+		</property>
+		<property name="reportMonth" type="java.lang.Integer">
+			<column name="report_month" length="8" not-null="true" />
+		</property>
+		<property name="reportDay" type="java.lang.Integer">
+			<column name="report_day" length="8" not-null="true" />
+		</property>
+		<property name="statisticsTime" type="java.util.Date">
+			<column name="statistics_time" length="8" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.VMonthlyReport" table="v_monthly_report" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="consumeAreaId" type="java.lang.Long">
+			<column name="consume_area_id" length="8" not-null="true"/>
+		</property>
+		<property name="consumeAreaName" type="java.lang.String">
+			<column name="consume_area_name" length="100" not-null="true"/>
+		</property>
+		<property name="paymentTypeId" type="java.lang.Long">
+			<column name="payment_type_id" length="8" not-null="true"/>
+		</property>
+		<property name="paymentTypeName" type="java.lang.String">
+			<column name="payment_type_name" length="100" not-null="true"/>
+		</property>
+		<property name="reportYear" type="java.lang.Integer">
+			<column name="report_year" length="8" not-null="true" />
+		</property>
+		<property name="reportMonth" type="java.lang.Integer">
+			<column name="report_month" length="8" not-null="true" />
+		</property>
+		<property name="statisticsTime" type="java.util.Date">
+			<column name="statistics_time" length="8" not-null="true" />
+		</property>
+		<property name="t1" type="java.lang.Double">
+			<column name="t1" />
+		</property>
+		<property name="t2" type="java.lang.Double">
+			<column name="t2" />
+		</property>
+		<property name="t3" type="java.lang.Double">
+			<column name="t3" />
+		</property>
+		<property name="t4" type="java.lang.Double">
+			<column name="t4" />
+		</property>
+		<property name="t5" type="java.lang.Double">
+			<column name="t5" />
+		</property>
+		<property name="t6" type="java.lang.Double">
+			<column name="t6" />
+		</property>
+		<property name="t7" type="java.lang.Double">
+			<column name="t7" />
+		</property>
+		<property name="t8" type="java.lang.Double">
+			<column name="t8" />
+		</property>
+		<property name="t9" type="java.lang.Double">
+			<column name="t9" />
+		</property>
+		<property name="t10" type="java.lang.Double">
+			<column name="t10" />
+		</property>
+		<property name="t11" type="java.lang.Double">
+			<column name="t11" />
+		</property>
+		<property name="t12" type="java.lang.Double">
+			<column name="t12" />
+		</property>
+		<property name="t13" type="java.lang.Double">
+			<column name="t13" />
+		</property>
+		<property name="t14" type="java.lang.Double">
+			<column name="t14" />
+		</property>
+		<property name="t15" type="java.lang.Double">
+			<column name="t15" />
+		</property>
+		<property name="t16" type="java.lang.Double">
+			<column name="t16" />
+		</property>
+		<property name="t17" type="java.lang.Double">
+			<column name="t17" />
+		</property>
+		<property name="t18" type="java.lang.Double">
+			<column name="t18" />
+		</property>
+		<property name="t19" type="java.lang.Double">
+			<column name="t19" />
+		</property>
+		<property name="t20" type="java.lang.Double">
+			<column name="t20" />
+		</property>
+		<property name="t21" type="java.lang.Double">
+			<column name="t21" />
+		</property>
+		<property name="t22" type="java.lang.Double">
+			<column name="t22" />
+		</property>
+		<property name="t23" type="java.lang.Double">
+			<column name="t23" />
+		</property>
+		<property name="t24" type="java.lang.Double">
+			<column name="t24" />
+		</property>
+		<property name="t25" type="java.lang.Double">
+			<column name="t25" />
+		</property>
+		<property name="t26" type="java.lang.Double">
+			<column name="t26" />
+		</property>
+		<property name="t27" type="java.lang.Double">
+			<column name="t27" />
+		</property>
+		<property name="t28" type="java.lang.Double">
+			<column name="t28" />
+		</property>
+		<property name="t29" type="java.lang.Double">
+			<column name="t29" />
+		</property>
+		<property name="t30" type="java.lang.Double">
+			<column name="t30" />
+		</property>
+		<property name="t31" type="java.lang.Double">
+			<column name="t31" />
+		</property>
+	</class>
+</hibernate-mapping>

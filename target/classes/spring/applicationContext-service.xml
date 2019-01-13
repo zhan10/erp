@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">  
+  <bean id="vInventoryService" class="cn.com.topit.gl.service.VInventoryService"> 
+    <property name="dao" ref="vInventoryDao"/> 
+  </bean> 
+  <bean id="inventoryService" class="cn.com.topit.gl.service.InventoryService"> 
+    <property name="dao" ref="inventoryDao"/> 
+  </bean> 
+  <bean id="materService" class="cn.com.topit.gl.service.MaterService"> 
+    <property name="dao" ref="materDao"/> 
+  </bean> 
+  <bean id="mateTypeService" class="cn.com.topit.gl.service.MateTypeService"> 
+    <property name="dao" ref="mateTypeDao"/> 
+  </bean>  
+  <bean id="warehouseSiteService" class="cn.com.topit.gl.service.WarehouseSiteService"> 
+    <property name="dao" ref="warehouseSiteDao"/> 
+  </bean>  
+  <bean id="warehouseService" class="cn.com.topit.gl.service.WarehouseService"> 
+    <property name="dao" ref="warehouseDao"/> 
+  </bean>  
+  <bean id="rentContractService" class="cn.com.topit.gl.service.RentContractService"> 
+    <property name="dao" ref="rentContractDao"/> 
+  </bean>  
+  <bean id="vRentContractService" class="cn.com.topit.gl.service.VRentContractService"> 
+    <property name="dao" ref="vRentContractDao"/> 
+  </bean>  
+  <bean id="receiptService" class="cn.com.topit.gl.service.ReceiptService"> 
+    <property name="dao" ref="receiptDao"/> 
+  </bean>  
+  <bean id="vPrintRecordService" class="cn.com.topit.gl.service.VPrintRecordService"> 
+    <property name="dao" ref="vPrintRecordDao"/> 
+  </bean>  
+  <bean id="printRecordService" class="cn.com.topit.gl.service.PrintRecordService"> 
+    <property name="dao" ref="printRecordDao"/> 
+  </bean>  
+  <bean id="printStatisticsService" class="cn.com.topit.gl.service.PrintStatisticsService"> 
+    <property name="dao" ref="printStatisticsDao"/> 
+  </bean>  
+  <bean id="printRateService" class="cn.com.topit.gl.service.PrintRateService"> 
+    <property name="dao" ref="printRateDao"/> 
+  </bean>  
+  <bean id="memberLevelService" class="cn.com.topit.gl.service.MemberLevelService"> 
+    <property name="dao" ref="memberLevelDao"/> 
+  </bean>  
+  <bean id="cultivateRoomBookingService" class="cn.com.topit.gl.service.CultivateRoomBookingService"> 
+    <property name="dao" ref="cultivateRoomBookingDao"/> 
+  </bean>  
+  <bean id="vCultivateRoomBookingService" class="cn.com.topit.gl.service.VCultivateRoomBookingService"> 
+    <property name="dao" ref="vCultivateRoomBookingDao"/> 
+  </bean>  
+  <bean id="vCultivateRoomService" class="cn.com.topit.gl.service.VCultivateRoomService"> 
+    <property name="dao" ref="vCultivateRoomDao"/> 
+  </bean>  
+  <bean id="cultivateRoomService" class="cn.com.topit.gl.service.CultivateRoomService"> 
+    <property name="dao" ref="cultivateRoomDao"/> 
+  </bean>  
+  <bean id="marketingService" class="cn.com.topit.gl.service.MarketingService"> 
+    <property name="dao" ref="marketingDao"/> 
+  </bean>  
+  <bean id="vGenreService" class="cn.com.topit.gl.service.VGenreService"> 
+    <property name="dao" ref="vGenreDao"/> 
+  </bean>  
+  <bean id="genreService" class="cn.com.topit.gl.service.GenreService"> 
+    <property name="dao" ref="genreDao"/> 
+  </bean>  
+  <bean id="vProductService" class="cn.com.topit.gl.service.VProductService"> 
+    <property name="dao" ref="vProductDao"/> 
+  </bean>  
+  <bean id="vBookingListService" class="cn.com.topit.gl.service.VBookingListService"> 
+    <property name="dao" ref="vBookingListDao"/> 
+  </bean>  
+  <bean id="theMonthReportService" class="cn.com.topit.gl.service.TheMonthReportService"> 
+    <property name="dao" ref="theMonthReportDao"/> 
+  </bean>  
+  <bean id="toDayReportService" class="cn.com.topit.gl.service.ToDayReportService"> 
+    <property name="dao" ref="toDayReportDao"/> 
+  </bean>  
+  <bean id="ordersListService" class="cn.com.topit.gl.service.OrdersListService"> 
+    <property name="dao" ref="ordersListDao"/> 
+  </bean>  
+  <bean id="vBookingVisitService" class="cn.com.topit.gl.service.VBookingVisitService"> 
+    <property name="dao" ref="vBookingVisitDao"/> 
+  </bean>  
+  <bean id="newsService" class="cn.com.topit.gl.service.NewsService"> 
+    <property name="dao" ref="newsDao"/> 
+  </bean>  
+  <bean id="requirementBookingService" class="cn.com.topit.gl.service.RequirementBookingService"> 
+    <property name="dao" ref="requirementBookingDao"/> 
+  </bean>  
+  <bean id="serveService" class="cn.com.topit.gl.service.ServeService"> 
+    <property name="dao" ref="serveDao"/> 
+  </bean>  
+  <bean id="vMonthlyReportDateService" class="cn.com.topit.gl.service.VMonthlyReportDateService"> 
+    <property name="dao" ref="vMonthlyReportDateDao"/> 
+  </bean>  
+  <bean id="vDailyReportDateService" class="cn.com.topit.gl.service.VDailyReportDateService"> 
+    <property name="dao" ref="vDailyReportDateDao"/> 
+  </bean>  
+  <bean id="vDailyReportService" class="cn.com.topit.gl.service.VDailyReportService"> 
+    <property name="dao" ref="vDailyReportDao"/> 
+  </bean>  
+  <bean id="vMonthlyReportService" class="cn.com.topit.gl.service.VMonthlyReportService"> 
+    <property name="dao" ref="vMonthlyReportDao"/> 
+  </bean>  
+  <bean id="consumeTypeService" class="cn.com.topit.gl.service.ConsumeTypeService"> 
+    <property name="dao" ref="consumeTypeDao"/> 
+  </bean>  
+  <bean id="paymentTypeService" class="cn.com.topit.gl.service.PaymentTypeService"> 
+    <property name="dao" ref="paymentTypeDao"/> 
+  </bean>  
+  <bean id="consumeAreaService" class="cn.com.topit.gl.service.ConsumeAreaService"> 
+    <property name="dao" ref="consumeAreaDao"/> 
+  </bean>  
+  <bean id="usersService" class="cn.com.topit.gl.service.UsersService"> 
+    <property name="dao" ref="usersDao"/> 
+  </bean>  
+  <bean id="userRoleService" class="cn.com.topit.gl.service.UserRoleService"> 
+    <property name="dao" ref="userRoleDao"/> 
+  </bean>  
+  <bean id="roleResourceService" class="cn.com.topit.gl.service.RoleResourceService"> 
+    <property name="dao" ref="roleResourceDao"/> 
+  </bean>  
+  <bean id="resourceService" class="cn.com.topit.gl.service.ResourceService"> 
+    <property name="dao" ref="resourceDao"/>  
+    <property name="roleResourceDao" ref="roleResourceDao"/> 
+  </bean>  
+  <bean id="rolesService" class="cn.com.topit.gl.service.RolesService"> 
+    <property name="dao" ref="rolesDao"/> 
+  </bean>  
+  <bean id="customService" class="cn.com.topit.gl.service.CustomService"> 
+    <property name="dao" ref="customDao"/> 
+  </bean>  
+  <bean id="workbenchService" class="cn.com.topit.gl.service.WorkbenchService"> 
+    <property name="dao" ref="workbenchDao"/> 
+  </bean>  
+  <bean id="cityService" class="cn.com.topit.gl.service.CityService"> 
+    <property name="dao" ref="cityDao"/> 
+  </bean>  
+  <bean id="areaService" class="cn.com.topit.gl.service.AreaService"> 
+    <property name="dao" ref="areaDao"/> 
+  </bean>  
+  <bean id="vAreaService" class="cn.com.topit.gl.service.VAreaService"> 
+    <property name="dao" ref="vAreaDao"/> 
+  </bean>  
+  <bean id="buildingService" class="cn.com.topit.gl.service.BuildingService"> 
+    <property name="dao" ref="buildingDao"/> 
+  </bean>  
+  <bean id="circleService" class="cn.com.topit.gl.service.CircleService"> 
+    <property name="dao" ref="circleDao"/> 
+  </bean>  
+  <bean id="vCircleService" class="cn.com.topit.gl.service.VCircleService"> 
+    <property name="dao" ref="vCircleDao"/> 
+  </bean>  
+  <bean id="vBuildingService" class="cn.com.topit.gl.service.VBuildingService"> 
+    <property name="dao" ref="vBuildingDao"/> 
+  </bean>  
+  <bean id="floorService" class="cn.com.topit.gl.service.FloorService"> 
+    <property name="dao" ref="floorDao"/> 
+  </bean>  
+  <bean id="vFloorService" class="cn.com.topit.gl.service.VFloorService"> 
+    <property name="dao" ref="vFloorDao"/> 
+  </bean>  
+  <bean id="vWorkbenchService" class="cn.com.topit.gl.service.VWorkbenchService"> 
+    <property name="dao" ref="vWorkbenchDao"/> 
+  </bean>  
+  <bean id="workbenchTypeService" class="cn.com.topit.gl.service.WorkbenchTypeService"> 
+    <property name="dao" ref="workbenchTypeDao"/> 
+  </bean>  
+  <bean id="officeService" class="cn.com.topit.gl.service.OfficeService"> 
+    <property name="dao" ref="officeDao"/> 
+  </bean>  
+  <bean id="vOfficeService" class="cn.com.topit.gl.service.VOfficeService"> 
+    <property name="dao" ref="vOfficeDao"/> 
+  </bean>  
+  <bean id="officeTypeService" class="cn.com.topit.gl.service.OfficeTypeService"> 
+    <property name="dao" ref="officeTypeDao"/> 
+  </bean>  
+  <bean id="productTypeService" class="cn.com.topit.gl.service.ProductTypeService"> 
+    <property name="dao" ref="productTypeDao"/> 
+  </bean>  
+  <bean id="consumerService" class="cn.com.topit.gl.service.ConsumerService"> 
+    <property name="dao" ref="consumerDao"/> 
+  </bean>  
+  <bean id="bookingService" class="cn.com.topit.gl.service.BookingService"> 
+    <property name="dao" ref="bookingDao"/> 
+  </bean>  
+  <bean id="vBookingService" class="cn.com.topit.gl.service.VBookingService"> 
+    <property name="dao" ref="vBookingDao"/> 
+  </bean>  
+  <bean id="workbenchBookingService" class="cn.com.topit.gl.service.WorkbenchBookingService"> 
+    <property name="dao" ref="workbenchBookingDao"/> 
+  </bean>  
+  <bean id="vBookingWorkbenchService" class="cn.com.topit.gl.service.VBookingWorkbenchService"> 
+    <property name="dao" ref="vBookingWorkbenchDao"/> 
+  </bean>  
+  <bean id="officeBookingService" class="cn.com.topit.gl.service.OfficeBookingService"> 
+    <property name="dao" ref="officeBookingDao"/> 
+  </bean>  
+  <bean id="vBookingOfficeService" class="cn.com.topit.gl.service.VBookingOfficeService"> 
+    <property name="dao" ref="vBookingOfficeDao"/> 
+  </bean>  
+  <bean id="meetingRoomService" class="cn.com.topit.gl.service.MeetingRoomService"> 
+    <property name="dao" ref="meetingRoomDao"/> 
+  </bean>  
+  <bean id="vMeetingRoomService" class="cn.com.topit.gl.service.VMeetingRoomService"> 
+    <property name="dao" ref="vMeetingRoomDao"/> 
+  </bean>  
+  <bean id="exhibitionRoomService" class="cn.com.topit.gl.service.ExhibitionRoomService"> 
+    <property name="dao" ref="exhibitionRoomDao"/> 
+  </bean>  
+  <bean id="vExhibitionRoomService" class="cn.com.topit.gl.service.VExhibitionRoomService"> 
+    <property name="dao" ref="vExhibitionRoomDao"/> 
+  </bean>  
+  <bean id="telRoomService" class="cn.com.topit.gl.service.TelRoomService"> 
+    <property name="dao" ref="telRoomDao"/> 
+  </bean>  
+  <bean id="vTelRoomService" class="cn.com.topit.gl.service.VTelRoomService"> 
+    <property name="dao" ref="vTelRoomDao"/> 
+  </bean>  
+  <bean id="vVipRoomService" class="cn.com.topit.gl.service.VVipRoomService"> 
+    <property name="dao" ref="vVipRoomDao"/> 
+  </bean>  
+  <bean id="vipRoomService" class="cn.com.topit.gl.service.VipRoomService"> 
+    <property name="dao" ref="vipRoomDao"/> 
+  </bean>  
+  <bean id="healthService" class="cn.com.topit.gl.service.HealthService"> 
+    <property name="dao" ref="healthDao"/> 
+  </bean>  
+  <bean id="vHealthService" class="cn.com.topit.gl.service.VHealthService"> 
+    <property name="dao" ref="vHealthDao"/> 
+  </bean>  
+  <bean id="consumeRecordService" class="cn.com.topit.gl.service.ConsumeRecordService"> 
+    <property name="dao" ref="consumeRecordDao"/> 
+  </bean>  
+  <bean id="vConsumeRecordService" class="cn.com.topit.gl.service.VConsumeRecordService"> 
+    <property name="dao" ref="vConsumeRecordDao"/> 
+  </bean>  
+  <bean id="rechargeRecordService" class="cn.com.topit.gl.service.RechargeRecordService"> 
+    <property name="dao" ref="rechargeRecordDao"/> 
+  </bean>  
+  <bean id="vRechargeRecordService" class="cn.com.topit.gl.service.VRechargeRecordService"> 
+    <property name="dao" ref="vRechargeRecordDao"/> 
+  </bean>  
+  <bean id="refundRecordService" class="cn.com.topit.gl.service.RefundRecordService"> 
+    <property name="dao" ref="refundRecordDao"/> 
+  </bean>  
+  <bean id="vRefundRecordService" class="cn.com.topit.gl.service.VRefundRecordService"> 
+    <property name="dao" ref="vRefundRecordDao"/> 
+  </bean>  
+  <bean id="damageService" class="cn.com.topit.gl.service.DamageService"> 
+    <property name="dao" ref="damageDao"/> 
+  </bean>  
+  <bean id="vDamageService" class="cn.com.topit.gl.service.VDamageService"> 
+    <property name="dao" ref="vDamageDao"/> 
+  </bean>  
+  <bean id="meetingRoomBookingService" class="cn.com.topit.gl.service.MeetingRoomBookingService"> 
+    <property name="dao" ref="meetingRoomBookingDao"/> 
+  </bean>  
+  <bean id="telRoomBookingService" class="cn.com.topit.gl.service.TelRoomBookingService"> 
+    <property name="dao" ref="telRoomBookingDao"/> 
+  </bean>  
+  <bean id="vipRoomBookingService" class="cn.com.topit.gl.service.VipRoomBookingService"> 
+    <property name="dao" ref="vipRoomBookingDao"/> 
+  </bean>  
+  <bean id="exhibitionRoomBookingService" class="cn.com.topit.gl.service.ExhibitionRoomBookingService"> 
+    <property name="dao" ref="exhibitionRoomBookingDao"/> 
+  </bean>  
+  <bean id="vBookingExhibitionRoomService" class="cn.com.topit.gl.service.VBookingExhibitionRoomService"> 
+    <property name="dao" ref="vBookingExhibitionRoomDao"/> 
+  </bean>  
+  <bean id="vBookingVipRoomService" class="cn.com.topit.gl.service.VBookingVipRoomService"> 
+    <property name="dao" ref="vBookingVipRoomDao"/> 
+  </bean>  
+  <bean id="vBookingTelRoomService" class="cn.com.topit.gl.service.VBookingTelRoomService"> 
+    <property name="dao" ref="vBookingTelRoomDao"/> 
+  </bean>  
+  <bean id="vBookingMeetingRoomService" class="cn.com.topit.gl.service.VBookingMeetingRoomService"> 
+    <property name="dao" ref="vBookingMeetingRoomDao"/> 
+  </bean>  
+  <bean id="recipeTypeService" class="cn.com.topit.gl.service.RecipeTypeService"> 
+    <property name="dao" ref="recipeTypeDao"/> 
+  </bean>  
+  <bean id="recipeService" class="cn.com.topit.gl.service.RecipeService"> 
+    <property name="dao" ref="recipeDao"/> 
+  </bean>  
+  <bean id="vRecipeService" class="cn.com.topit.gl.service.VRecipeService"> 
+    <property name="dao" ref="vRecipeDao"/> 
+  </bean>  
+  <bean id="ordersService" class="cn.com.topit.gl.service.OrdersService"> 
+    <property name="dao" ref="ordersDao"/> 
+  </bean>  
+  <bean id="vOrdersService" class="cn.com.topit.gl.service.VOrdersService"> 
+    <property name="dao" ref="vOrdersDao"/> 
+  </bean>  
+  <bean id="vOrdersListService" class="cn.com.topit.gl.service.VOrdersListService"> 
+    <property name="dao" ref="vOrdersListDao"/> 
+  </bean>  
+  <bean id="roomFacilitiesService" class="cn.com.topit.gl.service.RoomFacilitiesService"> 
+    <property name="dao" ref="roomFacilitiesDao"/> 
+  </bean>  
+  <bean id="productsService" class="cn.com.topit.gl.service.ProductsService"> 
+    <property name="dao" ref="productsDao"/> 
+  </bean>  
+  <bean id="vVisitService" class="cn.com.topit.gl.service.VVisitService"> 
+    <property name="dao" ref="vVisitDao"/> 
+  </bean>  
+  <bean id="vFloorLockService" class="cn.com.topit.gl.service.VFloorLockService"> 
+    <property name="dao" ref="vFloorLockDao"/> 
+  </bean>  
+  <bean id="floorLockService" class="cn.com.topit.gl.service.FloorLockService"> 
+    <property name="dao" ref="floorLockDao"/> 
+  </bean>  
+  <bean id="vNewWorkbenchService" class="cn.com.topit.gl.service.VNewWorkbenchService"> 
+    <property name="dao" ref="vNewWorkbenchDao"/> 
+  </bean>  
+  <bean id="newWorkbenchService" class="cn.com.topit.gl.service.NewWorkbenchService"> 
+    <property name="dao" ref="newWorkbenchDao"/> 
+  </bean>  
+  <bean id="vNewOfficeService" class="cn.com.topit.gl.service.VNewOfficeService"> 
+    <property name="dao" ref="vNewOfficeDao"/> 
+  </bean>  
+  <bean id="newOfficeService" class="cn.com.topit.gl.service.NewOfficeService"> 
+    <property name="dao" ref="newOfficeDao"/> 
+  </bean>  
+  <bean id="vNewMeetingRoomService" class="cn.com.topit.gl.service.VNewMeetingRoomService"> 
+    <property name="dao" ref="vNewMeetingRoomDao"/> 
+  </bean>  
+  <bean id="newMeetingRoomService" class="cn.com.topit.gl.service.NewMeetingRoomService"> 
+    <property name="dao" ref="newMeetingRoomDao"/> 
+  </bean>  
+  <bean id="vWorkbenchLockService" class="cn.com.topit.gl.service.VWorkbenchLockService"> 
+    <property name="dao" ref="vWorkbenchLockDao"/> 
+  </bean>  
+  <bean id="workbenchLockService" class="cn.com.topit.gl.service.WorkbenchLockService"> 
+    <property name="dao" ref="workbenchLockDao"/> 
+  </bean>  
+  <bean id="vOfficeLockService" class="cn.com.topit.gl.service.VOfficeLockService"> 
+    <property name="dao" ref="vOfficeLockDao"/> 
+  </bean>  
+  <bean id="officeLockService" class="cn.com.topit.gl.service.OfficeLockService"> 
+    <property name="dao" ref="officeLockDao"/> 
+  </bean>  
+  <bean id="vMeetingRoomLockService" class="cn.com.topit.gl.service.VMeetingRoomLockService"> 
+    <property name="dao" ref="vMeetingRoomLockDao"/> 
+  </bean>  
+  <bean id="meetingRoomLockService" class="cn.com.topit.gl.service.MeetingRoomLockService"> 
+    <property name="dao" ref="meetingRoomLockDao"/> 
+  </bean>  
+  <bean id="vNewBookingListService" class="cn.com.topit.gl.service.VNewBookingListService"> 
+    <property name="dao" ref="vNewBookingListDao"/> 
+  </bean>  
+  <bean id="newBookingService" class="cn.com.topit.gl.service.NewBookingService"> 
+    <property name="dao" ref="newBookingDao"/> 
+  </bean>  
+  <bean id="visitServiceService" class="cn.com.topit.gl.service.VisitServiceService">
+    <property name="dao" ref="visitServiceDao"/>
+  </bean>
+</beans>

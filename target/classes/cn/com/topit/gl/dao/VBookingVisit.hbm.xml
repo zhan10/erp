@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.VBookingVisit" table="v_booking_visit" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="productId" type="java.lang.Long">
+			<column name="product_id" length="8" not-null="true"/>
+		</property>
+		<property name="productType" type="java.lang.String">
+			<column name="product_type" length="100" not-null="true" />
+		</property>
+		<property name="city" type="java.lang.String">
+			<column name="city" length="128" />
+		</property>
+		<property name="area" type="java.lang.String">
+			<column name="area" length="100" />
+		</property>
+		<property name="buildingName" type="java.lang.String">
+			<column name="building_name" length="200" />
+		</property>
+		<property name="floorName" type="java.lang.String">
+			<column name="floor_name" length="50" />
+		</property>
+		<property name="productName" type="java.lang.String">
+			<column name="product_name" length="50" />
+		</property>
+		<property name="appointTime" type="java.util.Date">
+			<column name="appoint_time" not-null="true" />
+		</property>
+		<property name="visitTime" type="java.util.Date">
+			<column name="visit_time" />
+		</property>
+		<property name="createTime" type="java.util.Date">
+			<column name="create_time" not-null="true" />
+		</property>
+		<property name="consumerId" type="java.lang.Long">
+			<column name="consumer_id" length="8" not-null="true"/>
+		</property>
+		<property name="consumerName" type="java.lang.String">
+			<column name="consumer_name" length="50" />
+		</property>
+		<property name="state" type="java.lang.Long">
+			<column name="state" length="8" not-null="true"/>
+		</property>
+		<property name="remark" type="java.lang.String">
+			<column name="remark" length="500" />
+		</property>
+		<property name="opinion" type="java.lang.String">
+			<column name="opinion" length="500" />
+		</property>
+	</class>
+</hibernate-mapping>

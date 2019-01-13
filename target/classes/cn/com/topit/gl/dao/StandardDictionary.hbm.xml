@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.StandardDictionary" table="standard_dictionary" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="purpose" type="java.lang.String">
+			<column name="purpose" length="50" not-null="true"/>
+		</property>
+		<property name="spec1" type="java.math.BigDecimal">
+			<column name="spec1" length="18"/>
+		</property>
+		<property name="spec2" type="java.math.BigDecimal">
+			<column name="spec2" length="18"/>
+		</property>
+		<property name="alloyModel" type="java.lang.String">
+			<column name="alloy_model" length="50"/>
+		</property>
+		<property name="alloyStatus" type="java.lang.String">
+			<column name="alloy_status" length="50"/>
+		</property>
+		<property name="thicknessTolerance" type="java.lang.String">
+			<column name="thickness_tolerance" length="50"/>
+		</property>
+		<property name="widthTolerance" type="java.lang.String">
+			<column name="width_tolerance" length="50"/>
+		</property>
+		<property name="outerDiameter" type="java.lang.String">
+			<column name="outer_diameter" length="50"/>
+		</property>
+		<property name="innerDiameter" type="java.lang.String">
+			<column name="inner_diameter" length="50"/>
+		</property>
+		<property name="jointNum" type="java.lang.String">
+			<column name="joint_num" length="50"/>
+		</property>
+		<property name="pinholeNum" type="java.lang.String">
+			<column name="pinhole_num" length="50"/>
+		</property>
+		<property name="wettability" type="java.lang.String">
+			<column name="wettability" length="50"/>
+		</property>
+		<property name="tensileStrength" type="java.lang.String">
+			<column name="tensile_strength" length="50"/>
+		</property>
+		<property name="extensibility" type="java.lang.String">
+			<column name="extensibility" length="50"/>
+		</property>
+		<property name="sideSpread" type="java.lang.String">
+			<column name="side_spread" length="50"/>
+		</property>
+		<property name="wholeSpread" type="java.lang.String">
+			<column name="whole_spread" length="50"/>
+		</property>
+		<property name="length" type="java.lang.String">
+			<column name="length" length="50"/>
+		</property>
+		<property name="lengthTolerance" type="java.lang.String">
+			<column name="length_tolerance" length="50"/>
+		</property>
+		<property name="appearance" type="java.lang.String">
+			<column name="appearance" length="200"/>
+		</property>
+		<property name="otherStandard" type="java.lang.String">
+			<column name="other_standard" length="500"/>
+		</property>
+		<property name="specialReq" type="java.lang.String">
+			<column name="special_req" length="500"/>
+		</property>
+	</class>
+</hibernate-mapping>

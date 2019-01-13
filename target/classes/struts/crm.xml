@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+  <package name="cn.com.topit.gl.crm" namespace="/crm" extends="cn.com.topit.gl">
+    <action name="consumer" class="consumerAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="health" class="healthAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="vHealth" class="vHealthAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="consumeRecord" class="consumeRecordAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="vConsumeRecord" class="vConsumeRecordAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="rechargeRecord" class="rechargeRecordAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="vRechargeRecord" class="vRechargeRecordAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="refundRecord" class="refundRecordAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="vRefundRecord" class="vRefundRecordAction">
+      <result type="json" name="managerExt">
+        <param name="root">records</param>
+        <param name="noCache">true</param>
+      </result>
+    </action>
+    <action name="damage" class="damageAction">
+      <result type="json" name="managerExt">
+        <param name="root">records</param>
+        <param name="noCache">true</param>
+      </result>
+    </action>
+     <action name="vDamage" class="vDamageAction">
+      <result type="json" name="managerExt">
+        <param name="root">records</param>
+        <param name="noCache">true</param>
+      </result>
+    </action>
+    <action name="paymentType" class="paymentTypeAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="consumeArea" class="consumeAreaAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="consumeType" class="consumeTypeAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+  </package>
+</struts>

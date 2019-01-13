@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+  <package name="cn.com.topit.gl.serve" namespace="/serve" extends="cn.com.topit.gl">    
+    <action name="vPrintRecord" class="vPrintRecordAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="printRecord" class="printRecordAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="serve" class="serveAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="vBooking" class="vBookingAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="vOrdersList" class="vOrdersListAction">
+      <result type="json" name="managerExt">
+        <param name="root">records</param>
+        <param name="noCache">true</param>
+      </result>
+    </action>
+        <action name="printRate" class="printRateAction">
+      <result type="json" name="managerExt">
+        <param name="root">records</param>
+        <param name="noCache">true</param>
+      </result>
+    </action>
+        <action name="printStatistics" class="printStatisticsAction">
+      <result type="json" name="managerExt">
+        <param name="root">records</param>
+        <param name="noCache">true</param>
+      </result>
+    </action>
+  </package>
+</struts>

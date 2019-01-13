@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.FloorLock" table="floor_lock" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="floorId" type="java.lang.Long">
+			<column name="floor_id" length="8" not-null="true"/>
+		</property>
+		<property name="lockFrom" type="java.util.Date">
+			<column name="lock_from" length="8" not-null="true"/>
+		</property>
+		<property name="lockTo" type="java.util.Date">
+			<column name="lock_to" length="8" not-null="true"/>
+		</property>
+		<property name="createTime" type="java.util.Date">
+			<column name="create_time" length="8" not-null="true"/>
+		</property>
+	</class>
+</hibernate-mapping>

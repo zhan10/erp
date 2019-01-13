@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.VInStorePlan" table="v_in_store_plan" >
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="code" type="java.lang.String">
+			<column name="code" length="50" not-null="true"/>
+		</property>
+		<property name="deliverDept" type="java.lang.String">
+			<column name="deliver_dept" length="200"/>
+		</property>
+		<property name="sourceType" type="java.lang.String">
+			<column name="source_type" length="50"/>
+		</property>
+		<property name="sourceCode" type="java.lang.String">
+			<column name="source_code" length="50"/>
+		</property>
+		<property name="storeDate" type="java.lang.String">
+			<column name="store_date" length="10"/>
+		</property>
+		<property name="checkDate" type="java.lang.String">
+			<column name="check_date" length="10"/>
+		</property>
+		<property name="status" type="java.lang.Integer">
+			<column name="status" length="10" not-null="true"/>
+		</property>
+		<property name="storeType" type="java.lang.Integer">
+			<column name="store_type" length="10" not-null="true"/>
+		</property>
+		<property name="storeId" type="java.lang.Long">
+			<column name="store_id" length="19"/>
+		</property>
+		<property name="inputer" type="java.lang.Long">
+			<column name="inputer" length="19" not-null="true"/>
+		</property>
+		<property name="checker" type="java.lang.Long">
+			<column name="checker" length="19"/>
+		</property>
+		<property name="accepter" type="java.lang.Long">
+			<column name="accepter" length="19"/>
+		</property>
+		<property name="deliver" type="java.lang.Long">
+			<column name="deliver" length="19"/>
+		</property>
+		<property name="inputDate" type="java.lang.String">
+			<column name="input_date" length="10" not-null="true"/>
+		</property>
+		<property name="caseNum" type="java.lang.Integer">
+			<column name="case_num" length="10"/>
+		</property>
+		<property name="sumWeight" type="java.math.BigDecimal">
+			<column name="sum_weight" length="18"/>
+		</property>
+		<property name="memo" type="java.lang.String">
+			<column name="memo" length="500"/>
+		</property>
+	</class>
+</hibernate-mapping>

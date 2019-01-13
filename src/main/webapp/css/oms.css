@@ -1,0 +1,223 @@
+@font-face {
+  font-family: 'iwork';
+  src: url('../fonts/iwork.eot?-npb2yo');
+  src: url('../fonts/iwork.eot?#iefix-npb2yo') format('embedded-opentype'), url('../fonts/iwork.ttf?-npb2yo') format('truetype'), url('../fonts/iwork.woff?-npb2yo') format('woff'), url('../fonts/iwork.svg?-npb2yo#iwork') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.icon {
+  font-family: 'iwork';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-hexagon:before {
+  content: "\e602";
+}
+.icon-client:before {
+  content: "\e601";
+}
+.icon-calculator:before {
+  content: "\e600";
+}
+.icon-order:before {
+  content: "\e603";
+}
+.icon-product:before {
+  content: "\e604";
+}
+.icon-system:before {
+  content: "\e606";
+}
+.icon-service:before {
+  content: "\e605";
+}
+.bodyBg {
+  background-position: top center;
+}
+.container {
+  width: 1000px;
+}
+.a5b4d8 {
+  color: #a5b4d8;
+}
+.green {
+  color: #86d442;
+}
+.oms {
+  padding-top: 30px;
+  color: #304e94;
+  overflow: hidden;
+}
+.oms .user .log {
+  float: left;
+  margin-top: 6px;
+  background: url(../img/log3.png) no-repeat 0 0;
+}
+.oms .user h1 {
+  float: left;
+  height: 32px;
+  line-height: 18px;
+  font-size: 17px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  padding-left: 10px;
+  margin-top: 6px;
+  margin-left: 10px;
+  border-left: 1px solid #304e94;
+}
+.oms .user h1 span {
+  display: block;
+  font-size: 8px;
+  font-weight: normal;
+  letter-spacing: 0;
+}
+.oms .user .userinfo {
+  float: right;
+  margin: 0 10px 0 0;
+}
+.oms .user .userinfo li {
+  float: left;
+  padding: 0 12px;
+}
+.oms .user .userinfo li a {
+  display: block;
+  color: #304e94;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 12px;
+  text-decoration: none;
+}
+.oms .user .userinfo li a i {
+  display: inline-block;
+  width: 21px;
+  height: 22px;
+  background-img: url(../img/top-1.png);
+  background-repeat: no-repeat;
+}
+.oms .user .userinfo li a b {
+  display: block;
+  font-weight: normal;
+}
+.oms .user .userinfo li a .password {
+  background-position: 0 -22px;
+}
+.oms .user .userinfo li a .backhome {
+  background-position: 0 -44px;
+}
+.oms .user .userinfo li a .signout {
+  background-position: 0 -66px;
+}
+.oms .user .userinfo li a:hover {
+  color: #f99507;
+}
+.oms .user .userinfo li a:hover .password {
+  background-position: -21px -22px;
+}
+.oms .user .userinfo li a:hover .backhome {
+  background-position: -21px -44px;
+}
+.oms .user .userinfo li a:hover .signout {
+  background-position: -21px -66px;
+}
+.oms .user .userinfo .username {
+  height: 21px;
+  line-height: 21px;
+  margin-right: 30px;
+  padding-left: 30px;
+  margin-top: 10px;
+  background: url(../img/top-1.png) no-repeat 0 0;
+}
+.oms .btns {
+  margin-top: 70px;
+}
+.oms .btns a {
+  float: left;
+  cursor: default;
+  margin-right: 14px;
+}
+.oms .btns .invisible {
+  visibility: hidden;
+}
+.oms .btns .icon {
+  font-size: 160px;
+  position: relative;
+}
+.oms .btns .icon i {
+  position: absolute;
+  top: 34px;
+  left: 34px;
+  font-size: 52px;
+  color: white;
+  text-align: center;
+}
+.oms .btns .icon i b {
+  font-size: 18px;
+  font-weight: normal;
+  font-family: 'Microsoft YaHei', '微软雅黑', '黑体', '宋体', 'arial';
+  display: block;
+  margin-top: 8px;
+}
+.oms .btns .blue {
+  cursor: pointer;
+  color: #304e94;
+}
+.oms .btns .blue:hover {
+  color: maroon;
+  -webkit-animation: color 4s linear infinite;
+  animation: color 4s linear infinite;
+}
+@-webkit-keyframes color {
+  0% {
+    color: green;
+  }
+  25% {
+    color: teal;
+  }
+  50% {
+    color: maroon;
+  }
+  100% {
+    color: #304e94;
+  }
+}
+@keyframes color {
+  0% {
+    color: green;
+  }
+  25% {
+    color: teal;
+  }
+  50% {
+    color: maroon;
+  }
+  100% {
+    color: #304e94;
+  }
+}
+.oms .btns .row2 {
+  margin-left: 72px;
+  position: relative;
+  top: -25px;
+}
+.oms .btns .row3 {
+  position: relative;
+  top: -50px;
+}
+.oms .footer {
+  text-align: center;
+  color: black;
+  padding-bottom: 10px;
+}
+.oms .footer a {
+  color: black;
+}
+.oms .footer a:hover {
+  text-decoration: underline;
+}

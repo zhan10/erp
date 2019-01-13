@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="field">
+	<class dynamic-insert="true" dynamic-update="true"
+		name="cn.com.topit.gl.dao.VBookingOffice" table="v_booking_office">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property generated="never" lazy="false" name="balance"
+			type="java.lang.Boolean">
+			<column length="1" name="balance" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="code"
+			type="java.lang.String">
+			<column length="100" name="code" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="officeName"
+			type="java.lang.String">
+			<column length="200" name="office_name" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="consumerName"
+			type="java.lang.String">
+			<column length="200" name="consumer_name" />
+		</property>
+		<property generated="never" lazy="false" name="cityName"
+			type="java.lang.String">
+			<column length="50" name="city_name" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="areaName"
+			type="java.lang.String">
+			<column length="50" name="area_name" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="buildingName"
+			type="java.lang.String">
+			<column length="200" name="building_name" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="floorName"
+			type="java.lang.String">
+			<column length="200" name="floor_name" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="officeType"
+			type="java.lang.String">
+			<column length="50" name="office_type" />
+		</property>
+		<property generated="never" lazy="false" name="persons"
+			type="java.lang.Integer">
+			<column length="4" name="persons" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="dateFrom"
+			type="java.util.Date">
+			<column length="10" name="date_from" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="dateTo"
+			type="java.util.Date">
+			<column length="8" name="date_to" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="total"
+			type="java.lang.Double">
+			<column name="total" not-null="true" precision="18" scale="2" />
+		</property>
+		<property generated="never" lazy="false" name="price"
+			type="java.lang.Double">
+			<column name="price" not-null="true" precision="18" scale="2" />
+		</property>
+		<property generated="never" lazy="false" name="officeId"
+			type="java.lang.Long">
+			<column length="8" name="office_id" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="bookingId"
+			type="java.lang.Long">
+			<column length="8" name="booking_id" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="consumerId"
+			type="java.lang.Long">
+			<column length="8" name="consumer_id" />
+		</property>
+		<property generated="never" lazy="false" name="typeId"
+			type="java.lang.Long">
+			<column length="8" name="type_id" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="floorId"
+			type="java.lang.Long">
+			<column length="8" name="floor_id" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="buildingId"
+			type="java.lang.Long">
+			<column length="8" name="building_id" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="areaId"
+			type="java.lang.Long">
+			<column length="8" name="area_id" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="cityId"
+			type="java.lang.Long">
+			<column length="8" name="city_id" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="balancePrice"
+			type="java.lang.Double">
+			<column name="balance_price" precision="18" scale="2" />
+		</property>
+		<property generated="never" lazy="false" name="balanceTime"
+			type="java.util.Date">
+			<column length="8" name="balance_time" />
+		</property>
+		<property name="state" type="java.lang.Integer">
+			<column name="state" length="50" not-null="true" />
+		</property>
+		<property name="badge" type="java.lang.Long">
+			<column name="badge" length="8" not-null="false" />
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.RefundRecord" table="refund_record" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="consumerId" type="java.lang.Long">
+			<column name="consumer_id" length="8" not-null="true"/>
+		</property>
+		<property name="refundTime" type="java.util.Date">
+			<column name="refund_time" length="8" not-null="true"/>
+		</property>
+		<property name="amount" type="java.math.BigDecimal">
+			<column name="amount" length="9" not-null="true"/>
+		</property>
+		<property name="bookingId" type="java.lang.Long">
+			<column name="booking_id" length="8"/>
+		</property>
+		<property name="memo" type="java.lang.String">
+			<column name="memo" length="500"/>
+		</property>
+		<property name="relatedId" type="java.lang.Long">
+			<column name="related_id" length="8"/>
+		</property>
+		<property name="relatedType" type="java.lang.Integer">
+			<column name="related_type" length="4"/>
+		</property>
+	</class>
+</hibernate-mapping>

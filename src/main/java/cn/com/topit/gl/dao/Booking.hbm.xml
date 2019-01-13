@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.Booking" table="booking" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="buildingId" type="java.lang.Long">
+			<column name="building_id" length="8" not-null="true"/>
+		</property>
+		<property name="code" type="java.lang.String">
+			<column name="code" length="100" not-null="true" unique="true"/>
+		</property>
+		<property name="persons" type="java.lang.Integer">
+			<column name="persons" length="4"/>
+		</property>
+		<property name="bookingTime" type="java.util.Date">
+			<column name="booking_time" length="10" not-null="true"/>
+		</property>
+		<property name="status" type="java.lang.Integer">
+			<column name="status" length="4" not-null="true"/>
+		</property>
+		<property name="consumerId" type="java.lang.Long">
+			<column name="consumer_id" length="8" not-null="true"/>
+		</property>
+		<property name="total" type="java.lang.Double">
+			<column name="total" precision="18"  scale="2" not-null="true"/>
+		</property>
+		<property name="balance" type="java.lang.Boolean">
+			<column name="balance" length="1"/>
+		</property>
+		<property name="balancePrice" type="java.lang.Double">
+			<column name="balance_price" precision="18"  scale="2" />
+		</property>
+		<property name="balanceTime" type="java.util.Date">
+			<column name="balance_time" length="8"/>
+		</property>
+		<property name="backReason" type="java.lang.String">
+			<column name="back_reason" length="200"/>
+		</property>
+		<property name="amendTime" type="java.util.Date">
+			<column name="amend_time" length="8" not-null="true"/>
+		</property>
+		<property name="amender" type="java.lang.String">
+			<column name="amender" length="50" not-null="true"/>
+		</property>
+		<property name="originalCost" type="java.lang.Double">
+			<column name="original_cost" precision="18"  scale="2" not-null="true"/>
+		</property>
+		<property name="amenderId" type="java.lang.Long">
+			<column name="amender_id" length="8" not-null="true"/>
+		</property>
+		<property name="contractCode" type="java.lang.String">
+			<column name="contract_code" length="50"/>
+		</property>
+	</class>
+</hibernate-mapping>

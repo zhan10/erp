@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">  
+  <bean id="vInventoryAction" class="cn.com.topit.gl.action.VInventoryAction" scope="request"> 
+    <property name="service" ref="vInventoryService"/> 
+  </bean>
+  <bean id="inventoryAction" class="cn.com.topit.gl.action.InventoryAction" scope="request"> 
+    <property name="service" ref="inventoryService"/> 
+  </bean>
+  <bean id="materAction" class="cn.com.topit.gl.action.MaterAction" scope="request"> 
+    <property name="service" ref="materService"/> 
+  </bean>
+  <bean id="mateTypeAction" class="cn.com.topit.gl.action.MateTypeAction" scope="request"> 
+    <property name="service" ref="mateTypeService"/> 
+  </bean>
+  <bean id="warehouseSiteAction" class="cn.com.topit.gl.action.WarehouseSiteAction" scope="request"> 
+    <property name="service" ref="warehouseSiteService"/> 
+  </bean>  
+  <bean id="warehouseAction" class="cn.com.topit.gl.action.WarehouseAction" scope="request"> 
+    <property name="service" ref="warehouseService"/> 
+  </bean>  
+  <bean id="rentContractAction" class="cn.com.topit.gl.action.RentContractAction" scope="request"> 
+    <property name="service" ref="rentContractService"/> 
+  </bean>  
+  <bean id="vRentContractAction" class="cn.com.topit.gl.action.VRentContractAction" scope="request"> 
+    <property name="service" ref="vRentContractService"/> 
+  </bean>  
+  <bean id="vPrintRecordAction" class="cn.com.topit.gl.action.VPrintRecordAction" scope="request"> 
+    <property name="service" ref="vPrintRecordService"/> 
+  </bean>  
+  <bean id="receiptAction" class="cn.com.topit.gl.action.ReceiptAction" scope="request"> 
+    <property name="service" ref="receiptService"/> 
+  </bean>  
+  <bean id="printRecordAction" class="cn.com.topit.gl.action.PrintRecordAction" scope="request"> 
+    <property name="service" ref="printRecordService"/> 
+  </bean>  
+  <bean id="memberLevelAction" class="cn.com.topit.gl.action.MemberLevelAction" scope="request"> 
+    <property name="service" ref="memberLevelService"/> 
+  </bean>  
+  <bean id="printStatisticsAction" class="cn.com.topit.gl.action.PrintStatisticsAction" scope="request"> 
+    <property name="service" ref="printStatisticsService"/> 
+  </bean>  
+  <bean id="printRateAction" class="cn.com.topit.gl.action.PrintRateAction" scope="request"> 
+    <property name="service" ref="printRateService"/> 
+  </bean>  
+  <bean id="vCultivateRoomBookingAction" class="cn.com.topit.gl.action.VCultivateRoomBookingAction" scope="request"> 
+    <property name="service" ref="vCultivateRoomBookingService"/> 
+  </bean>  
+  <bean id="cultivateRoomBookingAction" class="cn.com.topit.gl.action.CultivateRoomBookingAction" scope="request"> 
+    <property name="service" ref="cultivateRoomBookingService"/> 
+  </bean>  
+  <bean id="vCultivateRoomAction" class="cn.com.topit.gl.action.VCultivateRoomAction" scope="request"> 
+    <property name="service" ref="vCultivateRoomService"/> 
+  </bean>  
+  <bean id="cultivateRoomAction" class="cn.com.topit.gl.action.CultivateRoomAction" scope="request"> 
+    <property name="service" ref="cultivateRoomService"/> 
+  </bean>  
+  <bean id="marketingAction" class="cn.com.topit.gl.action.MarketingAction" scope="request"> 
+    <property name="service" ref="marketingService"/> 
+  </bean>  
+  <bean name="vGenreAction" class="cn.com.topit.gl.action.VGenreAction" scope="request"> 
+    <property name="service" ref="vGenreService"/> 
+  </bean>  
+  <bean name="genreAction" class="cn.com.topit.gl.action.GenreAction" scope="request"> 
+    <property name="service" ref="genreService"/> 
+  </bean>  
+  <bean name="vProductAction" class="cn.com.topit.gl.action.VProductAction" scope="request"> 
+    <property name="service" ref="vProductService"/> 
+  </bean>  
+  <bean name="vBookingListAction" class="cn.com.topit.gl.action.VBookingListAction" scope="request"> 
+    <property name="service" ref="vBookingListService"/> 
+  </bean>  
+  <bean name="theMonthReportAction" class="cn.com.topit.gl.action.TheMonthReportAction" scope="request"> 
+    <property name="service" ref="theMonthReportService"/> 
+  </bean>  
+  <bean name="toDayReportAction" class="cn.com.topit.gl.action.ToDayReportAction" scope="request"> 
+    <property name="service" ref="toDayReportService"/> 
+  </bean>  
+  <bean name="ordersListAction" class="cn.com.topit.gl.action.OrdersListAction" scope="request"> 
+    <property name="service" ref="ordersListService"/> 
+  </bean>  
+  <bean name="vBookingVisitAction" class="cn.com.topit.gl.action.VBookingVisitAction" scope="request"> 
+    <property name="service" ref="vBookingVisitService"/> 
+  </bean>  
+  <bean name="newsAction" class="cn.com.topit.gl.action.NewsAction" scope="request"> 
+    <property name="service" ref="newsService"/> 
+  </bean>  
+  <bean name="requirementBookingAction" class="cn.com.topit.gl.action.RequirementBookingAction" scope="request"> 
+    <property name="service" ref="requirementBookingService"/> 
+  </bean>  
+  <bean id="serveAction" class="cn.com.topit.gl.action.ServeAction" scope="request"> 
+    <property name="service" ref="serveService"/> 
+  </bean>  
+  <bean name="vMonthlyReportDateAction" class="cn.com.topit.gl.action.VMonthlyReportDateAction" scope="request"> 
+    <property name="service" ref="vMonthlyReportDateService"/> 
+  </bean>  
+  <bean name="vDailyReportDateAction" class="cn.com.topit.gl.action.VDailyReportDateAction" scope="request"> 
+    <property name="service" ref="vDailyReportDateService"/> 
+  </bean>  
+  <bean name="vDailyReportAction" class="cn.com.topit.gl.action.VDailyReportAction" scope="request"> 
+    <property name="service" ref="vDailyReportService"/> 
+  </bean>  
+  <bean name="vMonthlyReportAction" class="cn.com.topit.gl.action.VMonthlyReportAction" scope="request"> 
+    <property name="service" ref="vMonthlyReportService"/> 
+  </bean>  
+  <bean name="consumeTypeAction" class="cn.com.topit.gl.action.ConsumeTypeAction" scope="request"> 
+    <property name="service" ref="consumeTypeService"/> 
+  </bean>  
+  <bean name="paymentTypeAction" class="cn.com.topit.gl.action.PaymentTypeAction" scope="request"> 
+    <property name="service" ref="paymentTypeService"/> 
+  </bean>  
+  <bean name="consumeAreaAction" class="cn.com.topit.gl.action.ConsumeAreaAction" scope="request"> 
+    <property name="service" ref="consumeAreaService"/> 
+  </bean>  
+  <bean name="usersAction" class="cn.com.topit.gl.action.UsersAction" scope="request"> 
+    <property name="service" ref="usersService"/> 
+  </bean>  
+  <bean id="rolesAction" class="cn.com.topit.gl.action.RolesAction" scope="request"> 
+    <property name="service" ref="rolesService"/> 
+  </bean>  
+  <bean id="userRoleAction" class="cn.com.topit.gl.action.UserRoleAction" scope="request"> 
+    <property name="service" ref="userRoleService"/> 
+  </bean>  
+  <bean id="resourceAction" class="cn.com.topit.gl.action.ResourceAction" scope="request"> 
+    <property name="service" ref="resourceService"/> 
+  </bean>  
+  <bean id="customAction" class="cn.com.topit.gl.action.CustomAction" scope="request"> 
+    <property name="service" ref="customService"/> 
+  </bean>  
+  <bean id="vCustomAction" class="cn.com.topit.gl.action.VCustomAction" scope="request"> 
+    <property name="service" ref="vCustomService"/> 
+  </bean>  
+  <bean id="workbenchAction" class="cn.com.topit.gl.action.WorkbenchAction" scope="request"> 
+    <property name="service" ref="workbenchService"/> 
+  </bean>  
+  <bean id="cityAction" class="cn.com.topit.gl.action.CityAction" scope="request"> 
+    <property name="service" ref="cityService"/> 
+  </bean>  
+  <bean id="areaAction" class="cn.com.topit.gl.action.AreaAction" scope="request"> 
+    <property name="service" ref="areaService"/> 
+  </bean>  
+  <bean id="vAreaAction" class="cn.com.topit.gl.action.VAreaAction" scope="request"> 
+    <property name="service" ref="vAreaService"/> 
+  </bean>  
+  <bean id="buildingAction" class="cn.com.topit.gl.action.BuildingAction" scope="request"> 
+    <property name="service" ref="buildingService"/> 
+  </bean>  
+  <bean id="circleAction" class="cn.com.topit.gl.action.CircleAction" scope="request"> 
+    <property name="service" ref="circleService"/> 
+  </bean>  
+  <bean id="vCircleAction" class="cn.com.topit.gl.action.VCircleAction" scope="request"> 
+    <property name="service" ref="vCircleService"/> 
+  </bean>  
+  <bean id="vBuildingAction" class="cn.com.topit.gl.action.VBuildingAction" scope="request"> 
+    <property name="service" ref="vBuildingService"/> 
+  </bean>  
+  <bean id="floorAction" class="cn.com.topit.gl.action.FloorAction" scope="request"> 
+    <property name="service" ref="floorService"/> 
+  </bean>  
+  <bean id="vFloorAction" class="cn.com.topit.gl.action.VFloorAction" scope="request"> 
+    <property name="service" ref="vFloorService"/> 
+  </bean>  
+  <bean id="vWorkbenchAction" class="cn.com.topit.gl.action.VWorkbenchAction" scope="request"> 
+    <property name="service" ref="vWorkbenchService"/> 
+  </bean>  
+  <bean id="workbenchTypeAction" class="cn.com.topit.gl.action.WorkbenchTypeAction" scope="request"> 
+    <property name="service" ref="workbenchTypeService"/>  
+    <property name="workbenchService" ref="workbenchService"/> 
+  </bean>  
+  <bean id="officeAction" class="cn.com.topit.gl.action.OfficeAction" scope="request"> 
+    <property name="service" ref="officeService"/> 
+  </bean>  
+  <bean id="vOfficeAction" class="cn.com.topit.gl.action.VOfficeAction" scope="request"> 
+    <property name="service" ref="vOfficeService"/> 
+  </bean>  
+  <bean id="officeTypeAction" class="cn.com.topit.gl.action.OfficeTypeAction" scope="request"> 
+    <property name="service" ref="officeTypeService"/> 
+  </bean>  
+  <bean id="productTypeAction" class="cn.com.topit.gl.action.ProductTypeAction" scope="request"> 
+    <property name="service" ref="productTypeService"/>  
+    <property name="genreService" ref="genreService"/>  
+    <property name="productsService" ref="productsService"/> 
+  </bean>  
+  <bean id="consumerAction" class="cn.com.topit.gl.action.ConsumerAction" scope="request"> 
+    <property name="service" ref="consumerService"/> 
+  </bean>  
+  <bean id="bookingAction" class="cn.com.topit.gl.action.BookingAction" scope="request"> 
+    <property name="service" ref="bookingService"/> 
+  </bean>  
+  <bean id="vBookingAction" class="cn.com.topit.gl.action.VBookingAction" scope="request"> 
+    <property name="service" ref="vBookingService"/> 
+  </bean>  
+  <bean id="workbenchBookingAction" class="cn.com.topit.gl.action.WorkbenchBookingAction" scope="request"> 
+    <property name="service" ref="workbenchBookingService"/> 
+  </bean>  
+  <bean id="vBookingWorkbenchAction" class="cn.com.topit.gl.action.VBookingWorkbenchAction" scope="request"> 
+    <property name="service" ref="vBookingWorkbenchService"/> 
+  </bean>  
+  <bean id="officeBookingAction" class="cn.com.topit.gl.action.OfficeBookingAction" scope="request"> 
+    <property name="service" ref="officeBookingService"/> 
+  </bean>  
+  <bean id="vBookingOfficeAction" class="cn.com.topit.gl.action.VBookingOfficeAction" scope="request"> 
+    <property name="service" ref="vBookingOfficeService"/> 
+  </bean>  
+  <bean id="meetingRoomAction" class="cn.com.topit.gl.action.MeetingRoomAction" scope="request"> 
+    <property name="service" ref="meetingRoomService"/> 
+  </bean>  
+  <bean id="vMeetingRoomAction" class="cn.com.topit.gl.action.VMeetingRoomAction" scope="request"> 
+    <property name="service" ref="vMeetingRoomService"/> 
+  </bean>  
+  <bean id="exhibitionRoomAction" class="cn.com.topit.gl.action.ExhibitionRoomAction" scope="request"> 
+    <property name="service" ref="exhibitionRoomService"/> 
+  </bean>  
+  <bean id="vExhibitionRoomAction" class="cn.com.topit.gl.action.VExhibitionRoomAction" scope="request"> 
+    <property name="service" ref="vExhibitionRoomService"/> 
+  </bean>  
+  <bean id="telRoomAction" class="cn.com.topit.gl.action.TelRoomAction" scope="request"> 
+    <property name="service" ref="telRoomService"/> 
+  </bean>  
+  <bean id="vTelRoomAction" class="cn.com.topit.gl.action.VTelRoomAction" scope="request"> 
+    <property name="service" ref="vTelRoomService"/> 
+  </bean>  
+  <bean id="vVipRoomAction" class="cn.com.topit.gl.action.VVipRoomAction" scope="request"> 
+    <property name="service" ref="vVipRoomService"/> 
+  </bean>  
+  <bean id="vipRoomAction" class="cn.com.topit.gl.action.VipRoomAction" scope="request"> 
+    <property name="service" ref="vipRoomService"/> 
+  </bean>  
+  <bean id="healthAction" class="cn.com.topit.gl.action.HealthAction" scope="request"> 
+    <property name="service" ref="healthService"/> 
+  </bean>  
+  <bean id="vHealthAction" class="cn.com.topit.gl.action.VHealthAction" scope="request"> 
+    <property name="service" ref="vHealthService"/> 
+  </bean>  
+  <bean id="consumeRecordAction" class="cn.com.topit.gl.action.ConsumeRecordAction" scope="request"> 
+    <property name="service" ref="consumeRecordService"/> 
+  </bean>  
+  <bean id="vConsumeRecordAction" class="cn.com.topit.gl.action.VConsumeRecordAction" scope="request"> 
+    <property name="service" ref="vConsumeRecordService"/> 
+  </bean>  
+  <bean id="rechargeRecordAction" class="cn.com.topit.gl.action.RechargeRecordAction" scope="request"> 
+    <property name="service" ref="rechargeRecordService"/> 
+  </bean>  
+  <bean id="vRechargeRecordAction" class="cn.com.topit.gl.action.VRechargeRecordAction" scope="request"> 
+    <property name="service" ref="vRechargeRecordService"/> 
+  </bean>  
+  <bean id="refundRecordAction" class="cn.com.topit.gl.action.RefundRecordAction" scope="request"> 
+    <property name="service" ref="refundRecordService"/> 
+  </bean>  
+  <bean id="vRefundRecordAction" class="cn.com.topit.gl.action.VRefundRecordAction" scope="request"> 
+    <property name="service" ref="vRefundRecordService"/> 
+  </bean>  
+  <bean id="damageAction" class="cn.com.topit.gl.action.DamageAction" scope="request"> 
+    <property name="service" ref="damageService"/> 
+  </bean>  
+  <bean id="vDamageAction" class="cn.com.topit.gl.action.VDamageAction" scope="request"> 
+    <property name="service" ref="vDamageService"/> 
+  </bean>  
+  <bean id="meetingRoomBookingAction" class="cn.com.topit.gl.action.MeetingRoomBookingAction" scope="request"> 
+    <property name="service" ref="meetingRoomBookingService"/> 
+  </bean>  
+  <bean id="telRoomBookingAction" class="cn.com.topit.gl.action.TelRoomBookingAction" scope="request"> 
+    <property name="service" ref="telRoomBookingService"/> 
+  </bean>  
+  <bean id="vipRoomBookingAction" class="cn.com.topit.gl.action.VipRoomBookingAction" scope="request"> 
+    <property name="service" ref="vipRoomBookingService"/> 
+  </bean>  
+  <bean id="exhibitionRoomBookingAction" class="cn.com.topit.gl.action.ExhibitionRoomBookingAction" scope="request"> 
+    <property name="service" ref="exhibitionRoomBookingService"/> 
+  </bean>  
+  <bean id="vBookingExhibitionRoomAction" class="cn.com.topit.gl.action.VBookingExhibitionRoomAction" scope="request"> 
+    <property name="service" ref="vBookingExhibitionRoomService"/> 
+  </bean>  
+  <bean id="vBookingVipRoomAction" class="cn.com.topit.gl.action.VBookingVipRoomAction" scope="request"> 
+    <property name="service" ref="vBookingVipRoomService"/> 
+  </bean>  
+  <bean id="vBookingTelRoomAction" class="cn.com.topit.gl.action.VBookingTelRoomAction" scope="request"> 
+    <property name="service" ref="vBookingTelRoomService"/> 
+  </bean>  
+  <bean id="vBookingMeetingRoomAction" class="cn.com.topit.gl.action.VBookingMeetingRoomAction" scope="request"> 
+    <property name="service" ref="vBookingMeetingRoomService"/> 
+  </bean>  
+  <bean id="recipeTypeAction" class="cn.com.topit.gl.action.RecipeTypeAction" scope="request"> 
+    <property name="service" ref="recipeTypeService"/> 
+  </bean>  
+  <bean id="recipeAction" class="cn.com.topit.gl.action.RecipeAction" scope="request"> 
+    <property name="service" ref="recipeService"/> 
+  </bean>  
+  <bean id="vRecipeAction" class="cn.com.topit.gl.action.VRecipeAction" scope="request"> 
+    <property name="service" ref="vRecipeService"/> 
+  </bean>  
+  <bean id="ordersAction" class="cn.com.topit.gl.action.OrdersAction" scope="request"> 
+    <property name="service" ref="ordersService"/> 
+  </bean>  
+  <bean id="vOrdersAction" class="cn.com.topit.gl.action.VOrdersAction" scope="request"> 
+    <property name="service" ref="vOrdersService"/> 
+  </bean>  
+  <bean id="vOrdersListAction" class="cn.com.topit.gl.action.VOrdersListAction" scope="request"> 
+    <property name="service" ref="vOrdersListService"/> 
+  </bean>  
+  <bean id="roomFacilitiesAction" class="cn.com.topit.gl.action.RoomFacilitiesAction" scope="request"> 
+    <property name="service" ref="roomFacilitiesService"/> 
+  </bean>  
+  <bean id="productsAction" class="cn.com.topit.gl.action.ProductsAction" scope="request"> 
+    <property name="service" ref="productsService"/> 
+  </bean>  
+  <bean id="vVisitAction" class="cn.com.topit.gl.action.VVisitAction" scope="request"> 
+    <property name="service" ref="vVisitService"/> 
+  </bean>  
+  <bean id="vFloorLockAction" class="cn.com.topit.gl.action.VFloorLockAction" scope="request"> 
+    <property name="service" ref="vFloorLockService"/> 
+  </bean>  
+  <bean id="floorLockAction" class="cn.com.topit.gl.action.FloorLockAction" scope="request"> 
+    <property name="service" ref="floorLockService"/> 
+  </bean>  
+  <bean id="vNewWorkbenchAction" class="cn.com.topit.gl.action.VNewWorkbenchAction" scope="request"> 
+    <property name="service" ref="vNewWorkbenchService"/> 
+  </bean>  
+  <bean id="newWorkbenchAction" class="cn.com.topit.gl.action.NewWorkbenchAction" scope="request"> 
+    <property name="service" ref="newWorkbenchService"/> 
+  </bean>  
+  <bean id="vNewOfficeAction" class="cn.com.topit.gl.action.VNewOfficeAction" scope="request"> 
+    <property name="service" ref="vNewOfficeService"/> 
+  </bean>  
+  <bean id="newOfficeAction" class="cn.com.topit.gl.action.NewOfficeAction" scope="request"> 
+    <property name="service" ref="newOfficeService"/> 
+  </bean>  
+  <bean id="vNewMeetingRoomAction" class="cn.com.topit.gl.action.VNewMeetingRoomAction" scope="request"> 
+    <property name="service" ref="vNewMeetingRoomService"/> 
+  </bean>  
+  <bean id="newMeetingRoomAction" class="cn.com.topit.gl.action.NewMeetingRoomAction" scope="request"> 
+    <property name="service" ref="newMeetingRoomService"/> 
+  </bean>  
+  <bean id="vWorkbenchLockAction" class="cn.com.topit.gl.action.VWorkbenchLockAction" scope="request"> 
+    <property name="service" ref="vWorkbenchLockService"/> 
+  </bean>  
+  <bean id="workbenchLockAction" class="cn.com.topit.gl.action.WorkbenchLockAction" scope="request"> 
+    <property name="service" ref="workbenchLockService"/> 
+  </bean>  
+  <bean id="vOfficeLockAction" class="cn.com.topit.gl.action.VOfficeLockAction" scope="request"> 
+    <property name="service" ref="vOfficeLockService"/> 
+  </bean>  
+  <bean id="officeLockAction" class="cn.com.topit.gl.action.OfficeLockAction" scope="request"> 
+    <property name="service" ref="officeLockService"/> 
+  </bean>  
+  <bean id="vMeetingRoomLockAction" class="cn.com.topit.gl.action.VMeetingRoomLockAction" scope="request"> 
+    <property name="service" ref="vMeetingRoomLockService"/> 
+  </bean>  
+  <bean id="meetingRoomLockAction" class="cn.com.topit.gl.action.MeetingRoomLockAction" scope="request"> 
+    <property name="service" ref="meetingRoomLockService"/> 
+  </bean>  
+  <bean id="vNewBookingListAction" class="cn.com.topit.gl.action.VNewBookingListAction" scope="request"> 
+    <property name="service" ref="vNewBookingListService"/> 
+  </bean>  
+  <bean id="newBookingAction" class="cn.com.topit.gl.action.NewBookingAction" scope="request"> 
+    <property name="service" ref="newBookingService"/> 
+  </bean>  
+  <bean id="visitServiceAction" class="cn.com.topit.gl.action.VisitServiceAction" scope="request">
+    <property name="service" ref="visitServiceService"/>
+  </bean>
+</beans>

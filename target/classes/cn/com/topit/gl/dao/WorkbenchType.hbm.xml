@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.WorkbenchType" table="workbench_type" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" length="50" not-null="true"/>
+		</property>
+		<property name="intro" type="java.lang.String">
+			<column name="intro" length="500"/>
+		</property>
+		<property name="price" type="java.lang.Double">
+			<column name="price" precision="18"  scale="2" not-null="true"/>
+		</property>
+		<property name="deposit" type="java.lang.Double">
+			<column name="deposit" precision="18"  scale="2" not-null="true"/>
+		</property>
+		<property name="unit" type="java.lang.Integer">
+			<column name="unit" not-null="true"/>
+		</property>
+		<property name="count" type="java.lang.Integer">
+			<column name="count"/>
+		</property>
+		<property name="buildingId" type="java.lang.Integer">
+			<column name="building_id"/>
+		</property>
+		<property name="floorId" type="java.lang.Integer">
+			<column name="floor_id"/>
+		</property>
+		<property name="equipment" type="java.lang.String">
+			<column name="equipment" length="200"/>
+		</property>
+		<property name="pic" type="java.lang.String">
+			<column name="pic" length="200"/>
+		</property>
+		<property name="bigPic" type="java.lang.String">
+			<column name="big_pic" length="200"/>
+		</property>
+		<property name="leftPic" type="java.lang.String">
+			<column name="left_pic" length="200"/>
+		</property>
+		<property name="midPic" type="java.lang.String">
+			<column name="mid_pic" length="200"/>
+		</property>
+		<property name="rightPic" type="java.lang.String">
+			<column name="right_pic" length="200"/>
+		</property>
+		<property name="planePic" type="java.lang.String">
+			<column name="plane_pic" length="200"/>
+		</property>
+		<property name="buildingName" type="java.lang.String">
+			<column name="building_name" length="200"/>
+		</property>
+		<property name="floorName" type="java.lang.String">
+			<column name="floor_name" length="200"/>
+		</property>
+		<property name="acreage" type="java.lang.String">
+			<column name="acreage" length="200"/>
+		</property>
+	</class>
+</hibernate-mapping>

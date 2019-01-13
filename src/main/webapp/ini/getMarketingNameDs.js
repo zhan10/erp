@@ -1,0 +1,1 @@
+var marketingNameStore =[['dateFrom','入驻时间'],['bookingTime','预订下单时间'],['name','产品类型'],['member','客户级别'],['total','总价']] ;

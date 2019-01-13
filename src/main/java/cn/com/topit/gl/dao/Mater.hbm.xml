@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.Mater" table="mater" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="materid" type="java.lang.String">
+			<column name="materid" length="50" not-null="true"/>
+		</property>
+		<property name="matetypeid" type="java.lang.String">
+			<column name="matetypeid" length="50" not-null="true"/>
+		</property>
+		<property name="matername" type="java.lang.String">
+			<column name="matername" length="50" not-null="true"/>
+		</property>
+		<property name="stand" type="java.lang.String">
+			<column name="stand" length="50" not-null="true"/>
+		</property>
+		<property name="unit" type="java.lang.String">
+			<column name="unit" length="50" not-null="true"/>
+		</property>
+		<property name="ckid" type="java.lang.Long">
+			<column name="ckid" not-null="true"/>
+		</property>
+		<property name="warelocaid" type="java.lang.Long">
+			<column name="warelocaid" not-null="true"/>
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" length="500"/>
+		</property>
+		<property name="lastmoddate" type="java.util.Date">
+			<column name="lastmoddate" length="500"/>
+		</property>
+		<property name="lastmodmaker" type="java.lang.String">
+			<column name="lastmodmaker" length="50" not-null="true"/>
+		</property>
+		<property name="mwidth" type="java.lang.Double">
+			<column name="mwidth"  precision="18"  scale="2" />
+		</property>
+		<property name="mdeepth" type="java.lang.Double">
+			<column name="mdeepth"  precision="18"  scale="2" />
+		</property>
+		<property name="mheighth" type="java.lang.Double">
+			<column name="mheighth"  precision="18"  scale="2" />
+		</property>
+	</class>
+</hibernate-mapping>

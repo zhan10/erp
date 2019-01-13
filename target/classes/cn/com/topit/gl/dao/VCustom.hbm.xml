@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.VCustom" table="v_custom" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="code" type="java.lang.String">
+			<column name="code" length="100" not-null="true"/>
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="name" length="100" not-null="true"/>
+		</property>
+		<property name="shortName" type="java.lang.String">
+			<column name="short_name" length="100" not-null="true"/>
+		</property>
+		<property name="category" type="java.lang.String">
+			<column name="category" length="50"/>
+		</property>
+		<property name="genre" type="java.lang.String">
+			<column name="genre" length="50"/>
+		</property>
+		<property name="linkman" type="java.lang.String">
+			<column name="linkman" length="50"/>
+		</property>
+		<property name="tel" type="java.lang.String">
+			<column name="tel" length="50"/>
+		</property>
+		<property name="fax" type="java.lang.String">
+			<column name="fax" length="50"/>
+		</property>
+		<property name="country" type="java.lang.String">
+			<column name="country" length="50"/>
+		</property>
+		<property name="region" type="java.lang.String">
+			<column name="region" length="50"/>
+		</property>
+		<property name="address" type="java.lang.String">
+			<column name="address" length="200"/>
+		</property>
+		<property name="zipcode" type="java.lang.String">
+			<column name="zipcode" length="50"/>
+		</property>
+		<property name="email" type="java.lang.String">
+			<column name="email" length="100"/>
+		</property>
+		<property name="web" type="java.lang.String">
+			<column name="web" length="50"/>
+		</property>
+		<property name="account" type="java.lang.String">
+			<column name="account" length="100"/>
+		</property>
+		<property name="memo" type="java.lang.String">
+			<column name="memo" length="500"/>
+		</property>
+		<property name="salesId" type="java.lang.Long">
+			<column name="sales_id" length="19"/>
+		</property>
+		<property name="corporation" type="java.lang.String">
+			<column name="corporation" length="50"/>
+		</property>
+		<property name="salesName" type="java.lang.String">
+			<column name="sales_name" length="20"/>
+		</property>
+	</class>
+</hibernate-mapping>

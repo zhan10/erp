@@ -1,0 +1,270 @@
+@import "variable.less";
+//清除浏览器默认样式
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, em, strong, img, form, input, label, textarea, button, ul, ol, li, dl, dt, dd, address{
+	margin:0; 
+	padding:0; 
+	border:none; 
+	outline:0; 
+	-moz-box-sizing: content-box;  
+    -webkit-box-sizing: content-box; 
+    -o-box-sizing: content-box; 
+    -ms-box-sizing: content-box; 
+    box-sizing: content-box;
+}
+body {
+	position: relative; 
+	font-size: 12px; 
+	font-family: 'Microsoft YaHei','微软雅黑','黑体','宋体','arial';
+	background: white;
+}
+h1,h2,h3,h4,h5,h6 { 
+	font-weight: normal;
+}
+img {
+	vertical-align: middle;
+}
+ol, ul{
+	list-style: none;
+}
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  border: none;
+}
+input, select, textarea { 
+	background: none;
+}
+textarea { 
+	resize: none;
+}
+a { 
+	text-decoration: none;
+}
+a:hover, a:focus { 
+	text-decoration: none;
+}
+a:focus, button:focus { 
+	outline: 0!important;
+}
+
+p { 
+	line-height: 180%;
+}
+
+//input focus效果类
+input {
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+input:focus {
+  //border-color: red!important;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.2), 0 0 8px rgba(102, 175, 233, .8);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.2), 0 0 8px rgba(102, 175, 233, .8);
+}
+input::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+input:-ms-input-placeholder {
+  color: #999;
+}
+input::-webkit-input-placeholder {
+  color: #999;
+}
+input[disabled],
+input[readonly],
+fieldset[disabled] input {
+  background-color: #eee;
+  opacity: 1;
+}
+input[disabled],
+fieldset[disabled] input {
+  cursor: not-allowed;
+}
+
+//常用工具类
+.clearfloat { 
+	clear:both; 
+	overflow:hidden;
+	height: 0;
+}
+.clearBoth {
+	clear: both;
+}
+.clearfloatH10 { 
+	clear:both; 
+	overflow:hidden;
+	height: 10px;
+}
+.clearfloatH30 { 
+	clear:both; 
+	overflow:hidden;
+	height: 30px;
+}
+.clearfix { 
+	*zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.fl, .floatLeft { 
+	float: left;
+}
+.fr, .floatRight { 
+	float: right;
+}
+.text-c { 
+	text-align: center!important;
+}
+.text-r { 
+	text-align: right!important;
+}
+.hide { 
+	display: none;
+}
+.noMargin { 
+	margin: 0!important;
+}
+.noBorder { 
+	border: none!important;
+}
+.ellipsis { 
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+//页面共用类
+.bodyBg { 
+	background: #f7f7f7 url(../img/product-bg.jpg) no-repeat center 100px;
+	background-size: cover;
+}
+.container, .wrap { 
+	width: 960px;
+	margin: 0 auto;
+}
+.step { 
+	width: 960px;
+	margin-top: 38px;
+	height: 46px;
+	border: 1px solid #dadada;
+	color: #6b6b6b;
+	li { 
+		width: 320px;
+		height: 46px;
+		line-height: 46px;
+		float: left;
+		font-size: 20px;
+		text-align: center;
+	}
+	.stepArrow { 
+		background: url(../img/ui-1.png) no-repeat right center;
+	}
+	.current { 
+		color: white;
+		background-color: #86d442;
+		position: relative;
+		.sj-r { 
+			.sj-r(23px, #86d442);
+			position: absolute;
+			top: 0;
+			right: -46px;
+		}
+	}
+}
+.infoForm { 
+	font-size: 16px;
+	color: #6b6b6b;
+	padding-left: 28px;
+	.h3 { 
+		font-size: 24px;
+		text-indent: 28px;
+		padding-bottom: 12px;
+		margin-top: 26px;
+		margin-left: -28px;
+		border-bottom: 1px solid #dadada;
+	}
+	.submitBtn { 
+		text-align: center;
+		margin: 60px 0;
+		button { 
+			display: inline-block;
+			width: 290px;
+			height: 60px;
+			line-height: 60px;
+			color: white;
+			font-size: 32px;
+			letter-spacing: 2px;
+			background-color: #86d442;
+			font-family: 'Microsoft YaHei','微软雅黑','黑体','宋体','arial';
+			cursor: pointer;
+			&:hover { 
+				background-color: #71b410;
+			}
+		}
+	}
+}
+#contractCon { 
+	display: none;
+	width: 760px;
+	height: 560px;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	z-index: 999;
+	margin-left: -380px;
+	margin-top: -280px;
+	background-color: white;
+	border: 2px solid #f96209;
+	overflow: hidden;
+	_position: absolute;
+	_left: 100px;
+	_top: 400px;
+	_margin-left: auto;
+	_margin-top: auto;
+	#close { 
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		cursor: pointer;
+		&:hover { 
+			opacity: 0.8;
+		}
+	}
+	.h1 { 
+		text-align: center;
+		color: #333;
+		font-size: 24px;
+		margin-top: 30px;
+	}
+	.textbody { 
+		width: 660px;
+		height: 410px;
+		margin: 20px 30px 30px;
+		padding: 20px;
+		background-color: #eee;
+		overflow-y: scroll;
+		p { 
+			font-size: 14px;
+			padding-bottom: 12px;
+			color: #6b6b6b;
+			text-align: justify;
+		}
+	}
+}

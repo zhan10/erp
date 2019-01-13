@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.Product" table="product"  dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="billetId" type="java.lang.Long">
+			<column name="billet_id" length="19"/>
+		</property>
+		<property name="batchId" type="java.lang.Long">
+			<column name="batch_id" length="19"/>
+		</property>
+		<property name="cutCode" type="java.lang.String">
+			<column name="cut_code" length="100"/>
+		</property>
+		<property name="orderItemId" type="java.lang.Long">
+			<column name="order_item_id" length="19"/>
+		</property>
+		<property name="length" type="java.math.BigDecimal">
+			<column name="length" length="18"/>
+		</property>
+		<property name="thickness" type="java.math.BigDecimal">
+			<column name="thickness" length="18"/>
+		</property>
+		<property name="width" type="java.math.BigDecimal">
+			<column name="width" length="18"/>
+		</property>
+		<property name="weight" type="java.math.BigDecimal">
+			<column name="weight" length="18"/>
+		</property>
+		<property name="status" type="java.lang.Integer">
+			<column name="status" length="10" not-null="true"/>
+		</property>
+		<property name="produceOrderId" type="java.lang.Long">
+			<column name="produce_order_id" length="19"/>
+		</property>
+	</class>
+</hibernate-mapping>

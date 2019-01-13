@@ -1,0 +1,46 @@
+/* framework */
+#header {z-index:99999; background-color:#1f2024;height: 100px;position:relative; box-shadow:2px 2px 3px  rgba(10,10,10,0.6);/*margin-bottom:3px;box-shadow:0 3px 3px rgba(0,0,0,0.2);*/z-index:999}
+#slider { background-color:#1f2024; margin-top:0px;}
+#content {background-color:#6F8188;z-index:9999;}
+#footer {background-color: #252628;height: 300px;}        
+
+#header .wrap{background-color:#1f2024;color:#b0b0b2;height:100px;} 
+#header .logo{display:inline-block;float:left;width:250px;background-image:url(../image/iwork-sprite.png);background-position:0 0; height:58px; margin-top:40px;}
+#header .menu{display:inline-block;float:left; height:100%;}
+#header .login{display:inline-block;float:right;padding-top:65px; width:120px;}
+#header .city{display:inline-block;float:right;width:100px;background-image:url(../image/iwork-sprite.png);background-position:-250px 0; height:50px; margin-top:50px;}
+
+#header .menuTitle{color:#b0b0b2; font-weight:bold;margin:5px 0;}
+#header .menuItem{color:#818284;display:inline-block; float:left; padding:0 10px; height:95px; min-width:60px;position:relative;cursor:pointer;}
+#header .menuItem:hover{ /*background-color:#34363b;*/ border-bottom:solid 5px #75ce16; color:#818284;cursor:pointer; }
+#header .menuEn{color:#606169; font:10px arial; top:50px; position:relative; height:10px;line-height:10px;}
+#header .menuCn{color:#babbc8; font-size:14px;top:50px; position:relative;height:35px;line-height:35px;}
+#header .menuItem:hover .menuEn{color:#9ab91a;}
+#header .menuItem:hover .menuCn{color:#b8f113;}
+#header .menu .selected .menuEn{color:#528d13;}
+#header .menu .selected .menuCn{color:#75ce16;}
+#header .menu .selected{ /*background-color:#34363b;*/ border-bottom:solid 5px #75ce16; color:#818284;}
+
+#header .booking .subMenu{z-index:99999; background-color:#1f2024;box-shadow:2px 2px 6px rgba(10,10,10,0.5);clear:both;  visibility:hidden;width:160px;z-index:100;position:relative;top:55px; left:-10px;}
+#header .booking{width:80px;}
+#header .booking:hover .subMenu{visibility:visible;}
+#header .subMenuItem{color:#818284;padding:5px 10px 5px 10px; height:40px; line-height:40px; vertical-align:middle;  text-indent:10px;display:block; }
+#header .subMenuItem:hover{background-color:#35363c;color:#75ce16;}
+
+#header .login a{color:#babbc8;padding:0 5px;cursor:pointer;display:inline-block;  height:30px; line-height:30px; text-align:center; width:45px;}
+#header .login a:hover{color:red;background-color:#3a3c44;}
+
+#footer .wrap{font-size:12px;height:100%;}
+#footer .footerLine1{height:60px; line-height:60px;text-align:center;padding:10px 0 10px 0;}
+#footer .footerLine2{border-top:solid #3a3b3d 1px;border-bottom:solid #3a3b3d 1px; height:40px; }
+#footer .footerLine3{height:150px;}
+#footer .footerLine4{ color:#6f7074; height:30px;}
+
+#footer .logo2{background-image:url(../image/iwork-sprite.png);background-position:0 -600px; height:100%;width:300px;display:inline-block;}
+#footer .floatLeft{float:left}
+#footer .floatRight{float:right}
+#footer .footerLine3 .wrap div{display:inline-block;width:150px;}
+#footer .menuTitle{color:#cbc9ce; font-weight:bold; margin-top:10px;}
+#footer .menuItem{color:#6f7074; margin-top:10px;}
+#footer .erweima{background-image:url(../image/iwork-sprite.png);background-position:0 -650px; height:100px;width:100px;display:inline-block; float:right;}
+#footer .erweimaText{color:#b0b0b2;display:inline-block;float:right;width:85px; text-indent:16px;}

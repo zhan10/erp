@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.NewBooking" table="new_booking" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="status" type="java.lang.Integer">
+			<column name="status" length="4" not-null="true"/>
+		</property>
+		<property name="code" type="java.lang.String">
+			<column name="code" length="100" not-null="true"/>
+		</property>
+		<property name="bookingTime" type="java.util.Date">
+			<column name="booking_time" length="8" not-null="true"/>
+		</property>
+		<property name="productType" type="java.lang.Integer">
+			<column name="product_type" length="4" not-null="true"/>
+		</property>
+		<property name="productId" type="java.lang.Long">
+			<column name="product_id" length="8" not-null="true"/>
+		</property>
+		<property name="consumerId" type="java.lang.Long">
+			<column name="consumer_id" length="8" not-null="true"/>
+		</property>
+		<property name="quantity" type="java.lang.Integer">
+			<column name="quantity" length="4" not-null="true"/>
+		</property>
+		<property name="total" type="java.math.BigDecimal">
+			<column name="total" length="9" not-null="true"/>
+		</property>
+		<property name="dateFrom" type="java.util.Date">
+			<column name="date_from" length="8" not-null="true"/>
+		</property>
+		<property name="dateTo" type="java.util.Date">
+			<column name="date_to" length="8" not-null="true"/>
+		</property>
+		<property name="price" type="java.math.BigDecimal">
+			<column name="price" length="9" not-null="true"/>
+		</property>
+		<property name="deposit" type="java.math.BigDecimal">
+			<column name="deposit" length="9" not-null="true"/>
+		</property>
+	</class>
+</hibernate-mapping>

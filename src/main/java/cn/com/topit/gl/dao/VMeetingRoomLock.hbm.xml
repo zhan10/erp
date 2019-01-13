@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.VMeetingRoomLock" table="v_meeting_room_lock" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="productId" type="java.lang.Long">
+			<column name="product_id" length="8" not-null="true"/>
+		</property>
+		<property name="lockFrom" type="java.util.Date">
+			<column name="lock_from" length="8" not-null="true"/>
+		</property>
+		<property name="lockTo" type="java.util.Date">
+			<column name="lock_to" length="8" not-null="true"/>
+		</property>
+		<property name="productName" type="java.lang.String">
+			<column name="product_name" length="50" not-null="true"/>
+		</property>
+		<property name="buildingName" type="java.lang.String">
+			<column name="building_name" length="200" not-null="true"/>
+		</property>
+		<property name="floorName" type="java.lang.String">
+			<column name="floor_name" length="200" not-null="true"/>
+		</property>
+	</class>
+</hibernate-mapping>

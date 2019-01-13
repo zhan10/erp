@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.VBookingList" table="v_booking_list" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="status" type="java.lang.Integer">
+			<column name="status" length="4" not-null="true"/>
+		</property>
+		<property name="buildingName" type="java.lang.String">
+			<column name="building_name" length="200" not-null="true"/>
+		</property>
+		<property name="cityName" type="java.lang.String">
+			<column name="city_name" length="50" not-null="true"/>
+		</property>
+		<property name="areaName" type="java.lang.String">
+			<column name="area_name" length="50" not-null="true"/>
+		</property>
+		<property name="code" type="java.lang.String">
+			<column name="code" length="100" not-null="true"/>
+		</property>
+		<property name="bookingTime" type="java.util.Date">
+			<column name="booking_time" length="10" not-null="true"/>
+		</property>
+		<property name="consumerName" type="java.lang.String">
+			<column name="consumer_name" length="200" not-null="true"/>
+		</property>
+		<property name="consumerId" type="java.lang.Long">
+			<column name="consumer_id" length="8" not-null="true"/>
+		</property>
+		<property name="areaId" type="java.lang.Long">
+			<column name="area_id" length="8" not-null="true"/>
+		</property>
+		<property name="buildingId" type="java.lang.Long">
+			<column name="building_id" length="8" not-null="true"/>
+		</property>
+		<property name="total" type="java.lang.Double">
+			<column name="total" precision="18"  scale="2" not-null="true"/>
+		</property>
+		<property name="cityId" type="java.lang.Long">
+			<column name="city_id" length="8" not-null="true"/>
+		</property>
+		<property name="bookingId" type="java.lang.Long">
+			<column name="booking_id" length="8" not-null="true"/>
+		</property>
+		<property name="productType" type="java.lang.Integer">
+			<column name="product_type" length="4" not-null="true"/>
+		</property>
+		<property name="dateFrom" type="java.util.Date">
+			<column name="date_from" length="10" not-null="true"/>
+		</property>
+		<property name="dateTo" type="java.util.Date">
+			<column name="date_to" length="10" not-null="true"/>
+		</property>
+		<property name="certificateCode" type="java.lang.String">
+			<column name="certificate_code" length="100" not-null="true"/>
+		</property>
+		<property name="floorName" type="java.lang.String">
+			<column name="floor_name" length="50" not-null="true"/>
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="name" length="50" not-null="true"/>
+		</property>
+		<property name="state" type="java.lang.Integer">
+			<column name="state" length="50" not-null="true"/>
+		</property>
+		<property name="badge" type="java.lang.Long">
+			<column name="badge" length="8" not-null="false"/>
+		</property>
+	</class>
+</hibernate-mapping>

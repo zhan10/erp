@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.VTechCardOrders" table="v_tech_card_orders" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="ordersItemId" type="java.lang.Long">
+			<column name="orders_item_id" length="8" not-null="true"/>
+		</property>
+		<property name="techCardId" type="java.lang.Long">
+			<column name="tech_card_id" length="8" not-null="true"/>
+		</property>
+		<property name="allotWeight" type="java.math.BigDecimal">
+			<column name="allot_weight" length="9" not-null="true"/>
+		</property>
+		<property name="ordersNum" type="java.lang.String">
+			<column name="orders_num" length="50" not-null="true"/>
+		</property>
+		<property name="storeLimit" type="java.util.Date">
+			<column name="store_limit" length="3"/>
+		</property>
+		<property name="ordersId" type="java.lang.Long">
+			<column name="orders_id" length="8" not-null="true"/>
+		</property>
+		<property name="serialNum" type="java.lang.Integer">
+			<column name="serial_num" length="4"/>
+		</property>
+		<property name="spec1" type="java.math.BigDecimal">
+			<column name="spec1" length="9"/>
+		</property>
+		<property name="spec2" type="java.math.BigDecimal">
+			<column name="spec2" length="9"/>
+		</property>
+		<property name="alloyModel" type="java.lang.String">
+			<column name="alloy_model" length="50"/>
+		</property>
+		<property name="alloyStatus" type="java.lang.String">
+			<column name="alloy_status" length="50"/>
+		</property>
+		<property name="thicknessTolerance" type="java.lang.String">
+			<column name="thickness_tolerance" length="50"/>
+		</property>
+		<property name="widthTolerance" type="java.lang.String">
+			<column name="width_tolerance" length="50"/>
+		</property>
+		<property name="outerDiameter" type="java.lang.String">
+			<column name="outer_diameter" length="50"/>
+		</property>
+		<property name="innerDiameter" type="java.lang.String">
+			<column name="inner_diameter" length="50"/>
+		</property>
+		<property name="jointNum" type="java.lang.String">
+			<column name="joint_num" length="50"/>
+		</property>
+		<property name="pinholeNum" type="java.lang.String">
+			<column name="pinhole_num" length="50"/>
+		</property>
+		<property name="wettability" type="java.lang.String">
+			<column name="wettability" length="50"/>
+		</property>
+		<property name="tensileStrength" type="java.lang.String">
+			<column name="tensile_strength" length="50"/>
+		</property>
+		<property name="extensibility" type="java.lang.String">
+			<column name="extensibility" length="50"/>
+		</property>
+		<property name="sideSpread" type="java.lang.String">
+			<column name="side_spread" length="50"/>
+		</property>
+		<property name="wholeSpread" type="java.lang.String">
+			<column name="whole_spread" length="50"/>
+		</property>
+		<property name="leng" type="java.lang.Integer">
+			<column name="leng" length="4"/>
+		</property>
+		<property name="lengthTolerance" type="java.lang.String">
+			<column name="length_tolerance" length="50"/>
+		</property>
+		<property name="appearance" type="java.lang.String">
+			<column name="appearance" length="200"/>
+		</property>
+		<property name="otherStandard" type="java.lang.String">
+			<column name="other_standard" length="200"/>
+		</property>
+		<property name="specialReq" type="java.lang.String">
+			<column name="special_req" length="200"/>
+		</property>
+		<property name="purpose" type="java.lang.String">
+			<column name="purpose" length="50"/>
+		</property>
+		<property name="amount" type="java.math.BigDecimal">
+			<column name="amount" length="9"/>
+		</property>
+		<property name="packReq" type="java.lang.String">
+			<column name="pack_req" length="200"/>
+		</property>
+		<property name="memo" type="java.lang.String">
+			<column name="memo" length="200"/>
+		</property>
+		<property name="produceWeight" type="java.math.BigDecimal">
+			<column name="produce_weight" length="9"/>
+		</property>
+		<property name="totalAllotWeight" type="java.math.BigDecimal">
+			<column name="total_allot_weight" length="9"/>
+		</property>
+		
+	</class>
+</hibernate-mapping>

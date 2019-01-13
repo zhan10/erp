@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.Office" table="office" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="acreage" type="java.lang.String">
+			<column name="acreage" length="200" />
+		</property>
+		<property name="bigPic" type="java.lang.String">
+			<column name="big_pic" length="200"/>
+		</property>
+		<property name="leftPic" type="java.lang.String">
+			<column name="left_pic" length="200"/>
+		</property>
+		<property name="midPic" type="java.lang.String">
+			<column name="mid_pic" length="200"/>
+		</property>
+		<property name="rightPic" type="java.lang.String">
+			<column name="right_pic" length="200"/>
+		</property>
+		<property name="planePic" type="java.lang.String">
+			<column name="plane_pic" length="200"/>
+		</property>
+		<property name="area" type="java.lang.String">
+			<column name="area" length="200"/>
+		</property>
+		<property name="orientation" type="java.lang.String">
+			<column name="orientation" length="200"/>
+		</property>
+		<property name="typeId" type="java.lang.Long">
+			<column name="type_id" length="8" not-null="true"/>
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="name" length="200" not-null="true"/>
+		</property>
+		<property name="intro" type="java.lang.String">
+			<column name="intro" length="2000"/>
+		</property>
+		<property name="floorId" type="java.lang.Long">
+			<column name="floor_id" length="8" not-null="true"/>
+		</property>
+		<property name="pic" type="java.lang.String">
+			<column name="pic" length="200"/>
+		</property>
+		<property name="persons" type="java.lang.Integer">
+			<column name="persons" length="4" not-null="true"/>
+		</property>
+		<property name="equipment" type="java.lang.String">
+			<column name="equipment" length="200"/>
+		</property>
+	</class>
+</hibernate-mapping>

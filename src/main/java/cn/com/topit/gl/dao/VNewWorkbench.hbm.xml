@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.VNewWorkbench" table="v_new_workbench" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="buildingId" type="java.lang.Long">
+			<column name="building_id" length="8"/>
+		</property>
+		<property name="buildingName" type="java.lang.String">
+			<column name="building_name" length="200"/>
+		</property>
+		<property name="floorId" type="java.lang.Long">
+			<column name="floor_id" length="8" not-null="true"/>
+		</property>
+		<property name="floorName" type="java.lang.String">
+			<column name="floor_name" length="200"/>
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="name" length="50" not-null="true"/>
+		</property>
+		<property name="quantity" type="java.lang.Long">
+			<column name="quantity" length="8" not-null="true"/>
+		</property>
+		<property name="price" type="java.math.BigDecimal">
+			<column name="price" length="9" not-null="true"/>
+		</property>
+		<property name="deposit" type="java.lang.Integer">
+			<column name="deposit" length="4" not-null="true"/>
+		</property>
+		<property name="payRatio" type="java.lang.String">
+			<column name="pay_ratio" length="50" not-null="true"/>
+		</property>
+		<property name="planePic" type="java.lang.String">
+			<column name="plane_pic" length="200"/>
+		</property>
+		<property name="coverPic" type="java.lang.String">
+			<column name="cover_pic" length="200"/>
+		</property>
+		<property name="intro" type="java.lang.String">
+			<column name="intro" length="2000"/>
+		</property>
+		<property name="type" type="java.lang.Integer">
+			<column name="type" length="4" not-null="true"/>
+		</property>
+	</class>
+</hibernate-mapping>
