@@ -13,6 +13,16 @@
 		            mapping: function(raw) {
 		               return raw[1];
            			 }
+      		  }, {
+		            name: 'grade',
+		            mapping: function(raw) {
+		               return raw[2];
+           			 }
+      		  }, {
+		            name: 'parentid',
+		            mapping: function(raw) {
+		               return raw[3];
+           			 }
       		  }],
 			proxy : {
 				type : 'ajax',

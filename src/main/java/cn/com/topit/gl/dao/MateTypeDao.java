@@ -15,7 +15,7 @@ public class MateTypeDao extends GenericDaoImpl<MateType, Long>{
 			log.info("finding " + type.getClass().getName() + " with whereSql: "
 					+ whereSql);
 			try {
-				String queryString = "select matetypeid as id,matertypename as name from " + tableName
+				String queryString = "select matetypeid as id,matertypename as name,grade,parentid from " + tableName
 						+ " where 1=1 " + whereSql;
 				return (List) (sessionFactory.getCurrentSession().createQuery(
 						queryString).list());

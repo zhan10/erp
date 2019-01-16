@@ -19,17 +19,14 @@
 				}
 			}
 		 }
-		,{text : '<s:text name="mateType.grade" />',dataIndex:'grade',name:'grade',align : 'center',width:100,flex:1}
+		,{text : '<s:text name="mateType.grade" />',dataIndex:'grade',name:'grade',align : 'center',width:100,flex:1,hidden : true}
 		,{
 			text : '<s:text name="mateType.parentid" />',
 			dataIndex:'parentid',
 			name:'parentid',
 			align : 'center',
 			width:100,
-			flex:1,
-			renderer : function(val) {
-				return cb_mateType_ds.findRecord('id', val).get('name');
-			}
+			flex:1,hidden : true
 		}
 		
 	];

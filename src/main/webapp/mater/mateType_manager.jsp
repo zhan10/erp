@@ -91,10 +91,12 @@
 						'->','-'
 						<sec:authorize url="/mater/mateType!add">
 						,getAddButton(win,winTitle + '——新增','新增',function(){})
-						,getCopyAddButton(win,winTitle + '——拷贝添加', sm,'拷贝添加',function(){})	
 						</sec:authorize>
 						<sec:authorize url="/mater/mateType!edit">
-						,getEditButton(win,winTitle+'——修改', sm,'修改',function(){})
+						,getEditButton(win,winTitle+'——修改', sm,'修改',function(){
+							var rec=(sm.getSelection())[0];
+							set(rec);
+						})
 						</sec:authorize>
 						<sec:authorize url="/mater/mateType!del">
 						,getDelButton(ds, sm, 'mater/mateType!delete','删除')
@@ -106,7 +108,9 @@
 					iconCls: 'open',
 					text: '查看',
 					handler: function(widget, event) {
-						showWin(win, winTitle+'——查看',sm);	
+						showWin(win, winTitle+'——查看',sm);
+						var rec=(sm.getSelection())[0];
+						set(rec);
 					}
 				});
 				var addAction = Ext.create('Ext.Action', {
@@ -128,6 +132,8 @@
 					text: '修改',
 					handler: function(widget, event) { 
 						editWin(win,winTitle+'——修改', sm);  
+						var rec=(sm.getSelection())[0];
+						set(rec);
 					}	
 				});
 				var delAction = Ext.create('Ext.Action', {
@@ -140,7 +146,7 @@
 				var contextMenu = Ext.create('Ext.menu.Menu', {
 					 items: [
 						showAction,'-'
-						<sec:authorize url="/mater/mateType!add">,addAction,copyAddAction</sec:authorize>
+						<sec:authorize url="/mater/mateType!add">,addAction</sec:authorize>
 						<sec:authorize url="/mater/mateType!edit">,editAction</sec:authorize>
 						<sec:authorize url="/mater/mateType!del">,delAction</sec:authorize>
 					 ]
@@ -148,6 +154,7 @@
 				grid = getGrid('grid',gridTitle,ds,mainColumns, sm, tbar, bbar);
 				grid.on('itemdblclick', function(grid,rec) {
 					showWinByRec(win,winTitle+'——查看',rec);
+					set(rec);
 				});
 				grid.on('itemcontextmenu',function(view, rec, node, index, e) {
 					e.stopEvent();
@@ -159,6 +166,26 @@
 					items : grid
 				});	
 		});
+		function set(rec){
+			var grade = rec.get("grade");
+			if(grade==1){
+				form.down('#grades').items.get(0).setValue(true);
+				form.down('#parentid').hide();
+			}else if(grade==2){
+				form.down('#parentid').setValue(rec.get("matetypeid"));
+				form.down('#parentid').show();
+				form.down('#grades').items.get(1).setValue(true);
+			}else{
+				form.down('#parentid').show();
+				form.down('#grades').items.get(2).setValue(true);
+			}
+			var isend = rec.get("isend");
+			if(isend){
+				form.down('#isend').items.get(0).setValue(true);
+			}else{
+				form.down('#isend').items.get(1).setValue(true);
+			}
+		}
 	</script>
 </body>
 </html>
