@@ -3,6 +3,7 @@
 	form = Ext.widget('form', {
 		fileUpload : true,
 		enctype : 'multipart/form-data',
+		id:'form1',
 		itemId : 'form',
 		autoScroll : true,
 		overflowX : 'scroll',
@@ -48,10 +49,12 @@
 			},{
 				xtype : 'container',
 				layout : 'hbox',
+				id:'mateTypeCombos',
 				defaultType : 'textfield',
 				items : [
 					{
 						flex : 1,
+						
 						allowBlank : false,
 						name : 'matetypeid',
 						itemId : 'matetypeid',
@@ -59,7 +62,36 @@
 						displayField : 'name',forceSelection:false,
 						valueField : 'id',
 						store : cb_mateType_ds,
-						fieldLabel : '<s:text name="mater.matetypeid" />'
+						fieldLabel : '<s:text name="mater.matetypeid" />',
+						listeners : {
+							select : function() {		
+								var items=Ext.getCmp('mateTypeCombos');
+								items.add(	
+									{
+										width : 200,
+										allowBlank : false,
+										name : 'matetypeid',
+										xtype : 'combo',
+										displayField : 'name',forceSelection:false,
+										valueField : 'id',
+										store : cb_mateType_ds,
+										fieldLabel : '<s:text name="mater.matetypeid" />',
+										listeners : {
+											select : function() {		
+												var items=Ext.getCmp('mateTypeCombos');
+												items.add(
+														
+												)
+												//Ext.apply(cb_warehouseSite_ds.proxy.extraParams,{whereSql : ' and wid='+this.getValue()});
+												//cb_warehouseSite_ds.loadPage(1);
+											}
+										}
+									}			
+								)
+								//Ext.apply(cb_warehouseSite_ds.proxy.extraParams,{whereSql : ' and wid='+this.getValue()});
+								//cb_warehouseSite_ds.loadPage(1);
+							}
+						}
 					}
 				]
 			},{
@@ -70,6 +102,7 @@
 					{
 						flex : 1,
 						allowBlank : false,
+						itemId:'stand',
 						name : 'stand',
 						fieldLabel : '<s:text name="mater.stand"/>'
 					},
@@ -150,24 +183,25 @@
 			},{
 				xtype : 'container',
 				layout : 'hbox',
+				hidden : false,
 				defaultType : 'textfield',
 				items : [
 					{
 						flex : 1,
-						allowBlank : false,
 						name : 'mwidth',
+						itemId : 'mwidth',
 						fieldLabel : '<s:text name="mater.mwidth"/>'
 					},
 					{
 						flex : 1,
-						allowBlank : false,
 						name : 'mheighth',
+						itemId : 'mheighth',
 						fieldLabel : '<s:text name="mater.mheighth"/>'
 					},
 					{
 						flex : 1,
-						allowBlank : false,
 						name : 'mdeepth',
+						itemId : 'mdeepth',
 						fieldLabel : '<s:text name="mater.mdeepth"/>'
 					}
 				]
@@ -190,9 +224,20 @@
 					itemId : 'btnSave',
 					handler : function() {
 						var saveForm = this.up('form');
-						if (saveForm.getForm().isValid()) {
+						debugger;
+						//规格
+						var stand = saveForm.down('#stand').getValue();
+						var stands = stand.split("*");
+						//设置长度
+						saveForm.down('#mwidth').setValue(stands[0]);
+						//设置宽度
+						saveForm.down('#mheighth').setValue(stands[1]);
+						//设置厚度
+						saveForm.down('#mdeepth').setValue(stands[2]);
+						//alert(Ext.JSON.encode(saveForm.getForm().getValues()));
+						/*if (saveForm.getForm().isValid()) {
 							saveFormToDB(saveForm, 'mater/mater!save',grid);
-						}
+						}*/
 					}
 				}, {
 					text : '关闭',

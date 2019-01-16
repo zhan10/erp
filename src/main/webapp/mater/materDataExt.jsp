@@ -39,9 +39,9 @@
 				return cb_warehouseSite_ds.findRecord('id', val).get('name');
 			}
 		 }
-		,{text : '<s:text name="mater.mwidth" />',dataIndex:'mwidth',name:'mwidth',align : 'center',width:100,flex:1}
-		,{text : '<s:text name="mater.mheighth" />',dataIndex:'mheighth',name:'mheighth',align : 'center',width:100,flex:1}
-		,{text : '<s:text name="mater.mdeepth" />',dataIndex:'mdeepth',name:'mdeepth',align : 'center',width:100,flex:1}
+		,{text : '<s:text name="mater.mwidth" />',dataIndex:'mwidth',name:'mwidth',align : 'center',width:100,flex:1,hidden : true}
+		,{text : '<s:text name="mater.mheighth" />',dataIndex:'mheighth',name:'mheighth',align : 'center',width:100,flex:1,hidden : true}
+		,{text : '<s:text name="mater.mdeepth" />',dataIndex:'mdeepth',name:'mdeepth',align : 'center',width:100,flex:1,hidden : true}
 		,{text : '<s:text name="mater.lastmodmaker" />',dataIndex:'lastmodmaker',name:'lastmodmaker',align : 'center',width:100,flex:1}
 		,{
 			text : '<s:text name="mater.lastmoddate" />',
@@ -58,7 +58,7 @@
 				}
 			}
 		 }
-		,{text : '<s:text name="mater.description" />',dataIndex:'description',name:'description',align : 'center',width:100,flex:1}
+		,{text : '<s:text name="mater.description" />',dataIndex:'description',name:'description',align : 'center',width:100,flex:1,hidden : true}
 	];
 	var columnOperators = [{
 		xtype:'rownumberer',
