@@ -3,7 +3,6 @@
 	form = Ext.widget('form', {
 		fileUpload : true,
 		enctype : 'multipart/form-data',
-		id:'form1',
 		itemId : 'form',
 		autoScroll : true,
 		overflowX : 'scroll',
@@ -54,44 +53,22 @@
 				items : [
 					{
 						flex : 1,
-						
 						allowBlank : false,
 						name : 'matetypeid',
-						itemId : 'matetypeid',
+						id : 'matetypeid',
 						xtype : 'combo',
 						displayField : 'name',forceSelection:false,
 						valueField : 'id',
 						store : cb_mateType_ds,
 						fieldLabel : '<s:text name="mater.matetypeid" />',
 						listeners : {
-							select : function() {		
+							select : function() {
 								var items=Ext.getCmp('mateTypeCombos');
-								items.add(	
-									{
-										width : 200,
-										allowBlank : false,
-										name : 'matetypeid',
-										xtype : 'combo',
-										displayField : 'name',forceSelection:false,
-										valueField : 'id',
-										store : cb_mateType_ds,
-										fieldLabel : '<s:text name="mater.matetypeid" />',
-										listeners : {
-											select : function() {		
-												var items=Ext.getCmp('mateTypeCombos');
-												items.add(
-														
-												)
-												//Ext.apply(cb_warehouseSite_ds.proxy.extraParams,{whereSql : ' and wid='+this.getValue()});
-												//cb_warehouseSite_ds.loadPage(1);
-											}
-										}
-									}			
-								)
+								addItem(items);
 								//Ext.apply(cb_warehouseSite_ds.proxy.extraParams,{whereSql : ' and wid='+this.getValue()});
 								//cb_warehouseSite_ds.loadPage(1);
 							}
-						}
+						 } 
 					}
 				]
 			},{
@@ -247,4 +224,27 @@
 					}
 				} ]
 	});
+	function addItem(item){
+		var con = Ext.create('Ext.container.Container', {
+		    layout: 'hbox',
+		    defaultType : 'textfield',
+			items : [  
+				{
+					width:100,
+					allowBlank : false,
+					name : 'matetypeid',
+					xtype : 'combo',
+					displayField : 'name',forceSelection:false,
+					valueField : 'id',
+					store : cb_mateType_ds,
+					listeners : {
+						select : function() {
+							addItem(item)
+						}
+					}
+				}
+			]
+		})
+		item.add(con);
+	}
 </script>

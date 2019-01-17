@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../ext/resources/css/ext-all-neptune.css" />
+<script type="text/javascript" src="../ext/ext-all.js"></script>
+<script type="text/javascript" src="demo/js/comboboxTree.js"></script>
+<script type="text/javascript" src="data.json"></script>
+<script type="text/javascript">
+Ext.onReady(function(){	
+	  Ext.create("Ext.form.Panel", {
+	    title: '下拉树菜单',
+	    margin:'50 0 0 300',
+	    height: 500,
+	      width: 700,
+	    items:[{
+	      xtype: 'comboboxtree',
+	      id: 'myComboboxTree',
+	      fieldLabel: '下拉树选择',
+	      width: 400,
+	      labelWidth: 80,
+	      margin: '100 0 0 150',
+	      displayField: 'text',
+	      multiSelect: false,//是否可以多选
+	      multiCascade: false,//是否级联选择
+	      rootVisible: false,//是否显示根节点
+		  selectNodeModel: 'leaf',//leaf:只选择叶子结点 all：所有结点都可选中 exceptRoot：除根结点，其它结点都可选(默认) folder:只有目录（非叶子和非根结点）可选
+	      valueField: 'id',
+	      minPickerHeight: 200,//默认最小高度
+	      store: Ext.create('Ext.data.TreeStore',{
+	        root: {
+	          text: '全部',
+	          expanded: false,
+	          checked: false
+	        },
+	        proxy: {
+	          type: 'ajax',
+	          url: 'data.json',
+	          reader: {
+	            type: 'json'
+	          }
+	        }
+	      })
+	    },{
+	    	xtype: 'button',
+	    	text: '获取值',
+	    	margin: '10 0 0 350',
+	    	handler: function(){
+	    		alert(Ext.getCmp('myComboboxTree').getValue());
+	    		alert(Ext.getCmp('myComboboxTree').getRawValue());
+				alert(Ext.getCmp('myComboboxTree').getSubmitValue());
+	    	}
+	    }],
+	    renderTo: Ext.getBody()
+	  });
+	});
+</script>
+</head>
+<body>
+
+</body>
+</html>
