@@ -23,6 +23,11 @@
 		            mapping: function(raw) {
 		               return raw[3];
            			 }
+      		  }, {
+		            name: 'isend',
+		            mapping: function(raw) {
+		               return raw[4];
+           			 }
       		  }],
 			proxy : {
 				type : 'ajax',

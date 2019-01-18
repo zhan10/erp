@@ -105,6 +105,8 @@
 						'->','-'
 						<sec:authorize url="/mater/mater!add">
 						,getAddButton(win,winTitle + '——新增','新增',function(){
+							Ext.apply(cb_mateType_ds.proxy.extraParams,{whereSql : ' and grade=1'});
+							cb_mateType_ds.loadPage(1);
 							set();
 						})
 						,getCopyAddButton(win,winTitle + '——拷贝添加', sm,'拷贝添加',function(){
