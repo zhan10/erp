@@ -4,6 +4,7 @@
 <head>
 	<%@ include file="../jspComm/extHeader.jsp"%>
 	<%@ include file="materDefine.jsp"%>
+	<script type="text/javascript" src="mater/mateType.js"></script>
 	<!-- 下拉框数据 -->
 	<%@ include file="../c/cb_warehouse.jsp"%>
 	<%@ include file="../c/cb_mateType.jsp"%>
@@ -110,11 +111,19 @@
 							set();
 						})
 						,getCopyAddButton(win,winTitle + '——拷贝添加', sm,'拷贝添加',function(){
+							var rec=(sm.getSelection())[0];
+							Ext.apply(cb_mateType_ds.proxy.extraParams,{whereSql : ' '});
+							cb_mateType_ds.loadPage(1);
+							form.down('#matetypeid0').setValue(rec.get("matetypeid"));
 							set();
 						})	
 						</sec:authorize>
 						<sec:authorize url="/mater/mater!edit">
 						,getEditButton(win,winTitle+'——修改', sm,'修改',function(){
+							var rec=(sm.getSelection())[0];
+							Ext.apply(cb_mateType_ds.proxy.extraParams,{whereSql : ' '});
+							cb_mateType_ds.loadPage(1);
+							form.down('#matetypeid0').setValue(rec.get("matetypeid"));
 							set();
 						})
 						</sec:authorize>
@@ -129,6 +138,10 @@
 					text: '查看',
 					handler: function(widget, event) {
 						showWin(win, winTitle+'——查看',sm);	
+						var rec=(sm.getSelection())[0];
+						Ext.apply(cb_mateType_ds.proxy.extraParams,{whereSql : ' '});
+						cb_mateType_ds.loadPage(1);
+						form.down('#matetypeid0').setValue(rec.get("matetypeid"));
 					}
 				});
 				var addAction = Ext.create('Ext.Action', {
@@ -145,6 +158,10 @@
 					handler: function(widget, event) { 
 						copyAddWin(win,winTitle + '——拷贝添加', sm);   
 						set();
+						var rec=(sm.getSelection())[0];
+						Ext.apply(cb_mateType_ds.proxy.extraParams,{whereSql : ' '});
+						cb_mateType_ds.loadPage(1);
+						form.down('#matetypeid0').setValue(rec.get("matetypeid"));
 					}
 				});
 				var editAction = Ext.create('Ext.Action', {
@@ -153,6 +170,10 @@
 					handler: function(widget, event) { 
 						editWin(win,winTitle+'——修改', sm);  
 						set();
+						var rec=(sm.getSelection())[0];
+						Ext.apply(cb_mateType_ds.proxy.extraParams,{whereSql : ' '});
+						cb_mateType_ds.loadPage(1);
+						form.down('#matetypeid0').setValue(rec.get("matetypeid"));
 					}	
 				});
 				var delAction = Ext.create('Ext.Action', {
@@ -173,6 +194,9 @@
 				grid = getGrid('grid',gridTitle,ds,mainColumns, sm, tbar, bbar);
 				grid.on('itemdblclick', function(grid,rec) {
 					showWinByRec(win,winTitle+'——查看',rec);
+					Ext.apply(cb_mateType_ds.proxy.extraParams,{whereSql : ' '});
+					cb_mateType_ds.loadPage(1);
+					form.down('#matetypeid0').setValue(rec.get("matetypeid"));
 				});
 				grid.on('itemcontextmenu',function(view, rec, node, index, e) {
 					e.stopEvent();

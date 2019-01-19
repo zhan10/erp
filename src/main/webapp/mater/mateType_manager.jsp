@@ -168,6 +168,7 @@
 		});
 		function set(rec){
 			var grade = rec.get("grade");
+			form.down('#gradeOld').setValue(grade);
 			if(grade==1){
 				form.down('#grades').items.get(0).setValue(true);
 				form.down('#parentid').hide();
@@ -178,12 +179,6 @@
 			}else{
 				form.down('#parentid').show();
 				form.down('#grades').items.get(2).setValue(true);
-			}
-			var isend = rec.get("isend");
-			if(isend){
-				form.down('#isend').items.get(0).setValue(true);
-			}else{
-				form.down('#isend').items.get(1).setValue(true);
 			}
 		}
 	</script>
