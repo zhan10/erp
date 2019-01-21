@@ -4,7 +4,7 @@ dsUrl = 'mater/mater!managerExt'
 gridTitle='<s:text name="mater.tbl.title"/>';
 winTitle = '<s:text name="mater.tbl.title"/>';
 winWidth=640,
-winHeight=400,
+winHeight=470,
 baseSql='';
 order=' order by matetypeid desc';
 var fileTypes = "jpg,png,gif,jpeg"; 

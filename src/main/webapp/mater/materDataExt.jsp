@@ -42,6 +42,10 @@
 		,{text : '<s:text name="mater.mwidth" />',dataIndex:'mwidth',name:'mwidth',align : 'center',width:100,flex:1,hidden : true}
 		,{text : '<s:text name="mater.mheighth" />',dataIndex:'mheighth',name:'mheighth',align : 'center',width:100,flex:1,hidden : true}
 		,{text : '<s:text name="mater.mdeepth" />',dataIndex:'mdeepth',name:'mdeepth',align : 'center',width:100,flex:1,hidden : true}
+		,{text : '<s:text name="mater.highct" />',dataIndex:'highct',name:'highct',align : 'center',width:100,flex:1,hidden : true}
+		,{text : '<s:text name="mater.lowct" />',dataIndex:'lowct',name:'lowct',align : 'center',width:100,flex:1,hidden : true}
+		,{text : '<s:text name="mater.safect" />',dataIndex:'safect',name:'safect',align : 'center',width:100,flex:1,hidden : true}
+		,{text : '<s:text name="mater.atct" />',dataIndex:'atct',name:'atct',align : 'center',width:100,flex:1,hidden : true}
 		,{text : '<s:text name="mater.lastmodmaker" />',dataIndex:'lastmodmaker',name:'lastmodmaker',align : 'center',width:100,flex:1}
 		,{
 			text : '<s:text name="mater.lastmoddate" />',

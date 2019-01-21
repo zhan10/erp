@@ -16,7 +16,11 @@ public class Mater implements GenericPojo,java.io.Serializable {
 	private String lastmodmaker;
 	private double mwidth;
 	private double mdeepth;
-	private double mheighth;	
+	private double mheighth;
+	private float highct;
+	private float lowct;
+	private float safect;
+	private float atct;
 	
 	public Long getId() {
 		return id;
@@ -183,6 +187,46 @@ public class Mater implements GenericPojo,java.io.Serializable {
 		this.mheighth = mheighth;
 	}
 
+
+
+	public float getHighct() {
+		return highct;
+	}
+
+
+	public void setHighct(float highct) {
+		this.highct = highct;
+	}
+
+
+	public float getLowct() {
+		return lowct;
+	}
+
+
+	public void setLowct(float lowct) {
+		this.lowct = lowct;
+	}
+
+
+	public float getSafect() {
+		return safect;
+	}
+
+
+	public void setSafect(float safect) {
+		this.safect = safect;
+	}
+
+
+	public float getAtct() {
+		return atct;
+	}
+
+
+	public void setAtct(float atct) {
+		this.atct = atct;
+	}
 
 
 	public Mater() {

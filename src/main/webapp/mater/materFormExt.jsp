@@ -96,7 +96,22 @@
 						allowBlank : false,
 						itemId:'stand',
 						name : 'stand',
-						fieldLabel : '<s:text name="mater.stand"/>'
+						fieldLabel : '<s:text name="mater.stand"/>',
+						regex: /^\d+\*\d+\*\d+$/,
+						regexText : '请输入正确的规格:xxx*xxx*xxx',
+						listeners : {
+							blur : function(t) {
+								var stands = t.getValue().split("*");
+								if(stands.length==3){
+									//设置长度
+									this.up('form').getForm().findField('mwidth').setValue(stands[0]);
+									//设置宽度
+									this.up('form').getForm().findField('mheighth').setValue(stands[1]);
+									//设置厚度
+									this.up('form').getForm().findField('mdeepth').setValue(stands[2]);
+								}
+							}
+						}
 					},
 					{
 						flex : 1,
@@ -108,26 +123,37 @@
 			},{
 				xtype : 'container',
 				layout : 'hbox',
-				hidden : false,
 				defaultType : 'textfield',
 				items : [
 					{
 						flex : 1,
-						name : 'mwidth',
-						itemId : 'mwidth',
-						fieldLabel : '<s:text name="mater.mwidth"/>'
+						name : 'atct',
+						itemId : 'atct',
+						fieldLabel : '<s:text name="mater.atct"/>'
 					},
 					{
 						flex : 1,
-						name : 'mheighth',
-						itemId : 'mheighth',
-						fieldLabel : '<s:text name="mater.mheighth"/>'
+						name : 'safect',
+						itemId : 'safect',
+						fieldLabel : '<s:text name="mater.safect"/>'
+					}
+				]
+			},{
+				xtype : 'container',
+				layout : 'hbox',
+				defaultType : 'textfield',
+				items : [
+					{
+						flex : 1,
+						name : 'highct',
+						itemId : 'highct',
+						fieldLabel : '<s:text name="mater.highct"/>'
 					},
 					{
 						flex : 1,
-						name : 'mdeepth',
-						itemId : 'mdeepth',
-						fieldLabel : '<s:text name="mater.mdeepth"/>'
+						name : 'lowct',
+						itemId : 'lowct',
+						fieldLabel : '<s:text name="mater.lowct"/>'
 					}
 				]
 			},{
@@ -200,7 +226,6 @@
 			},{
 				xtype : 'container',
 				layout : 'hbox',
-				hidden : false,
 				defaultType : 'textfield',
 				items : [
 					{
@@ -241,16 +266,15 @@
 					itemId : 'btnSave',
 					handler : function() {
 						var saveForm = this.up('form');
-						debugger;
 						//规格
-						var stand = saveForm.down('#stand').getValue();
-						var stands = stand.split("*");
+						//var stand = saveForm.down('#stand').getValue();
+						//var stands = stand.split("*");
 						//设置长度
-						saveForm.down('#mwidth').setValue(stands[0]);
+						//saveForm.down('#mwidth').setValue(stands[0]);
 						//设置宽度
-						saveForm.down('#mheighth').setValue(stands[1]);
+						//saveForm.down('#mheighth').setValue(stands[1]);
 						//设置厚度
-						saveForm.down('#mdeepth').setValue(stands[2]);
+						//saveForm.down('#mdeepth').setValue(stands[2]);
 						//alert(Ext.JSON.encode(saveForm.getForm().getValues()));
 						if (saveForm.getForm().isValid()) {
 							saveFormToDB(saveForm, 'mater/mater!save',grid);

@@ -24,7 +24,7 @@
 		Ext.onReady(function() {
 			Ext.QuickTips.init();
 			Ext.Date.defaultFormat='Y-m-d';
-			win = getWindow(winTitle,winWidth,winHeight,640,400,form);
+			win = getWindow(winTitle,winWidth,winHeight,640,470,form);
 			ds = getDs(mainFields, 'mater/mater!managerExt', baseSql,order);
 			ds.load();
 			sm = Ext.create('Ext.selection.CheckboxModel', {
@@ -214,6 +214,9 @@
 			form.down('#lastmodmaker').setValue(userName);
 			form.down('#lastmoddate').setReadOnly(true);
 			form.down('#lastmodmaker').setReadOnly(true);
+			form.down('#mwidth').setReadOnly(true);
+			form.down('#mheighth').setReadOnly(true);
+			form.down('#mdeepth').setReadOnly(true);
 		}
 	</script>
 </body>
