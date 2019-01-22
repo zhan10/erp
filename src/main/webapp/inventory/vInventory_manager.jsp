@@ -4,6 +4,7 @@
 <head>
 	<%@ include file="../jspComm/extHeader.jsp"%>
 	<%@ include file="vInventoryDefine.jsp"%>
+	<script type="text/javascript" src="inventory/vInventory.js"></script>
 	<!-- 下拉框数据 -->
 	<%@ include file="../c/cb_mateType.jsp"%>
 	<%@ include file="../c/cb_mater.jsp"%>
@@ -11,6 +12,8 @@
 	<%@ include file="../c/cb_warehouseSite.jsp"%>
 	<script type="text/javascript" src="ini/getWarehouseTypeStatusDs.js"></script>
 	<%@ include file="vInventoryDataExt.jsp"%>
+	<%@ include file="vInventoryGrid.jsp"%>
+	<%@ include file="materGrid.jsp"%>
 	<%@ include file="vInventoryFormExt.jsp"%>
 	<%@ include file="vInventorySearchExt.jsp"%>
 </head>
@@ -24,7 +27,7 @@
 			Ext.QuickTips.init();
 			Ext.Date.defaultFormat='Y-m-d';
 			win = getWindow(winTitle,winWidth,winHeight,640,400,form);
-			batchWin=getWindow('批量修改',320,160,320,160,batchForm);
+			batchWin=getWindow('增加材料',540,300,540,300,batchForm);
 			ds = getDs(mainFields, 'inventory/vInventory!managerExt', baseSql,order);
 			ds.load();
 			sm = Ext.create('Ext.selection.CheckboxModel', {
@@ -95,22 +98,9 @@
 						},
 						'->','-'
 						<sec:authorize url="/mater/mater!add">
-						,getAddButton(win,winTitle + '——入库','入库',function(){
-							form.down('#records').hide();
+						,getAddButton(win,winTitle + '——记录入库','记录入库',function(){
 							form.down('#type').setValue(1);
-							set();
 						})
-						,getEditButton(win,winTitle+'——出库', sm,'出库',function(){
-							var rec=(sm.getSelection())[0];
-							get(rec.get("materid"))
-							form.down('#records').show();
-							form.down('#id').setValue("");
-							form.down('#quantities').setValue("");
-							form.down('#type').setValue(2);
-							form.down('#matetypeid').setReadOnly(true);
-							form.down('#materid').setReadOnly(true);
-							set();
-						}),getBatchButton(batchWin,sm,'批量修改数量')
 						/* ,getCopyAddButton(win,winTitle + '——拷贝添加', sm,'拷贝添加',function(){
 							set();
 						})	 */

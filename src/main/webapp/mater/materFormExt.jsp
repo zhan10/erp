@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
+<script type="text/javascript" src="mater/mateType.js"></script>
 <script>
 	var number = 0;
 	form = Ext.widget('form', {

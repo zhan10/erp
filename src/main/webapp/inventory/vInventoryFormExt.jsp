@@ -24,12 +24,13 @@
 		},
 		items : [
 			{
-				itemId : 'id',
-				name : 'id',
-				hidden : true
-			},{
 				itemId : 'type',
 				name : 'type',
+				hidden : true
+			},
+			/* {
+				itemId : 'id',
+				name : 'id',
 				hidden : true
 			},{
 				xtype : 'container',
@@ -157,7 +158,7 @@
 						fieldLabel : '<s:text name="vInventory.principal"/>'
 					}
 				]
-			}
+			}, */vInventory_grid
 		],
 		buttons : [
 				{
@@ -167,18 +168,10 @@
 						var saveForm = this.up('form');
 						//类型
 						var type = saveForm.down('#type').getValue();
-						//数量
-						var quantities = saveForm.down('#quantities').getValue();
-						//剩余库存量
-						var records = saveForm.down('#records').getValue();
 						if(type=2){
-							if((records-quantities)>=0){
-								if (saveForm.getForm().isValid()) {
-									saveFormToDB(saveForm, 'inventory/inventory!save',grid);
-								}
-							}else{
-								alert("超出剩余库存量。")
-							} 
+							if (saveForm.getForm().isValid()) {
+								saveFormToDB(saveForm, 'inventory/inventory!save',grid);
+							}
 						}else{
 							if (saveForm.getForm().isValid()) {
 								saveFormToDB(saveForm, 'inventory/inventory!save',grid);
@@ -193,6 +186,7 @@
 					}
 				} ]
 	});
+	var mateTypeDs = gatData(" and 1=1"); 
 	batchForm = Ext.widget('form',{
 		itemId : 'batchForm',
 		autoScroll : true,
@@ -211,48 +205,21 @@
 		defaults : {
 			margins : '0 0 10 0'
 		},
-		items :[{
-			flex : 1,
-			value:'quantities',
-			name : 'name',
-			itemId:'selectName',
-			fieldLabel : '修改数量',
-			allowBlank : false,
-			xtype : 'combo',
-			forceSelection: true,
-			store : [
-				['quantities','<s:text name="vInventory.quantities"/>']
-			],
-			listeners : {
-				select : function() {
-					var nodes = this.up('form').query('[name=value]');
-					for (i = 0; i < nodes.length; i++) {
-						if (nodes[i].getItemId() == (this.value)) {
-							nodes[i].setDisabled(false);
-							nodes[i].setVisible(true);
-						} else {
-							nodes[i].setDisabled(true);
-							nodes[i].setVisible(false);
-						}
-					}
-				}
-			}
-		}
-		,{
-			flex : 1,
-			name : 'value',
-			fieldLabel : '设置新值',
-			itemId:'quantities'
-		}
+		items :[
+			mater_grid
 		],
 		buttons:[
 			{
-				text : '更新',
+				text : '确定',
 				handler : function() {
-					var saveForm = this.up('form');
-					if (saveForm.getForm().isValid()) {
-						updateFieldsToDB(saveForm,sm,'inventory/inventory!updateFields',function() {});
-					}
+					var data = mater_sm.getSelection();
+					for(let index in data) { 
+							var name = mateTypeDs.findRecord('id', data[index].data.matetypeid).get('name'); 
+							data[index].data["matetypename"]=name;
+							data[index].data["quantities"]=10;
+					    };
+					store.insert(0,data);
+					this.up('window').hide();
 				}
 			},{
 				text : '取消',
