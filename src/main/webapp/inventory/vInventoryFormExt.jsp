@@ -213,11 +213,11 @@
 				text : '确定',
 				handler : function() {
 					var data = mater_sm.getSelection();
-					for(let index in data) { 
-							var name = mateTypeDs.findRecord('id', data[index].data.matetypeid).get('name'); 
-							data[index].data["matetypename"]=name;
-							data[index].data["quantities"]=10;
-					    };
+					for(var index in data) { 
+						var name = mateTypeDs.findRecord('id', data[index].data.matetypeid).get('name'); 
+						data[index].data["matetypename"]=name;
+						data[index].data["quantities"]=10;
+					};
 					store.insert(0,data);
 					this.up('window').hide();
 				}
