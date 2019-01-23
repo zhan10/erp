@@ -8,7 +8,6 @@ function addItem(item,id){
 			items : [  
 				{
 					width:100,
-					allowBlank : false,
 					xtype : 'combo',
 					displayField : 'name',forceSelection:false,
 					valueField : 'id',

@@ -165,18 +165,24 @@
 					text : '保存',
 					itemId : 'btnSave',
 					handler : function() {
+						var jsonArray = new Array();
+						var time=Ext.Date.format(new Date(),'Y-m-d H:i:s');
 						var saveForm = this.up('form');
 						//类型
 						var type = saveForm.down('#type').getValue();
-						if(type=2){
-							if (saveForm.getForm().isValid()) {
-								saveFormToDB(saveForm, 'inventory/inventory!save',grid);
-							}
-						}else{
-							if (saveForm.getForm().isValid()) {
-								saveFormToDB(saveForm, 'inventory/inventory!save',grid);
-							}
+						//var principal = saveForm.down('#principal').getValue();
+						for(var i=0;i<store.getCount();i++){
+							var storeData = store.getAt(i).data;
+							storeData["id"]="";
+							storeData["type"]=type;
+							storeData["principal"]=userName;
+							storeData["updateTime"]=time;
+							jsonArray.push(storeData);
 						}
+						saveDB(jsonArray, saveForm,'inventory/inventory!save',grid);
+						/* if (saveForm.getForm().isValid()) {
+							saveFormToDB(saveForm, 'inventory/inventory!save',grid);
+						} */
 					}
 				}, {
 					text : '关闭',
@@ -228,4 +234,45 @@
 				}
 			}]
 		});
+	function saveDB(json,paramForm, url, paramGrid, func) {
+		var saveFormJson = Ext.JSON.encode(json);
+		Ext.Msg.wait("请等候", "保存数据", "保存数据进行中...");
+		Ext.Ajax.request({
+			url : url,
+			timeout : 60000,
+			params : {
+				extJson : saveFormJson
+			},
+			method : 'post',
+			success : function(response) {
+				var responseText = response.responseText;
+				if (responseText.indexOf('topit_ext_id!') != 0) {
+					Ext.Msg.alert('错误', (response.responseText));
+				} else {
+					Ext.Msg.alert('恭喜', "数据保存成功!", function() {
+						/* if (paramForm.down('#id').getValue() == '') {
+							// 新增记录
+							paramForm.down('#id')
+									.setValue(
+											responseText.substring(13,
+													responseText.length));						
+							paramGrid.getStore().insert(0, paramForm.getValues());
+							//paramGrid.getStore().load();
+						} else {
+							paramForm.updateRecord();
+							//paramGrid.getStore().load();
+						} */
+						paramForm.up('window').hide();
+						paramGrid.getStore().load();
+						if (typeof (func) != 'undefined')
+							func();
+					});
+				}
+			},
+
+			failure : function(response) {
+				Ext.Msg.alert('错误', (response.responseText));
+			}
+		});
+	}
 </script>

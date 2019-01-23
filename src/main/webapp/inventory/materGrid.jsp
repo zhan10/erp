@@ -56,7 +56,6 @@
 						items : [
 							 {
 								flex : 1,
-								allowBlank : false,
 								itemId : 'matetypeid'+number,
 								xtype : 'combo',
 								displayField : 'name',forceSelection:false,

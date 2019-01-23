@@ -48,16 +48,15 @@ public class InventoryAction extends GenericActionSupport<Inventory> {
 		// String json = UTF2GBK.unicodeToUtf8(extJson);//
 		// extjs中json.encode编码为unicode，要转换为utf-8
 		String json = (extJson);
-		JSONObject jsonObject=JSONObject.fromObject(json);	
+		JSONArray jsonArray=JSONArray.fromObject(json);	
 		
 		response.reset();
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html");
 		log.info(json);
 		try {
-				JSONArray str=jsonObject.getJSONArray("materid");
-				for(int i=0;i<str.size();i++) {
-					jsonObject.put("materid",str.get(i));
+				for(int i=0;i<jsonArray.size();i++) {
+					JSONObject jsonObject = jsonArray.getJSONObject(i);
 					inventory = service.saveByJSONObject(jsonObject);
 				}
 				response.getWriter().print(

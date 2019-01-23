@@ -101,10 +101,25 @@
 						,getAddButton(win,winTitle + '——记录入库','记录入库',function(){
 							form.down('#type').setValue(1);
 						})
+						</sec:authorize>
+						
+						<sec:authorize url="/mater/mater!add1">
+						,Ext.create('Ext.Button', {
+							text : "记录出库",
+							tooltip : '记录出库',
+							iconCls : 'add',
+							itemId : 'tbar_btn_add1',
+							handler : function() {
+								addWin(win, winTitle + '——记录出库');
+								form.down('#type').setValue(2);
+							}
+						})
+						</sec:authorize>
+						
 						/* ,getCopyAddButton(win,winTitle + '——拷贝添加', sm,'拷贝添加',function(){
 							set();
 						})	 */
-						</sec:authorize>
+						
 						/* <sec:authorize url="/mater/mater!edit">
 						,getEditButton(win,winTitle+'——修改', sm,'修改',function(){
 							set();
