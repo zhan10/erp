@@ -3,6 +3,7 @@
 	//定义列  
 	var columns = [ 
 		{text : 'id',dataIndex : 'id',width : 40,hidden : true},
+		{text : '原材料库存',dataIndex : 'atct',width : 40,hidden : true},
 		{text : 'matetypeid',dataIndex : 'matetypeid',width : 40,hidden : true},
 		{text : '<s:text name="vInventory.materid" />',dataIndex : 'materid',align : 'center',flex:1},
 		{text : '<s:text name="vInventory.matername" />',dataIndex : 'matername',align : 'center',flex:1},
@@ -18,6 +19,7 @@
 	    data:data,  
 	    fields:[  
 	       {name:'id'}, //mapping:0 这样的可以指定列显示的位置，0代表第1列，可以随意设置列显示的位置  
+	       {name:'atct'}, 
 	       {name:'materid'},  
 	       {name:'matername'},
 	       {name:'matetypeid'},
@@ -56,6 +58,7 @@
 		        text:'增加材料',  
 		        handler:function(){  
 		        	batchWin.show();
+		        	mater_grid.getStore().removeAll();
 		        }  
 	        },'-',{  
 	            text:'删除',  

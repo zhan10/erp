@@ -6,6 +6,7 @@
   </bean>
   <bean id="inventoryAction" class="cn.com.topit.gl.action.InventoryAction" scope="request"> 
     <property name="service" ref="inventoryService"/> 
+    <property name="materService" ref="materService"/> 
   </bean>
   <bean id="materAction" class="cn.com.topit.gl.action.MaterAction" scope="request"> 
     <property name="service" ref="materService"/> 

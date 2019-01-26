@@ -5,12 +5,10 @@
 	<%@ include file="vInventory_manager.jsp"%>
 	<script>
 	baseSql=' and type=2';
-/* 	Ext.onReady(function() {
-		grid.down('#gridOpen').show();
-		grid.down('#gridInvalid').show();
-		openAction.setHidden(false);
-		invalidAction.setHidden(false);
-	}); */
+ 	Ext.onReady(function() {
+ 		grid.down('#tbar_btn_add1').show();
+ 		grid.down('#tbar_btn_add').hide();
+	}); 
 	</script>
 	
 </head>

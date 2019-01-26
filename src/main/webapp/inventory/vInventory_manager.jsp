@@ -100,18 +100,21 @@
 						<sec:authorize url="/mater/mater!add">
 						,getAddButton(win,winTitle + '——记录入库','记录入库',function(){
 							form.down('#type').setValue(1);
+							vInventory_grid.getStore().removeAll();
 						})
 						</sec:authorize>
 						
 						<sec:authorize url="/mater/mater!add1">
 						,Ext.create('Ext.Button', {
 							text : "记录出库",
+							hidden:true,
 							tooltip : '记录出库',
 							iconCls : 'add',
 							itemId : 'tbar_btn_add1',
 							handler : function() {
 								addWin(win, winTitle + '——记录出库');
 								form.down('#type').setValue(2);
+								vInventory_grid.getStore().removeAll();
 							}
 						})
 						</sec:authorize>
@@ -179,8 +182,8 @@
 				});
 				grid = getGrid('grid',gridTitle,ds,mainColumns, sm, tbar, bbar);
 				grid.on('itemdblclick', function(grid,rec) {
-					get(rec.get("materid"))
-					showWinByRec(win,winTitle+'——查看',rec);
+					//get(rec.get("materid"))
+					//showWinByRec(win,winTitle+'——查看',rec);
 				});
 				 /*grid.on('itemcontextmenu',function(view, rec, node, index, e) {
 					e.stopEvent();

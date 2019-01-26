@@ -165,6 +165,7 @@
 					text : '保存',
 					itemId : 'btnSave',
 					handler : function() {
+						var bl = true; 
 						var jsonArray = new Array();
 						var time=Ext.Date.format(new Date(),'Y-m-d H:i:s');
 						var saveForm = this.up('form');
@@ -179,7 +180,24 @@
 							storeData["updateTime"]=time;
 							jsonArray.push(storeData);
 						}
-						saveDB(jsonArray, saveForm,'inventory/inventory!save',grid);
+						if(type==2){
+							for(var i=0;i<jsonArray.length;i++){
+								//原材料库存数量
+								var atct = jsonArray[i].atct;
+								//出入库数量
+								var quantities = jsonArray[i].quantities;
+								//原材料名称
+								var matername = jsonArray[i].matername;
+								if(quantities>atct){
+									Ext.Msg.alert('错误', matername+'，超出库存');
+									bl = false;
+									return;
+								}
+							}
+						}
+						if(bl){
+							saveDB(jsonArray, saveForm,'inventory/inventory!save',grid);
+						}
 						/* if (saveForm.getForm().isValid()) {
 							saveFormToDB(saveForm, 'inventory/inventory!save',grid);
 						} */

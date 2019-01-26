@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import cn.com.topit.base.GenericActionSupport;
 import cn.com.topit.gl.dao.Inventory;
 import cn.com.topit.gl.service.InventoryService;
+import cn.com.topit.gl.service.MaterService;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -20,6 +21,7 @@ public class InventoryAction extends GenericActionSupport<Inventory> {
 	private static final long serialVersionUID = 1L;
 	private static final Logger log = LoggerFactory.getLogger(InventoryAction.class);
 	private InventoryService service;
+	private MaterService materService;
 	protected String materid = "";
 	
 	public String getMaterid() {
@@ -30,6 +32,10 @@ public class InventoryAction extends GenericActionSupport<Inventory> {
 	}
 	public void setService(InventoryService service) {
 		this.service = service;
+		super.setAbstractService(service);
+	}
+	public void setMaterService(MaterService service) {
+		this.materService = service;
 		super.setAbstractService(service);
 	}
 	public String getResult() {
@@ -57,7 +63,24 @@ public class InventoryAction extends GenericActionSupport<Inventory> {
 		try {
 				for(int i=0;i<jsonArray.size();i++) {
 					JSONObject jsonObject = jsonArray.getJSONObject(i);
-					inventory = service.saveByJSONObject(jsonObject);
+					//原材料id
+					String materid = jsonObject.getString("materid");
+					//出入库数量
+					double quantities = jsonObject.getDouble("quantities");
+					//库存数量
+					double atct = jsonObject.getDouble("atct");
+					if(jsonObject.getInt("type")==2) {
+						int r = materService.updateAtct(atct-quantities, materid);
+						if(r>0) {
+							inventory = service.saveByJSONObject(jsonObject);
+						}
+					}else {
+						int r = materService.updateAtct(atct+quantities, materid);
+						if(r>0) {
+							inventory = service.saveByJSONObject(jsonObject);
+						}
+						//inventory = service.saveByJSONObject(jsonObject);
+					}
 				}
 				response.getWriter().print(
 						"topit_ext_id!" + inventory.getId());

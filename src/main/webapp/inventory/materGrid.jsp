@@ -4,6 +4,7 @@
 	var matetypeid = 0;
 	var mater_Fields = [
 		{text : 'id',dataIndex : 'id',name : 'id',width : 40,hidden : true}
+		,{text : 'atct',dataIndex : 'atct',name : 'atct',width : 40,hidden : true}
 		,{text : '<s:text name="mater.materid" />',dataIndex : 'materid',name : 'materid',align : 'center',flex:1}
 		,{text : '<s:text name="mater.matername" />',dataIndex:'matername',name:'matername',align : 'center',flex:1}
 		,{text : '<s:text name="mater.matetypeid" />',dataIndex:'matetypeid',name:'matetypeid',align : 'center',flex:1,hidden:true}
