@@ -19,7 +19,7 @@
 				actionMethods : {
 					read : 'POST' // post方法解决中文参数乱码问题
 				},
-				url : 'hr/users!getUsersComboBox',
+				url : 'system/users!getUsersComboBox',
 				//url : 'hr/users!managerExt',
 				extraParams : {
 					baseSql : '',

@@ -42,16 +42,16 @@
   				<a class="icon icon-hexagon invisible"></a>
 	  			<a class="icon icon-hexagon invisible"></a>
 	  			<!-- <a class="icon icon-hexagon a5b4d8"></a> -->
-	  			<a href="inventory/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe604;<b>库存管理</b></i></a>
+	  			<a href="produce/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe604;<b>订单管理</b></i></a>
 	  			<a class="decorate"><img src="img/oms-1.png" alt="tu" /></a>
 	  			<a class="icon icon-hexagon invisible"></a>
 	  			<a class="icon icon-hexagon a5b4d8"></a>
   			</div>
   			<div class="clearfix row2">
   				<a class="decorate"><img src="img/oms-1.png" alt="tu" /></a>
-	  		<a href="warehouse/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe600;<b>仓库管理</b></i></a>
+  			<a href="inventory/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe604;<b>库存管理</b></i></a>
 	  		<a class="decorate"><img src="img/oms-2.png" alt="tu" /></a>
-	  		<a href="mater/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe604;<b>材料管理</b></i></a>
+	  		<a href="warehouse/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe600;<b>仓库管理</b></i></a>
 	  		<!-- <a class="icon icon-hexagon a5b4d8"></a> -->
 	  		<a class="icon icon-hexagon a5b4d8"></a>
 	  		<a class="icon icon-hexagon a5b4d8"></a>
@@ -61,7 +61,8 @@
 	  			<a href="system/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe606;<b>系统管理</b></i></a>
 	  			<!-- <a href="test/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe604;<b>测试</b></i></a> -->
 	  			<a class="icon icon-hexagon invisible"></a>
-	  			<a class="icon icon-hexagon a5b4d8"></a>
+	  			<a href="mater/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe604;<b>材料管理</b></i></a>
+	  			<!-- <a class="icon icon-hexagon a5b4d8"></a> -->
 	  			<a class="decorate"><img src="img/oms-3.png" alt="tu" /></a>
 	  			<a class="icon icon-hexagon invisible"></a>
   			</div>

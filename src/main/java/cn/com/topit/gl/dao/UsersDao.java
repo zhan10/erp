@@ -16,7 +16,7 @@ public class UsersDao extends GenericDaoImpl<Users, Long> {
 		log.info("finding " + type.getClass().getName() + " with whereSql: " + whereSql);
 
 		try {
-			String queryString = "select code,name from " + tableName + " where 1=1 " + whereSql;
+			String queryString = "select id,name from " + tableName + " where 1=1 " + whereSql;
 			return (List)(sessionFactory.getCurrentSession().createQuery(queryString).list());
 		} catch (Exception e) {
 			log.error("getUsersComboBox 出错：" + e.toString());

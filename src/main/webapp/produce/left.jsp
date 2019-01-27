@@ -17,7 +17,7 @@
 					items : [
 								{
 									xtype : 'label',
-									html : '<br><a href="produce/vNewBookingList_manager" target="rightFrame"><img src="img/nav/ordersItem7.png" width=48,height=48/><br>订单管理</a><br>'
+									html : '<br><a href="produce/vErpOrders_manager" target="rightFrame"><img src="img/nav/ordersItem7.png" width=48,height=48/><br>订单管理</a><br>'
 							    }
 							],
 					cls : 'empty'
@@ -65,7 +65,7 @@
 									collapsible : true, split: true,
 									title : '订单管理',									
 									itemCls:'required',
-									items : [<sec:authorize url="/produce/A">item1</sec:authorize><sec:authorize url="/produce/B">,item2</sec:authorize>],
+									items : [<sec:authorize url="/produce/A">item1</sec:authorize>],
 									listeners : {
 									
 										'collapse' : function(e, eOpts) {

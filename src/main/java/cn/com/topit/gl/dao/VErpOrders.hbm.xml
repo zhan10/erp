@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.VErpOrders" table="v_erp_orders" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="uid" type="java.lang.Long">
+			<column name="uid" length="8" not-null="true"/>
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="name" length="50" not-null="true"/>
+		</property>
+		<property name="mobile" type="java.lang.String">
+			<column name="mobile" length="50" not-null="true"/>
+		</property>
+		<property name="address" type="java.lang.String">
+			<column name="address" length="200" not-null="true"/>
+		</property>
+		<property name="status" type="java.lang.Integer">
+			<column name="status" length="4" not-null="true"/>
+		</property>
+		<property name="memo" type="java.lang.String">
+			<column name="memo" length="500" not-null="true"/>
+		</property>
+		<property name="ordersMoney" type="java.lang.Double">
+			<column name="orders_money" length="5" not-null="true"/>
+		</property>
+		<property name="cabinetQuantity" type="java.lang.Integer">
+			<column name="cabinet_quantity" length="4" not-null="true"/>
+		</property>
+		<property name="userName" type="java.lang.String">
+			<column name="user_name" length="50" not-null="true"/>
+		</property>
+		<property name="code" type="java.lang.String">
+			<column name="code" length="50" not-null="true"/>
+		</property>
+		<property name="ordersCode" type="java.lang.String">
+			<column name="orders_code" length="100" not-null="true"/>
+		</property>
+	</class>
+</hibernate-mapping>
