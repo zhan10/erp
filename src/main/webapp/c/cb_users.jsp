@@ -13,6 +13,11 @@
 		            mapping: function(raw) {
 		               return raw[1];
            			 }
+      		  }, {
+		            name: 'code',
+		            mapping: function(raw) {
+		               return raw[2];
+           			 }
       		  }],
 			proxy : {
 				type : 'ajax',

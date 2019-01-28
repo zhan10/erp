@@ -4,7 +4,17 @@
 		{text : 'id',dataIndex : 'id',name : 'id',width : 40,hidden : true}
 		,{text : 'uid',dataIndex : 'uid',name : 'uid',width : 40,hidden : true}
 		,{text : '<s:text name="vErpOrders.ordersCode" />',dataIndex:'ordersCode',name:'ordersCode',align : 'center',flex:1}
-		,{text : '<s:text name="vErpOrders.status" />',dataIndex:'status',name:'status',align : 'center',flex:1}
+		,{
+			text : '<s:text name="vErpOrders.status" />',
+			dataIndex:'status',
+			name:'status',
+			align : 'center',
+			flex:1,
+			renderer : function(val) {
+				var ret = erpOrdersStatusDs.findRecord('value', val).get('text');
+				return '<span style="color:blue">'+ret+'</span>';
+			}
+		 }
 		,{text : '<s:text name="vErpOrders.name" />',dataIndex:'name',name:'name',align : 'center',flex:1}
 		,{text : '<s:text name="vErpOrders.mobile" />',dataIndex:'mobile',name:'mobile',align : 'center',flex:1}
 		,{text : '<s:text name="vErpOrders.address" />',dataIndex:'address',name:'address',align : 'center',flex:1}
@@ -17,26 +27,18 @@
 	var columnOperators = [{
 		xtype:'rownumberer',
 		width:40
-	}/* ,{
+	} ,{
 		xtype:'actioncolumn',
 		locked:true,
 		width:50,
-		items:[ {
-			icon:'img/toolbar/edit.gif',
-			tooltip:'修改',
+		items:[{
+			icon:'img/toolbar/post_go.gif',
+			tooltip:'发送设计',
 			handler : function(grid, rowIndex, colIndex) {
-				//sm.select(rowIndex);
 				var rec = grid.getStore().getAt(rowIndex);	
-				editWinByRec(win, winTitle+'——修改', rec);
+				gridBalance();
 			}
-		},{
-			iconCls:'delete', 
-			tooltip:'删除',
-			handler : function(grid, rowIndex, colIndex) {
-				grid.getSelectionModel().select(rowIndex);
-				delFromDB(grid.getStore(), grid.getSelectionModel(),'product/erpOrders!delete');
-		}
-	}]
-	} */];
+		}]
+	}];
 	var mainColumns = columnOperators.concat(mainFields);
 </script>

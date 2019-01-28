@@ -4,6 +4,7 @@
 <head>
 	<%@ include file="../jspComm/extHeader.jsp"%>
 	<script type="text/javascript" src="produce/commonality.js"></script>
+	<script type="text/javascript" src="ini/getErpOrdersStatusDs.js"></script>
 	<%@ include file="../c/cb_users.jsp"%>
 	<%@ include file="vErpOrdersDefine.jsp"%>
 	<%@ include file="vErpOrdersDataExt.jsp"%>
@@ -33,9 +34,11 @@
 			tbar = Ext.create('Ext.toolbar.Toolbar',{
 				padding : '5 0 5 10',
 				items : [
-				    getTextField('name', 100, '',0, '<s:text name="officeType.name" />'),
+				    getTextField('ordersCode', 100, '',0, '<s:text name="vErpOrders.ordersCode" />'),
 		            '-',
-		            getTextField('price', 100, '',0, '<s:text name="officeType.price" />'),
+		            getTextField('mobile', 100, '',0, '<s:text name="vErpOrders.mobile" />'),
+		            '-',
+		            getTextField('code', 100, '',0, '<s:text name="vErpOrders.code" />'),
 					Ext.create('Ext.form.field.ComboBox',{
 						itemId : 'orderBy',		
 						width : 80,
@@ -43,8 +46,9 @@
 						mode : 'local',
 						editable : false,
 						store : [
-							['','选择排序' ],['name','<s:text name="officeType.name" />'],
-							['price','<s:text name="officeType.price" />']
+							['','选择排序' ],
+							['name','<s:text name="vErpOrders.name" />'],
+							['userName','<s:text name="vErpOrders.userName" />']
 						]
 					}),
 					Ext.create('Ext.form.field.ComboBox',{
@@ -64,12 +68,15 @@
 							sqlStr = "";
 							t_sql = "";
 							try {
-								t_sql = tbar.getComponent('name').getValue();
+								t_sql = tbar.getComponent('ordersCode').getValue();
 								if (t_sql != "")
-									sqlStr += " and name like '%"+ t_sql+ "%' ";
-								t_sql = tbar.getComponent('price').getValue();
+									sqlStr += " and ordersCode like '%"+ t_sql+ "%' ";
+								t_sql = tbar.getComponent('mobile').getValue();
 								if (t_sql != "")
-									sqlStr += " and price like '%"+ t_sql+ "%' ";
+									sqlStr += " and mobile like '%"+ t_sql+ "%' ";
+								t_sql = tbar.getComponent('code').getValue();
+								if (t_sql != "")
+									sqlStr += " and code like '%"+ t_sql+ "%' ";
 
 								var orderBy = tbar.getComponent('orderBy').getValue();
 								if (orderBy != ''){
@@ -87,19 +94,27 @@
 							}
 						},
 						'->','-'
-						<sec:authorize url="/product/officeType!add">
+						<sec:authorize url="/produce/vErpOrders!add">
 						,getAddButton(win,winTitle + '——新增','新增',function(){
 							var ordersCode =  randomNumber();
 							form.down('#status').setValue(1);
 							form.down('#ordersCode').setValue(ordersCode);
+							form.down('#code').setReadOnly(true);
 						}),
-						getCopyAddButton(win,winTitle + '——拷贝添加', sm,'拷贝添加')
+						getCopyAddButton(win,winTitle + '——拷贝添加', sm,'拷贝添加',function(){
+							var ordersCode =  randomNumber();
+							form.down('#status').setValue(1);
+							form.down('#ordersCode').setValue(ordersCode);
+							form.down('#code').setReadOnly(true);
+						})
 						</sec:authorize>
-						<sec:authorize url="/product/officeType!edit">
-						,getEditButton(win,winTitle+'——修改', sm,'修改')/* ,
+						<sec:authorize url="/produce/vErpOrders!edit">
+						,getEditButton(win,winTitle+'——修改', sm,'修改',function(){
+							form.down('#code').setReadOnly(true);
+						})/* ,
 						getBatchButton(batchWin,sm,'批量修改') */
 						</sec:authorize>
-						<sec:authorize url="/product/officeType!del">
+						<sec:authorize url="/produce/vErpOrders!del">
 						,getDelButton(ds, sm, 'produce/erpOrders!delete','删除')
 						</sec:authorize>
 					]
@@ -117,6 +132,10 @@
 					text: '新增',
 					handler: function(widget, event) {
 						addWin(win, winTitle + '——新增');
+						var ordersCode =  randomNumber();
+						form.down('#status').setValue(1);
+						form.down('#ordersCode').setValue(ordersCode);
+						form.down('#code').setReadOnly(true);
 					}
 				});
 				var copyAddAction = Ext.create('Ext.Action', {
@@ -124,28 +143,33 @@
 					 text: '拷贝添加',
 						handler: function(widget, event) { 
 						copyAddWin(win,winTitle + '——拷贝添加', sm);   
+						var ordersCode =  randomNumber();
+						form.down('#status').setValue(1);
+						form.down('#ordersCode').setValue(ordersCode);
+						form.down('#code').setReadOnly(true);
 					}
 				});
 				var editAction = Ext.create('Ext.Action', {
 					iconCls: 'edit',
 					 text: '修改',
 						handler: function(widget, event) { 
-						editWin(win,winTitle+'——修改', sm);     
+						editWin(win,winTitle+'——修改', sm);  
+						form.down('#code').setReadOnly(true);
 					 }
 				});
 				var delAction = Ext.create('Ext.Action', {
 					iconCls: 'delete',
 					 text: '删除',
 						handler: function(widget, event) {   
-						delFromDB(ds,sm,'product/officeType!delete',function(){});
+						delFromDB(ds,sm,'produce/vErpOrders!delete',function(){});
 					}
 				});
 				var contextMenu = Ext.create('Ext.menu.Menu', {
 					 items: [
 						showAction,'-'
-						<sec:authorize url="/product/officeType!add">,addAction,copyAddAction</sec:authorize>
-						<sec:authorize url="/product/officeType!edit">,editAction</sec:authorize>
-						<sec:authorize url="/product/officeType!del">,delAction</sec:authorize>
+						<sec:authorize url="/produce/vErpOrders!add">,addAction,copyAddAction</sec:authorize>
+						<sec:authorize url="/produce/vErpOrders!edit">,editAction</sec:authorize>
+						<sec:authorize url="/produce/vErpOrders!del">,delAction</sec:authorize>
 					 ]
 				});
 				grid = getGrid('grid',gridTitle,ds,mainColumns, sm, tbar, bbar);

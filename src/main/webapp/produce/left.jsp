@@ -23,7 +23,7 @@
 					cls : 'empty'
 				});
 				var item2 = Ext.create('Ext.Panel', {
-					title : '资源管理',autoScroll :true,
+					title : '设计管理',autoScroll :true,
 					//html : '&lt;empty panel&gt;',
 					items : [
 								{
@@ -65,7 +65,7 @@
 									collapsible : true, split: true,
 									title : '订单管理',									
 									itemCls:'required',
-									items : [<sec:authorize url="/produce/A">item1</sec:authorize>],
+									items : [<sec:authorize url="/produce/A">item1</sec:authorize><sec:authorize url="/produce/B">,item2</sec:authorize>],
 									listeners : {
 									
 										'collapse' : function(e, eOpts) {

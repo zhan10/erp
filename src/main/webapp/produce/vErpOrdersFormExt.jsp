@@ -66,7 +66,12 @@
 					    allowBlank : false,
 						store : cb_users_ds,
 						name : 'uid',
-						fieldLabel : '<s:text name="vErpOrders.userName"/>'
+						fieldLabel : '<s:text name="vErpOrders.userName"/>',
+						listeners : {
+							select : function() {
+								form.down('#code').setValue(this.findRecord('id',this.getValue()).get('code'));
+							}
+						}
 					},{
 						flex:1,
 						allowBlank:false,
