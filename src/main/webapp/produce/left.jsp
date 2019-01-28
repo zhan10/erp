@@ -29,23 +29,7 @@
 								{
 									xtype : 'label',
 									html : '<a href="products/vWorkbenchLock_manager" target="rightFrame"><img src="img/nav/od2.png" width=48,height=48/><br>工位锁定</a><br>'
-								},
-								{
-									xtype : 'label',
-									html : '<br><a href="products/vOfficeLock_manager" target="rightFrame"><img src="img/nav/od2.png" width=48,height=48/><br>办公室锁定</a><br>'
-								},
-								{
-									xtype : 'label',
-									html : '<br><a href="products/vMeetingRoomLock_manager" target="rightFrame"><img src="img/nav/od2.png" width=48,height=48/><br>会议室锁定</a><br>'
-								},
-							    {
-									xtype : 'label',
-									html : '<br><a href="visit/vFloorLock_manager" target="rightFrame"><img src="img/nav/ordersItem7.png" width=48,height=48/><br>楼层锁定</a><br>'
-							    },
-							    {
-									xtype : 'label',
-									html : '<br><a href="product/city_manager" target="rightFrame"><img src="img/nav/ordersItem7.png" width=48,height=48/><br>客服设置</a><br>'
-							    }
+								}
 							],
 					cls : 'empty'
 				});
@@ -65,7 +49,7 @@
 									collapsible : true, split: true,
 									title : '订单管理',									
 									itemCls:'required',
-									items : [<sec:authorize url="/produce/A">item1</sec:authorize><sec:authorize url="/produce/B">,item2</sec:authorize>],
+									items : [item<sec:authorize url="/produce/order">,item1</sec:authorize><sec:authorize url="/produce/design">,item2</sec:authorize>],
 									listeners : {
 									
 										'collapse' : function(e, eOpts) {
