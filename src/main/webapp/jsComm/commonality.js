@@ -1,17 +1,45 @@
 //   根据当前时间和随机数生成流水号
 function randomNumber() {
-	debugger;
 	var now = new Date()
 	var month = now.getMonth() + 1
 	var day = now.getDate()
 	var hour = now.getHours()
 	var minutes = now.getMinutes()
 	var seconds = now.getSeconds()
-	/*month = this.setTimeDateFmt(month)
-	hour = this.setTimeDateFmt(hour)
-	minutes = this.setTimeDateFmt(minutes)
-	seconds = this.setTimeDateFmt(seconds)*/
 	return now.getFullYear().toString() + month.toString() + day + hour + minutes + seconds + (Math.round(Math.random() * 89 + 100)).toString()
+}
+function updateStatus(url,rec,title,content,status,succeedContent) {
+	var id = rec.get("id");
+	Ext.MessageBox.confirm(title, content, function(btn) {
+		if (btn == 'yes') {
+			Ext.Msg.wait('请等候', '保存数据', '保存数据进行中...');
+			Ext.Ajax.request({
+				url : url,
+				timeout : 60000,
+				params : {
+					extJson : '{id:'
+							+ id
+							+ ',status:'
+							+ status
+							+ '}'
+				},
+				method : 'post',
+				success : function(response) {
+					var responseText = response.responseText;
+					if (responseText.indexOf('topit_ext_id!') != 0) {
+						Ext.Msg.alert('错误', (response.responseText));
+					} else {
+						Ext.Msg.alert('恭喜', succeedContent, function() {
+							grid.getStore().load();								
+						});
+					}
+				},
+				failure : function(response) {
+					Ext.Msg.alert('错误', (response.responseText));
+				}
+			});
+		}
+	});
 }
 function setSummary(){
 	var btn=Ext.create('Ext.Button', {

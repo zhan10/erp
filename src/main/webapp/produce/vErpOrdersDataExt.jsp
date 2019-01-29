@@ -36,7 +36,8 @@
 			tooltip:'发送设计',
 			handler : function(grid, rowIndex, colIndex) {
 				var rec = grid.getStore().getAt(rowIndex);	
-				gridBalance();
+				var status = erpOrdersStatusDs.findRecord('text', '设计中').get('value')
+				updateStatus("produce/erpOrders!save",rec,'发送订单','您是否确认发送此订单，请仔细核对订单记录！',status,"订单发送成功!")
 			}
 		}]
 	}];

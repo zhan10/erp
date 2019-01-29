@@ -12,4 +12,7 @@ public class VErpOrdersAction<VErpOrders> extends GenericActionSupport {
 		this.service = service;
 		super.setAbstractService(service);
 	}
+	public String manager1() throws Exception {
+		return "manager1";
+	}
 }

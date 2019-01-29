@@ -3,7 +3,7 @@
 <html>
 <head>
 	<%@ include file="../jspComm/extHeader.jsp"%>
-	<script type="text/javascript" src="produce/commonality.js"></script>
+	<script type="text/javascript" src="jsComm/commonality.js"></script>
 	<script type="text/javascript" src="ini/getErpOrdersStatusDs.js"></script>
 	<%@ include file="../c/cb_users.jsp"%>
 	<%@ include file="vErpOrdersDefine.jsp"%>

@@ -22,17 +22,6 @@
 							],
 					cls : 'empty'
 				});
-				var item2 = Ext.create('Ext.Panel', {
-					title : '设计管理',autoScroll :true,
-					//html : '&lt;empty panel&gt;',
-					items : [
-								{
-									xtype : 'label',
-									html : '<a href="products/vWorkbenchLock_manager" target="rightFrame"><img src="img/nav/od2.png" width=48,height=48/><br>工位锁定</a><br>'
-								}
-							],
-					cls : 'empty'
-				});
 				
 				
 				var accordion = Ext
@@ -49,7 +38,7 @@
 									collapsible : true, split: true,
 									title : '订单管理',									
 									itemCls:'required',
-									items : [item<sec:authorize url="/produce/order">,item1</sec:authorize><sec:authorize url="/produce/design">,item2</sec:authorize>],
+									items : [<sec:authorize url="/produce/order">item1</sec:authorize>],
 									listeners : {
 									
 										'collapse' : function(e, eOpts) {
