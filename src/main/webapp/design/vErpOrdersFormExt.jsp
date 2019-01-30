@@ -124,8 +124,8 @@
 				//订单id
 				var id = saveForm.down('#id').getValue();
 				//获取grid列表循环加上id
-				for(var i=0;i<store.getCount();i++){
-					var storeData = store.getAt(i).data;
+				for(var i=0;i<cabinet_ds.getCount();i++){
+					var storeData = cabinet_ds.getAt(i).data;
 					if(storeData.room==""||storeData.name==""||storeData.mainMater==""||storeData.decompose==""){
 						Ext.Msg.alert('错误', '房间、柜体名称、主材、分解员不能为空');
 						bl = false;
