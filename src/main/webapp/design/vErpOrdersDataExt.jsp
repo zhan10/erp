@@ -33,11 +33,15 @@
 		width:50,
 		items:[{
 			icon:'img/toolbar/post_go.gif',
-			tooltip:'发送设计',
+			tooltip:'财务审核',
 			handler : function(grid, rowIndex, colIndex) {
 				var rec = grid.getStore().getAt(rowIndex);	
-				var status = erpOrdersStatusDs.findRecord('text', '财务审核').get('value')
-				updateStatus("design/erpOrders!save",rec,'发送财务审核','您是否确认发送此订单到财务审核，请仔细核对订单！',status,"订单发送成功!")
+				if(rec.get("status")==2){
+					var status = erpOrdersStatusDs.findRecord('text', '财务审核').get('value')
+					updateStatus("design/erpOrders!save",rec,'发送财务审核','您是否确认发送此订单到财务审核，请仔细核对订单！',status,"订单发送成功!")
+				}else{
+					Ext.Msg.alert('错误', '操作错误，不能进行该操作！');
+				}
 			}
 		}]
 	}];
