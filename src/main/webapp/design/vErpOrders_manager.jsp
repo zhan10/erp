@@ -5,8 +5,7 @@
 	<%@ include file="../jspComm/extHeader.jsp"%>
 	<script type="text/javascript" src="jsComm/commonality.js"></script>
 	<script type="text/javascript" src="ini/getErpOrdersStatusDs.js"></script>
-	<%@ include file="../c/cb_mateType.jsp"%>
-	<%@ include file="materGrid.jsp"%>
+	<%@ include file="cabinetGrid.jsp"%>
 	<%@ include file="../c/cb_users.jsp"%>
 	<%@ include file="vErpOrdersDefine.jsp"%>
 	<%@ include file="vErpOrdersDataExt.jsp"%>
@@ -15,6 +14,8 @@
 </head>
 <body>
 	<script language="javascript">
+		//用于记录id，方便form里面的grid刷新数据
+		var ordersId = 0;
 		Ext.QuickTips.init();
 		Ext.require([ 'Ext.grid.*', 'Ext.data.*', 'Ext.util.*','Ext.state.*' ]);
 		Ext.onReady(function() {
@@ -105,8 +106,12 @@
 							iconCls : 'add',
 							itemId : 'add',
 							handler : function(){
+								var rec=(sm.getSelection())[0];
 								showWin(win, winTitle+'——添加柜子',sm);	
 								form.down('#btnSave').show();
+								//cabinet_grid.getStore().removeAll();
+								Ext.apply(cabinet_ds.proxy.extraParams,{whereSql : ' and ordersId='+rec.get("id")});
+								cabinet_ds.loadPage(1);  
 							}
 						})
 						</sec:authorize>

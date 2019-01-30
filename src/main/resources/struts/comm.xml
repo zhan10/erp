@@ -9,5 +9,11 @@
         <param name="noCache">true</param>
       </result>
     </action>
+    <action name="erpCabinet" class="erpCabinetAction">
+      <result type="json" name="managerExt">
+        <param name="root">records</param>
+        <param name="noCache">true</param>
+      </result>
+    </action>
   </package>
 </struts>

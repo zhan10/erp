@@ -111,15 +111,32 @@
 						fieldLabel:'<s:text name="vErpOrders.memo"/>'
 					}
 				]
-			},mater_grid
+			},cabinet_grid
 		],
 		buttons : [ {
 			text : '保存',
 			itemId : 'btnSave',
 			handler : function() {
 				var saveForm = this.up('form');
-				if (saveForm.getForm().isValid()) {
-					saveFormToDB(saveForm, 'design/erpOrders!save',grid);
+				//用于判断是否可以提交
+				var bl = true; 
+				var jsonArray = new Array();
+				//订单id
+				var id = saveForm.down('#id').getValue();
+				//获取grid列表循环加上id
+				for(var i=0;i<store.getCount();i++){
+					var storeData = store.getAt(i).data;
+					if(storeData.room==""||storeData.name==""||storeData.mainMater==""||storeData.decompose==""){
+						Ext.Msg.alert('错误', '房间、柜体名称、主材、分解员不能为空');
+						bl = false;
+						return;
+					}else{
+						storeData["ordersId"]=id;
+						jsonArray.push(storeData);
+					}
+				}
+				if(bl){
+					saveDB(jsonArray, saveForm,'comm/erpCabinet!save',grid);
 				}
 			}
 		}, {
@@ -130,4 +147,33 @@
 			}
 			} ]
 			});
+	function saveDB(json,paramForm, url, paramGrid, func) {
+		var saveFormJson = Ext.JSON.encode(json);
+		Ext.Msg.wait("请等候", "保存数据", "保存数据进行中...");
+		Ext.Ajax.request({
+			url : url,
+			timeout : 60000,
+			params : {
+				extJson : saveFormJson
+			},
+			method : 'post',
+			success : function(response) {
+				var responseText = response.responseText;
+				if (responseText.indexOf('topit_ext_id!') != 0) {
+					Ext.Msg.alert('错误', (response.responseText));
+				} else {
+					Ext.Msg.alert('恭喜', "数据保存成功!", function() {
+						paramForm.up('window').hide();
+						paramGrid.getStore().load();
+						if (typeof (func) != 'undefined')
+							func();
+					});
+				}
+			},
+
+			failure : function(response) {
+				Ext.Msg.alert('错误', (response.responseText));
+			}
+		});
+	}
 </script>
