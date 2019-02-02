@@ -64,7 +64,7 @@
 	  			<a href="system/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe606;<b>系统管理</b></i></a>
 	  			<!-- <a href="test/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe604;<b>测试</b></i></a> -->
 	  			<a class="icon icon-hexagon invisible"></a>
-	  			<a class="icon icon-hexagon a5b4d8"></a>
+	  			<a href="finance/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe604;<b>财务管理</b></i></a>
 	  			<!-- <a class="icon icon-hexagon a5b4d8"></a> -->
 	  			<a class="decorate"><img src="img/oms-3.png" alt="tu" /></a>
 	  			<a class="icon icon-hexagon invisible"></a>

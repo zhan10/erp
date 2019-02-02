@@ -5,7 +5,6 @@
 	<%@ include file="../jspComm/extHeader.jsp"%>
 	<script type="text/javascript" src="jsComm/commonality.js"></script>
 	<script type="text/javascript" src="ini/getErpOrdersStatusDs.js"></script>
-	<%@ include file="cabinetGrid.jsp"%>
 	<%@ include file="../c/cb_users.jsp"%>
 	<%@ include file="vErpOrdersDefine.jsp"%>
 	<%@ include file="vErpOrdersDataExt.jsp"%>
@@ -14,8 +13,6 @@
 </head>
 <body>
 	<script language="javascript">
-		//用于记录id，方便form里面的grid刷新数据
-		var ordersId = 0;
 		Ext.QuickTips.init();
 		Ext.require([ 'Ext.grid.*', 'Ext.data.*', 'Ext.util.*','Ext.state.*' ]);
 		Ext.onReady(function() {
@@ -23,14 +20,13 @@
 			Ext.Date.defaultFormat='Y-m-d';
 			win = getWindow(winTitle,winWidth,winHeight,500,400,form);
 			batchWin=getWindow('批量修改',320,160,320,160,batchForm);
-			ds = getDs(mainFields, 'design/vErpOrders!managerExt', baseSql,order);
+			ds = getDs(mainFields, 'finance/vErpOrders!managerExt', baseSql,order);
 			ds.load();
 			sm = Ext.create('Ext.selection.CheckboxModel', {
 				listeners : {
 					selectionchange : function(sm, selections) {
 						grid.down('#del').setDisabled(selections.length == 0);
 						//grid.down('#tbar_btn_edit').setDisabled(selections.length != 1);
-						grid.down('#add').setDisabled(selections.length != 1);
 						//grid.down('#tbar_btn_batch').setDisabled(selections.length == 0);
 					}
 				}
@@ -98,21 +94,7 @@
 							}
 						},
 						'->','-'
-						<sec:authorize url="/design/vErpOrders!open">
-						,Ext.create('Ext.Button', {
-							text : '添加柜子',
-							tooltip : '添加柜子',
-							disabled : true,
-							iconCls : 'add',
-							itemId : 'add',
-							handler : function(){
-								var rec=(sm.getSelection())[0];
-								showWin(win, winTitle+'——添加柜子',sm);	
-								addCabinet(rec);
-							}
-						})
-						</sec:authorize>
-						<sec:authorize url="/design/vErpOrders!del">
+						<sec:authorize url="/finance/vErpOrders!del">
 						,Ext.create('Ext.Button', {
 							text : 'PASS',
 							tooltip : 'PASS',
@@ -133,18 +115,7 @@
 					iconCls: 'open',
 					text: '查看',
 					handler: function(widget, event) {
-						var rec=(sm.getSelection())[0];
 						showWin(win, winTitle+'——查看',sm);	
-						openForm(rec);
-					}
-				});
-				var cabinetAddAction=Ext.create('Ext.Action', {
-					iconCls: 'add',
-					text: '添加柜子',
-					handler: function(widget, event) {
-						var rec=(sm.getSelection())[0];
-						showWin(win, winTitle+'——添加柜子',sm);	
-						addCabinet(rec);
 					}
 				});
 				var addAction = Ext.create('Ext.Action', {
@@ -152,6 +123,10 @@
 					text: '新增',
 					handler: function(widget, event) {
 						addWin(win, winTitle + '——新增');
+						var ordersCode =  randomNumber();
+						form.down('#status').setValue(1);
+						form.down('#ordersCode').setValue(ordersCode);
+						form.down('#code').setReadOnly(true);
 					}
 				});
 				var copyAddAction = Ext.create('Ext.Action', {
@@ -159,38 +134,39 @@
 					 text: '拷贝添加',
 						handler: function(widget, event) { 
 						copyAddWin(win,winTitle + '——拷贝添加', sm);   
+						var ordersCode =  randomNumber();
+						form.down('#status').setValue(1);
+						form.down('#ordersCode').setValue(ordersCode);
+						form.down('#code').setReadOnly(true);
 					}
 				});
 				var editAction = Ext.create('Ext.Action', {
 					iconCls: 'edit',
 					 text: '修改',
 						handler: function(widget, event) { 
-						editWin(win,winTitle+'——修改', sm)
+						editWin(win,winTitle+'——修改', sm);  
+						form.down('#code').setReadOnly(true);
 					 }
 				});
 				var delAction = Ext.create('Ext.Action', {
 					iconCls: 'delete',
-					 text: 'PASS',
+					 text: '删除',
 						handler: function(widget, event) {   
 						var rec=(sm.getSelection())[0];
 						var status = erpOrdersStatusDs.findRecord('text', '已删除').get('value')
 						updateStatus("design/erpOrders!save",rec,'删除','您是否确认删除此订单，请仔细核对订单！',status,"订单删除成功!")
-						//delFromDB(ds,sm,'design/vErpOrders!delete',function(){});
+						//delFromDB(ds,sm,'finance/vErpOrders!delete',function(){});
 					}
 				});
 				var contextMenu = Ext.create('Ext.menu.Menu', {
 					 items: [
 						showAction,'-'
-						/* <sec:authorize url="/design/vErpOrders!add">,addAction,copyAddAction</sec:authorize>
-						<sec:authorize url="/design/vErpOrders!edit">,editAction</sec:authorize> */
-						<sec:authorize url="/design/vErpOrders!cabinetAdd">,cabinetAddAction</sec:authorize>
-						<sec:authorize url="/design/vErpOrders!del">,delAction</sec:authorize>
+						<sec:authorize url="/finance/vErpOrders!del">,delAction</sec:authorize>
 					 ]
 				});
 				grid = getGrid('grid',gridTitle,ds,mainColumns, sm, tbar, bbar);
 				grid.on('itemdblclick', function(grid,rec) {
 					showWinByRec(win,winTitle+'——查看',rec);
-					openForm(rec)
 				});
 				grid.on('itemcontextmenu',function(view, rec, node, index, e) {
 					e.stopEvent();
@@ -202,29 +178,6 @@
 							items : grid
 					});	
 		});
-		//查看时需要执行的操作
-		function openForm(rec){
-			cabinet_grid.down('#cabinet_add').hide();
-			cabinet_grid.down('#cabinet_del').hide();
-			Ext.apply(cabinet_ds.proxy.extraParams,{whereSql : ' and ordersId='+rec.get("id")});
-			cabinet_ds.loadPage(1);  
-		}
-		//添加柜子时需要执行的操作
-		function addCabinet(rec){
-			//根据判断是否隐藏按钮
-			if(rec.get("status")==2){
-				form.down('#btnSave').show();
-				cabinet_grid.down('#cabinet_add').show();
-				cabinet_grid.down('#cabinet_del').show();
-			}else{
-				form.down('#btnSave').hide();
-				cabinet_grid.down('#cabinet_add').hide();
-				cabinet_grid.down('#cabinet_del').hide();
-			}
-			//cabinet_ds刷新
-			Ext.apply(cabinet_ds.proxy.extraParams,{whereSql : ' and ordersId='+rec.get("id")});
-			cabinet_ds.loadPage(1);  
-		}
 	</script>
 </body>
 </html>

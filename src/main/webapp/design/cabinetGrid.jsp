@@ -35,6 +35,7 @@
 			enableTextSelection : true
 		},
 	    tbar:[{  
+	    		itemId:'cabinet_add',
 		        text:'增加一行',  
 		        handler:function(){
 		        	var data = {

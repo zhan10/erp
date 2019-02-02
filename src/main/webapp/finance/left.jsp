@@ -41,6 +41,15 @@ Ext.onReady(function() {
 				}],
 				cls : 'empty'
 			});
+			var item4  = Ext.create('Ext.Panel', {
+				title : '订单审核',autoScroll :true,
+				//html : '&lt;empty panel&gt;',
+				items : [{
+					xtype : 'label',
+					html : '<br><a href="finance/vErpOrders_manager.jsp" target="rightFrame"><img src="img/nav/if2.png" width=48,height=48/><br>订单审核</a><br><br>'
+				}],
+				cls : 'empty'
+			});
 			var accordion = Ext
 					.create(
 							'Ext.Panel',
@@ -55,7 +64,7 @@ Ext.onReady(function() {
 								collapsible : true, split: true,
 								title : '财务管理',									
 								itemCls:'required',
-								items : [ item<sec:authorize url="/finance/A">,item1</sec:authorize><sec:authorize url="/finance/B">,item2</sec:authorize><sec:authorize url="/finance/C">,item3</sec:authorize>],
+								items : [ <sec:authorize url="/finance/A">item4</sec:authorize>],
 								listeners : {
 								
 									'collapse' : function(e, eOpts) {
