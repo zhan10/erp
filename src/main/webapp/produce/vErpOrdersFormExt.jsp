@@ -94,6 +94,9 @@
 						flex:1,
 						allowBlank:false,
 						name:'cabinetQuantity',
+						regex: /^[1-9]\d*$/,
+						regexText : '请输数字',
+						anchor: '92%',
 						fieldLabel:'<s:text name="vErpOrders.cabinetQuantity"/>'
 					}
 				]

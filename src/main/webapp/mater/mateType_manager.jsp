@@ -90,7 +90,9 @@
 						},
 						'->','-'
 						<sec:authorize url="/mater/mateType!add">
-						,getAddButton(win,winTitle + '——新增','新增',function(){})
+						,getAddButton(win,winTitle + '——新增','新增',function(){
+							form.down('#gradeOld').setValue(1);
+						})
 						</sec:authorize>
 						<sec:authorize url="/mater/mateType!edit">
 						,getEditButton(win,winTitle+'——修改', sm,'修改',function(){
@@ -118,6 +120,7 @@
 					text: '新增',
 					handler: function(widget, event) {
 						addWin(win, winTitle + '——新增');
+						form.down('#gradeOld').setValue(1);
 					}
 				});
 				var copyAddAction = Ext.create('Ext.Action', {

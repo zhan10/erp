@@ -93,7 +93,7 @@
 			},{
 				xtype : 'container',
 				layout : 'hbox',
-				defaultType : 'textfield',
+				//defaultType : 'textfield',
 				items : [
 					{
 						flex : 1,
@@ -101,7 +101,8 @@
 						name : 'parentid',
 						itemId : 'parentid',
 						xtype : 'combo',
-						displayField : 'name',forceSelection:false,
+						editable:false,
+						displayField : 'name',forceSelection:true,
 						valueField : 'id',
 						store : cb_mateType_ds,
 						fieldLabel : '<s:text name="mateType.parentid" />',

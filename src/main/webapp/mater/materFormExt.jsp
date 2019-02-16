@@ -94,7 +94,7 @@
 				items : [
 					{
 						flex : 1,
-						allowBlank : false,
+						//allowBlank : false,
 						itemId:'stand',
 						name : 'stand',
 						fieldLabel : '<s:text name="mater.stand"/>',

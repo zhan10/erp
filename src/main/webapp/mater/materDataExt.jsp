@@ -10,9 +10,10 @@
 			align : 'center',
 			width:100,
 			flex:1,
+			hidden : true/* ,
 			renderer : function(val) {
-				return cb_mateType_ds.findRecord('id', val).get('name');
-			}
+				//return cb_mateType_ds.findRecord('id', val).get('name');
+			} */
 		 }
 		,{text : '<s:text name="mater.matername" />',dataIndex:'matername',name:'matername',align : 'center',width:300}
 		,{text : '<s:text name="mater.stand" />',dataIndex:'stand',name:'stand',align : 'center',width:100,flex:1}

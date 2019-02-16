@@ -7,7 +7,7 @@ public class Inventory implements GenericPojo,java.io.Serializable {
 	private String materid;
 	private Integer type;
 	private Date updateTime;
-	private Integer quantities;
+	private Double quantities;
 	private String principal;
 	
 	public Long getId() {
@@ -58,13 +58,13 @@ public class Inventory implements GenericPojo,java.io.Serializable {
 
 
 
-	public Integer getQuantities() {
+	public Double getQuantities() {
 		return quantities;
 	}
 
 
 
-	public void setQuantities(Integer quantities) {
+	public void setQuantities(Double quantities) {
 		this.quantities = quantities;
 	}
 

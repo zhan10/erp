@@ -16,8 +16,8 @@
 		<property name="updateTime" type="java.util.Date">
 			<column name="update_time" length="500"/>
 		</property>
-		<property name="quantities" type="java.lang.Integer">
-			<column name="quantities" not-null="true"/>
+		<property name="quantities" type="java.lang.Double">
+			<column name="quantities" precision="18" scale="2" not-null="true"/>
 		</property>
 		<property name="principal" type="java.lang.String">
 			<column name="principal" length="50" not-null="true"/>
