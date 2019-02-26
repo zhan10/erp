@@ -21,6 +21,8 @@ function updateStatus(url,rec,title,content,status,succeedContent) {
 							+ id
 							+ ',status:'
 							+ status
+							+ ',data:'
+							+ Ext.JSON.encode(rec.data)
 							+ '}'
 				},
 				method : 'post',
