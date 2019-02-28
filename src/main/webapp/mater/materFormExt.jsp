@@ -98,18 +98,20 @@
 						itemId:'stand',
 						name : 'stand',
 						fieldLabel : '<s:text name="mater.stand"/>',
-						regex: /^\d+\*\d+\*\d+$/,
-						regexText : '请输入正确的规格:xxx*xxx*xxx',
+						//regex: /^\d+\*\d+\*\d+$/,
+						//regexText : '请输入正确的规格:xxx*xxx*xxx',
 						listeners : {
 							blur : function(t) {
-								var stands = t.getValue().split("*");
-								if(stands.length==3){
-									//设置长度
-									this.up('form').getForm().findField('mwidth').setValue(stands[0]);
-									//设置宽度
-									this.up('form').getForm().findField('mheighth').setValue(stands[1]);
-									//设置厚度
-									this.up('form').getForm().findField('mdeepth').setValue(stands[2]);
+								if(t.getValue().replace(/^\d+\*\d+\*\d+$/)){
+									var stands = t.getValue().split("*");
+									if(stands.length==3){
+										//设置长度
+										this.up('form').getForm().findField('mwidth').setValue(stands[0]);
+										//设置宽度
+										this.up('form').getForm().findField('mheighth').setValue(stands[1]);
+										//设置厚度
+										this.up('form').getForm().findField('mdeepth').setValue(stands[2]);
+									}
 								}
 							}
 						}

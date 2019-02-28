@@ -214,9 +214,9 @@
 			form.down('#lastmodmaker').setValue(userName);
 			form.down('#lastmoddate').setReadOnly(true);
 			form.down('#lastmodmaker').setReadOnly(true);
-			form.down('#mwidth').setReadOnly(true);
+			/* form.down('#mwidth').setReadOnly(true);
 			form.down('#mheighth').setReadOnly(true);
-			form.down('#mdeepth').setReadOnly(true);
+			form.down('#mdeepth').setReadOnly(true); */
 		}
 	</script>
 </body>
