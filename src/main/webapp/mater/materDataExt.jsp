@@ -78,6 +78,11 @@
 			handler : function(grid, rowIndex, colIndex) {
 				var rec = grid.getStore().getAt(rowIndex);	
 				editWinByRec(win, winTitle+'——修改', rec);
+				var time=Ext.Date.format(new Date(),'Y-m-d H:i:s');
+				form.down('#lastmoddate').setValue(time);
+				form.down('#lastmodmaker').setValue(userName);
+				form.down('#lastmoddate').setReadOnly(true);
+				form.down('#lastmodmaker').setReadOnly(true);
 			}
 		},{
 			iconCls:'delete', 

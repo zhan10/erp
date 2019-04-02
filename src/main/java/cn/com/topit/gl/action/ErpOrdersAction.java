@@ -43,11 +43,12 @@ public class ErpOrdersAction<ErpOrders> extends GenericActionSupport {
 					pam.put("customerName", data.getString("name"));
 					pam.put("designerName", data.getString("userName"));
 					pam.put("designer", data.getString("code"));
+					SMS.sendSms(data.getString("mobile"), code, pam.toString());
 				}else if(jsonObject.getInt("status")==4) {
 					code = "SMS_158491630";
 					pam.put("customerName", data.getString("name"));
+					SMS.sendSms(data.getString("mobile"), code, pam.toString());
 				}
-				SMS.sendSms(data.getString("mobile"), code, pam.toString());
 			};
 		    response.getWriter().print("topit_ext_id!" + erp.getId());
 		} catch (Exception e) {
