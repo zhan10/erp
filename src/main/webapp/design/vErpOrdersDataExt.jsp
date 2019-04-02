@@ -3,7 +3,40 @@
 	var mainFields = [
 		{text : 'id',dataIndex : 'id',name : 'id',width : 40,hidden : true}
 		,{text : 'uid',dataIndex : 'uid',name : 'uid',width : 40,hidden : true}
-		,{text : '<s:text name="vErpOrders.ordersCode" />',dataIndex:'ordersCode',name:'ordersCode',align : 'center',flex:1}
+		,{
+			text : '<s:text name="vErpOrders.ordersCode" />',
+			dataIndex:'ordersCode',
+			name:'ordersCode',
+			align : 'center',
+			flex:1,
+			renderer:function(val,record){
+				var timestamp = (new Date()).getTime();
+				var time=parseInt(record.record.data.updateTime)+259200000;
+			
+				if(time<timestamp){
+					return '<span style="color:red">'+val+'</span>';
+				}else{
+					return '<span style="color:blue">'+val+'</span>';
+				}
+			}
+		}
+		,{
+			text : '订单是否超时',
+			dataIndex:'updateTime',
+			name:'updateTime',
+			align : 'center',
+			flex:1,
+			renderer : function(val) {
+				var timestamp = (new Date()).getTime();
+				var time = parseInt(val)+259200000;
+				if(time<timestamp){
+					return '<span style="color:red">超时</span>';
+				}else{
+					return '<span style="color:blue">未超时</span>';
+				}
+				
+			}
+		 }
 		,{
 			text : '<s:text name="vErpOrders.status" />',
 			dataIndex:'status',

@@ -10,6 +10,7 @@ function randomNumber() {
 }
 function updateStatus(url,rec,title,content,status,succeedContent) {
 	var id = rec.get("id");
+	var timestamp = (new Date()).getTime();
 	Ext.MessageBox.confirm(title, content, function(btn) {
 		if (btn == 'yes') {
 			Ext.Msg.wait('请等候', '保存数据', '保存数据进行中...');
@@ -21,6 +22,8 @@ function updateStatus(url,rec,title,content,status,succeedContent) {
 							+ id
 							+ ',status:'
 							+ status
+							+',updateTime:'
+							+ timestamp
 							+ ',data:'
 							+ Ext.JSON.encode(rec.data)
 							+ '}'

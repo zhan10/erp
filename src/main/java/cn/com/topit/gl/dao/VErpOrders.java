@@ -13,6 +13,7 @@ public class VErpOrders implements GenericPojo,java.io.Serializable {
 	private Double ordersMoney;
 	private Integer cabinetQuantity;
 	private String ordersCode;
+	private String updateTime;
 	public Long getId() {
 		return id;
 	}
@@ -84,6 +85,12 @@ public class VErpOrders implements GenericPojo,java.io.Serializable {
 	}
 	public void setOrdersCode(String ordersCode) {
 		this.ordersCode = ordersCode;
+	}
+	public String getUpdateTime() {
+		return updateTime;
+	}
+	public void setUpdateTime(String updateTime) {
+		this.updateTime = updateTime;
 	}
 	public VErpOrders() {
 	}

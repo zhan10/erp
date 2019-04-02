@@ -34,5 +34,8 @@
 		<property name="ordersCode" type="java.lang.String">
 			<column name="orders_code" length="100" not-null="true"/>
 		</property>
+		<property name="updateTime" type="java.lang.String">
+			<column name="update_time" length="100" not-null="true"/>
+		</property>
 	</class>
 </hibernate-mapping>
