@@ -189,7 +189,14 @@
 				});
 				grid = getGrid('grid',gridTitle,ds,mainColumns, sm, tbar, bbar);
 				grid.on('itemdblclick', function(grid,rec) {
-					showWinByRec(win,winTitle+'——查看',rec);
+					//showWinByRec(win,winTitle+'——查看',rec);
+					editWin(win,winTitle+'——修改', sm)
+					form.down('#name').setReadOnly(true);
+					form.down('#mobile').setReadOnly(true);
+					form.down('#address').setReadOnly(true);
+					form.down('#uid').setReadOnly(true);
+					form.down('#code').setReadOnly(true);
+					form.down('#cabinetQuantity').setReadOnly(true);
 					openForm(rec)
 				});
 				grid.on('itemcontextmenu',function(view, rec, node, index, e) {
@@ -212,7 +219,7 @@
 		//添加柜子时需要执行的操作
 		function addCabinet(rec){
 			//根据判断是否隐藏按钮
-			if(rec.get("status")==2){
+			/* if(rec.get("status")==2){
 				form.down('#btnSave').show();
 				cabinet_grid.down('#cabinet_add').show();
 				cabinet_grid.down('#cabinet_del').show();
@@ -220,7 +227,10 @@
 				form.down('#btnSave').hide();
 				cabinet_grid.down('#cabinet_add').hide();
 				cabinet_grid.down('#cabinet_del').hide();
-			}
+			} */
+			form.down('#btnSave').show();
+			cabinet_grid.down('#cabinet_add').show();
+			cabinet_grid.down('#cabinet_del').show();
 			//cabinet_ds刷新
 			Ext.apply(cabinet_ds.proxy.extraParams,{whereSql : ' and ordersId='+rec.get("id")});
 			cabinet_ds.loadPage(1);  

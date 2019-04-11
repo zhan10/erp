@@ -32,12 +32,14 @@
 					{
 						flex:1,
 						allowBlank:false,
+						itemId:'name',
 						name:'name',
 						fieldLabel:'<s:text name="vErpOrders.name"/>'
 					},{
 						flex:1,
 						allowBlank:false,
 						name:'mobile',
+						itemId:'mobile',
 						fieldLabel:'<s:text name="vErpOrders.mobile"/>'
 					}
 				]
@@ -50,6 +52,7 @@
 						flex:1,
 						allowBlank:false,
 						name:'address',
+						itemId:'address',
 						fieldLabel:'<s:text name="vErpOrders.address"/>'
 					}
 				]
@@ -65,6 +68,7 @@
 						valueField : 'id',
 					    allowBlank : false,
 						store : cb_users_ds,
+						itemId:'uid',
 						name : 'uid',
 						fieldLabel : '<s:text name="vErpOrders.userName"/>',
 						listeners : {
@@ -93,6 +97,7 @@
 					},{
 						flex:1,
 						allowBlank:false,
+						itemId : 'cabinetQuantity',
 						name:'cabinetQuantity',
 						fieldLabel:'<s:text name="vErpOrders.cabinetQuantity"/>'
 					}
@@ -137,6 +142,7 @@
 				}
 				if(bl){
 					saveDB(jsonArray, saveForm,'comm/erpCabinet!save',grid);
+					saveFormToDB(saveForm, 'produce/erpOrders!save',grid);
 				}
 			}
 		}, {

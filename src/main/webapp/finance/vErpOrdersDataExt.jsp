@@ -36,8 +36,13 @@
 			tooltip:'发送设计',
 			handler : function(grid, rowIndex, colIndex) {
 				var rec = grid.getStore().getAt(rowIndex);	
-				var status = erpOrdersStatusDs.findRecord('text', '复尺中').get('value')
-				updateStatus("finance/erpOrders!save",rec,'财务审核','您是否确认此订单审核完成，请仔细核对订单记录！',status,"订单审核成功!")
+				if(rec.get("status")==3){
+					var status = erpOrdersStatusDs.findRecord('text', '复尺中').get('value')
+					updateStatus("finance/erpOrders!save",rec,'财务审核','您是否确认此订单审核完成，请仔细核对订单记录！',status,"订单审核成功!")
+				}else{
+					Ext.Msg.alert('错误', '操作错误，不能进行该操作！');
+				}
+				
 			}
 		}]
 	}];

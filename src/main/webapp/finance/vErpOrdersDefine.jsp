@@ -5,6 +5,6 @@ gridTitle='<s:text name="vErpOrders.tbl.title"/>';
 winTitle = '<s:text name="vErpOrders.tbl.title"/>';
 winWidth=800,
 winHeight=500,
-baseSql=' and status = 3';
+baseSql=' and status in (3,5)';
 order=' order by id desc';
 </script>

@@ -73,7 +73,8 @@
 					var status = erpOrdersStatusDs.findRecord('text', '财务审核').get('value')
 					updateStatus("design/erpOrders!save",rec,'发送财务审核','您是否确认发送此订单到财务审核，请仔细核对订单！',status,"订单发送成功!")
 				}else{
-					Ext.Msg.alert('错误', '操作错误，不能进行该操作！');
+					var status = erpOrdersStatusDs.findRecord('text', '财务二审').get('value')
+					updateStatus("design/erpOrders!save",rec,'发送财务二审','您是否确认发送此订单到财务二审，请仔细核对订单！',status,"订单发送成功!")
 				}
 			}
 		}]
