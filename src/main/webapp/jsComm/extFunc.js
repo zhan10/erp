@@ -323,11 +323,11 @@ function saveFormToDB(paramForm, url, paramGrid, func) {
 			var responseText = response.responseText;
 			if (responseText.indexOf('topit_ext_id!') != 0) {
 				//Ext.Msg.alert('错误', (response.responseText));
-				if(response.responseText.indexOf("PK_mater" !== -1)){
-					Ext.Msg.alert('错误', "原材料编码重复！");	
-				}else{
+//				if(response.responseText.indexOf("PK_mater" !== -1)){
+//					Ext.Msg.alert('错误', "原材料编码重复！");	
+//				}else{
 					Ext.Msg.alert('错误', (response.responseText));
-				}
+//				}
 			} else {
 				Ext.Msg.alert('恭喜', "数据保存成功!", function() {
 					if (paramForm.down('#id').getValue() == '') {
