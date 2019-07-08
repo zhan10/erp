@@ -46,7 +46,7 @@
 	  			<a href="design/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe604;<b>设计管理</b></i></a>
 	  			<a class="decorate"><img src="img/oms-1.png" alt="tu" /></a>
 	  			<!-- <a class="icon icon-hexagon invisible"></a> -->
-	  			<a class="icon icon-hexagon a5b4d8"></a>
+	  			<a href="factory/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe604;<b>工厂客服</b></i></a>
 	  			<!-- <a class="icon icon-hexagon a5b4d8"></a> -->
   			</div>
   			<div class="clearfix row2">

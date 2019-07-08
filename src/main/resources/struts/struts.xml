@@ -29,6 +29,7 @@
 	<include file="struts/product.xml"></include>
 	<include file="struts/comm.xml"></include>
 	<include file="struts/design.xml"></include>
+	<include file="struts/factory.xml"></include>
 	<package name="cn.com.topit.gl" extends="struts-default,json-default">
 		<global-results>
 			<!-- <result name="accessException">/login.jsp</result> -->
