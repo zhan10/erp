@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+  <package name="cn.com.topit.gl.plant" namespace="/plant" extends="cn.com.topit.gl">   
+  <action name="vErpOrders" class="vErpOrdersAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="erpOrders" class="erpOrdersAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+  	<action name="receipt" class="receiptAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+  	<action name="theMonthReport" class="theMonthReportAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+  	<action name="toDayReport" class="toDayReportAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+  	<action name="vMonthlyReportDate" class="vMonthlyReportDateAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+  	<action name="vDailyReportDate" class="vDailyReportDateAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+  	<action name="vDailyReport" class="vDailyReportAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+     <action name="vMonthlyReport" class="vMonthlyReportAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="consumeArea" class="consumeAreaAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="paymentType" class="paymentTypeAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="vRentContract" class="vRentContractAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+     </action>
+     <action name="rentContract" class="rentContractAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+     </action>
+     <action name="building" class="buildingAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="floor" class="floorAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="workbenchType" class="workbenchTypeAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+  </package>
+</struts>

@@ -3,40 +3,7 @@
 	var mainFields = [
 		{text : 'id',dataIndex : 'id',name : 'id',width : 40,hidden : true}
 		,{text : 'uid',dataIndex : 'uid',name : 'uid',width : 40,hidden : true}
-		,{
-			text : '<s:text name="vErpOrders.ordersCode" />',
-			dataIndex:'ordersCode',
-			name:'ordersCode',
-			align : 'center',
-			flex:1,
-			renderer:function(val,record){
-				var timestamp = (new Date()).getTime();
-				var time=parseInt(record.record.data.updateTime)+259200000;
-			
-				if(time<timestamp){
-					return '<span style="color:red">'+val+'</span>';
-				}else{
-					return '<span style="color:blue">'+val+'</span>';
-				}
-			}
-		}
-		,{
-			text : '订单是否超时',
-			dataIndex:'updateTime',
-			name:'updateTime',
-			align : 'center',
-			flex:1,
-			renderer : function(val) {
-				var timestamp = (new Date()).getTime();
-				var time = parseInt(val)+259200000;
-				if(time<timestamp){
-					return '<span style="color:red">超时</span>';
-				}else{
-					return '<span style="color:blue">未超时</span>';
-				}
-				
-			}
-		 }
+		,{text : '<s:text name="vErpOrders.ordersCode" />',dataIndex:'ordersCode',name:'ordersCode',align : 'center',flex:1}
 		,{
 			text : '<s:text name="vErpOrders.status" />',
 			dataIndex:'status',
@@ -66,18 +33,16 @@
 		width:50,
 		items:[{
 			icon:'img/toolbar/post_go.gif',
-			tooltip:'财务审核',
+			tooltip:'发送设计',
 			handler : function(grid, rowIndex, colIndex) {
 				var rec = grid.getStore().getAt(rowIndex);	
-				var status = erpOrdersStatusDs.findRecord('text', '待审核-工厂财务').get('value')
-				updateStatus("factory/erpOrders!save",rec,'发送财务审核','您是否确认发送此订单到财务审核，请仔细核对订单！',status,"订单发送成功!")
-				/*if(rec.get("status")==2){
-					var status = erpOrdersStatusDs.findRecord('text', '财务审核').get('value')
-					updateStatus("factory/erpOrders!save",rec,'发送财务审核','您是否确认发送此订单到财务审核，请仔细核对订单！',status,"订单发送成功!")
+				if(rec.get("status")==3){
+					var status = erpOrdersStatusDs.findRecord('text', '复尺中').get('value')
+					updateStatus("plant/erpOrders!save",rec,'财务审核','您是否确认此订单审核完成，请仔细核对订单记录！',status,"订单审核成功!")
 				}else{
-					var status = erpOrdersStatusDs.findRecord('text', '财务二审').get('value')
-					updateStatus("factory/erpOrders!save",rec,'发送财务二审','您是否确认发送此订单到财务二审，请仔细核对订单！',status,"订单发送成功!")
-				}*/
+					Ext.Msg.alert('错误', '操作错误，不能进行该操作！');
+				}
+				
 			}
 		}]
 	}];
