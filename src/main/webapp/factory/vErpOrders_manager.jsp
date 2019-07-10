@@ -28,8 +28,8 @@
 			sm = Ext.create('Ext.selection.CheckboxModel', {
 				listeners : {
 					selectionchange : function(sm, selections) {
-						//grid.down('#del').setDisabled(selections.length == 0);
-						//grid.down('#tbar_btn_edit').setDisabled(selections.length != 1);
+						grid.down('#del').setDisabled(selections.length != 1 );
+						grid.down('#tbar_btn_edit').setDisabled(selections.length != 1);
 						//grid.down('#add').setDisabled(selections.length == 0);
 						//grid.down('#tbar_btn_batch').setDisabled(selections.length == 0);
 					}
@@ -109,29 +109,58 @@
 								addWin(win, winTitle);
 								var ordersCode =  randomNumber();
 								form.down('#status').setValue(6);
-								form.down('#ordersCode').setValue(ordersCode);
+								form.down('#ordersCode').setValue("N"+ordersCode);
 								form.down('#code').setReadOnly(true);
 								form.down('#btnSave').show();
 								cabinet_grid.down('#cabinet_add').show();
 								cabinet_grid.down('#cabinet_del').show();
-								
+								cabinet_ds.removeAll()
 							}
 						})
 						</sec:authorize>
-						/* <sec:authorize url="/factory/vErpOrders!del">
+						<sec:authorize url="/factory/vErpOrders!edit">
 						,Ext.create('Ext.Button', {
-							text : 'PASS',
-							tooltip : 'PASS',
+							text : '修改',
+							tooltip : '修改',
+							disabled : true,
+							iconCls : 'edit',
+							itemId : 'tbar_btn_edit',
+							handler : function(){
+								var rec=(sm.getSelection())[0];
+								var ordersCode = rec.get("ordersCode")
+								if(ordersCode.substring(0, 1)=="N"){
+									editWin(win, winTitle+"-修改", sm);
+									form.down('#code').setReadOnly(true);
+									Ext.apply(cabinet_ds.proxy.extraParams,{whereSql : ' and ordersId='+rec.get("id")});
+									cabinet_ds.loadPage(1);  
+								}else{
+									Ext.MessageBox.alert('错误', '无法修改该订单！');
+								}
+							}
+						})
+						/* ,
+						getBatchButton(batchWin,sm,'批量修改') */
+						</sec:authorize>
+						<sec:authorize url="/factory/vErpOrders!del">
+						,Ext.create('Ext.Button', {
+							text : '删除',
+							tooltip : '删除',
 							disabled : true,
 							iconCls : 'delete',
 							itemId : 'del',
 							handler : function(){
 								var rec=(sm.getSelection())[0];
-								var status = erpOrdersStatusDs.findRecord('text', '已删除').get('value')
-								updateStatus("factory/erpOrders!save",rec,'删除','您是否确认删除此订单，请仔细核对订单！',status,"订单删除成功!")
+								var ordersCode = rec.get("ordersCode")
+								if(ordersCode.substring(0, 1)=="N"){
+									var status = erpOrdersStatusDs.findRecord('text', '已删除').get('value')
+									updateStatus("factory/erpOrders!save",rec,'删除','您是否确认删除此订单，请仔细核对订单！',status,"订单删除成功!")
+								}else{
+									Ext.MessageBox.alert('错误', '无法删除该订单！');
+								}
 							}
 						})
-						</sec:authorize> */
+						</sec:authorize> 
+						
 					]
 				});
 				bbar = getBbar(ds);
@@ -151,9 +180,14 @@
 						var rec=(sm.getSelection())[0];
 						showWin(win, winTitle+'——添加柜子',sm);	
 						addWin(win, winTitle);	
+						var ordersCode =  randomNumber();
+						form.down('#status').setValue(6);
+						form.down('#ordersCode').setValue("N"+ordersCode);
+						form.down('#code').setReadOnly(true);
 						form.down('#btnSave').show();
 						cabinet_grid.down('#cabinet_add').show();
 						cabinet_grid.down('#cabinet_del').show();
+						cabinet_ds.removeAll()
 					}
 				});
 				var addAction = Ext.create('Ext.Action', {
@@ -161,6 +195,14 @@
 					text: '新增',
 					handler: function(widget, event) {
 						addWin(win, winTitle + '——新增');
+						var ordersCode =  randomNumber();
+						form.down('#status').setValue(6);
+						form.down('#ordersCode').setValue("N"+ordersCode);
+						form.down('#code').setReadOnly(true);
+						form.down('#btnSave').show();
+						cabinet_grid.down('#cabinet_add').show();
+						cabinet_grid.down('#cabinet_del').show();
+						cabinet_ds.removeAll()
 					}
 				});
 				var copyAddAction = Ext.create('Ext.Action', {
@@ -175,25 +217,43 @@
 					 text: '修改',
 						handler: function(widget, event) { 
 						editWin(win,winTitle+'——修改', sm)
+						var rec=(sm.getSelection())[0];
+						var ordersCode = rec.get("ordersCode")
+						if(ordersCode.substring(0, 1)=="N"){
+							editWin(win, winTitle+"-修改", sm);
+							form.down('#code').setReadOnly(true);
+							Ext.apply(cabinet_ds.proxy.extraParams,{whereSql : ' and ordersId='+rec.get("id")});
+							cabinet_ds.loadPage(1);  
+							form.down('#btnSave').show();
+							cabinet_grid.down('#cabinet_add').show();
+							cabinet_grid.down('#cabinet_del').show();
+						}else{
+							Ext.MessageBox.alert('错误', '无法修改该订单！');
+						}
 					 }
 				});
 				var delAction = Ext.create('Ext.Action', {
 					iconCls: 'delete',
-					 text: 'PASS',
+					 text: '删除',
 						handler: function(widget, event) {   
-						var rec=(sm.getSelection())[0];
-						var status = erpOrdersStatusDs.findRecord('text', '已删除').get('value')
-						updateStatus("factory/erpOrders!save",rec,'删除','您是否确认删除此订单，请仔细核对订单！',status,"订单删除成功!")
+							var rec=(sm.getSelection())[0];
+							var ordersCode = rec.get("ordersCode")
+							if(ordersCode.substring(0, 1)=="N"){
+								var status = erpOrdersStatusDs.findRecord('text', '已删除').get('value')
+								updateStatus("factory/erpOrders!save",rec,'删除','您是否确认删除此订单，请仔细核对订单！',status,"订单删除成功!")
+							}else{
+								Ext.MessageBox.alert('错误', '无法删除该订单！');
+							}
 						//delFromDB(ds,sm,'factory/vErpOrders!delete',function(){});
 					}
 				});
 				var contextMenu = Ext.create('Ext.menu.Menu', {
 					 items: [
 						showAction,'-'
-						/* <sec:authorize url="/factory/vErpOrders!add">,addAction,copyAddAction</sec:authorize>
-						<sec:authorize url="/factory/vErpOrders!edit">,editAction</sec:authorize> */
+						/* <sec:authorize url="/factory/vErpOrders!add">,addAction,copyAddAction</sec:authorize>*/
 						<sec:authorize url="/factory/vErpOrders!cabinetAdd">,cabinetAddAction</sec:authorize>
-						<sec:authorize url="/factory/vErpOrders!del">,delAction</sec:authorize>
+						<sec:authorize url="/factory/vErpOrders!edit">,editAction</sec:authorize> 
+						<sec:authorize url="/factory/vErpOrders!del">,delAction</sec:authorize> 
 					 ]
 				});
 				grid = getGrid('grid',gridTitle,ds,mainColumns, sm, tbar, bbar);

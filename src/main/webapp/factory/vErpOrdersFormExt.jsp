@@ -181,7 +181,7 @@
 			});
 	function saveDB(json,paramForm, url, paramGrid, func) {
 		var saveFormJson = Ext.JSON.encode(json);
-		alert(saveFormJson)
+		//alert(saveFormJson)
 		Ext.Msg.wait("请等候", "保存数据", "保存数据进行中...");
 		Ext.Ajax.request({
 			url : url,
