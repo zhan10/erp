@@ -21,6 +21,16 @@ Ext.onReady(function() {
 				],
 				cls : 'empty'
 			});
+			var item2 = Ext.create('Ext.Panel', {
+				title : '订单管理',autoScroll :true,
+				//html : '&lt;empty panel&gt;',
+				items : [{
+					xtype : 'label',
+					html : '<a href="warehouse/vErpOrders_manager" target="rightFrame"><img src="img/nav/od2.png" width=48,height=48/><br>订单列表</a><br>'
+				}
+				],
+				cls : 'empty'
+			});
 			var accordion = Ext
 					.create(
 							'Ext.Panel',
@@ -35,7 +45,7 @@ Ext.onReady(function() {
 								collapsible : true, split: true,
 								title : '仓库管理',									
 								itemCls:'required',
-								items : [ <sec:authorize url="/warehouse/A">item1</sec:authorize>],
+								items : [ <sec:authorize url="/warehouse/B">item2,</sec:authorize><sec:authorize url="/warehouse/A">item1</sec:authorize>],
 								listeners : {
 								
 									'collapse' : function(e, eOpts) {
