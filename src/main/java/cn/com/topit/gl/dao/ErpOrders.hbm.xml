@@ -37,5 +37,11 @@
 		<property name="updateTime" type="java.lang.String">
 			<column name="update_time" length="100" not-null="true"/>
 		</property>
+		<property name="decomposeStatus" type="java.lang.Integer">
+			<column name="decompose_status" length="4" not-null="true"/>
+		</property>
+		<property name="resolveStatus" type="java.lang.Integer">
+			<column name="resolve_status" length="4" not-null="true"/>
+		</property>
 	</class>
 </hibernate-mapping>

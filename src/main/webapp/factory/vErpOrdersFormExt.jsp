@@ -179,6 +179,106 @@
 			}
 			} ]
 			});
+	decomposeForm = Ext.widget('form', {
+		itemId : 'decomposeForm',
+		autoScroll : true,
+		overflowX : 'scroll',
+		overflowY : 'scroll',
+		frame : true,
+		layout : {
+			type : 'vbox',
+			align : 'stretch'
+		},
+		border : false,
+		bodyPadding : 10,
+		defaultType : 'textfield',
+		fieldDefaults : {
+			labelAlign : 'right',
+			labelWidth : 100
+		},
+		defaults : {
+			margins : '0 0 10 0'
+		},
+		items : [
+			{
+				xtype : 'container',
+				layout : 'hbox',
+				defaultType : 'textfield',
+				items : [
+					{itemId:'id',name:'id',hidden:true},
+					{hidden:true,itemId : 'decompose',name:'decompose'},
+					{
+						xtype : 'container',
+						layout : 'hbox',
+						defaultType : 'textfield',
+						items : [
+							{
+								flex : 1,
+								xtype : 'combo',
+								displayField : 'name',
+								valueField : 'id',
+							    allowBlank : false,
+								store : cb_users_ds,
+								itemId:'decomposeId',
+								name : 'decomposeId',
+								fieldLabel : '分解员',
+								listeners : {
+									select : function() {
+										//alert(this.findRecord('id',this.getValue()).get('name'))
+										decomposeForm.down('#decompose').setValue(this.findRecord('id',this.getValue()).get('name'));
+									}
+								}
+							}
+						]
+					},
+				]
+			}
+		],
+		buttons : [
+			{
+				text : '保存',
+				itemId : 'btnSave',
+				handler : function() {
+					var saveForm = this.up('form');
+					//表格数据
+					//var saveFormJson = saveForm.getForm().getValues();
+					//var json = Ext.JSON.encode(saveFormJson);
+					var id = decomposeForm.down('#id').getValue();
+					if(saveForm.getForm().isValid()){
+						//alert(json)
+						saveFormToDB(saveForm, 'comm/erpCabinet!decomposeSave', grid,function(){
+							updateDecomposeStatus('factory/erpOrders!save',id,grid)
+						})
+					}
+				}
+			}, {
+				text : '关闭',
+				itemId : 'decomposeBtnClose',
+				handler : function() {
+					this.up('window').hide();
+				}
+			}
+		]
+	});
+	function updateDecomposeStatus(url,id,paramGrid) {
+		Ext.Ajax.request({
+			url : url,
+			timeout : 60000,
+			params : {
+				extJson : '{id:'
+						+ id
+						+ ',decomposeStatus:1'
+						+ '}'
+			},
+			method : 'post',
+			success : function(response) {
+				paramGrid.getStore().load();
+			},
+			failure : function(response) {
+				Ext.Msg.alert('错误', (response.responseText));
+			}
+		});
+	}
 	function saveDB(json,paramForm, url, paramGrid, func) {
 		var saveFormJson = Ext.JSON.encode(json);
 		//alert(saveFormJson)

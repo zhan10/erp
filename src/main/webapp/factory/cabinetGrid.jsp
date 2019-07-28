@@ -3,6 +3,7 @@
 	var cabinet_Fields = [
 		{text : 'id',dataIndex : 'id',name:'id',width : 40,hidden : true},
 		{text : 'orders_id',dataIndex : 'ordersId',name:'ordersId',width : 40,hidden : true},
+		{text : 'decompose_id',dataIndex : 'decomposeId',name:'decomposeId',width : 40,hidden : true},
 		{text : '<s:text name="erpCabinet.room" />',dataIndex : 'room',name:'room',align : 'center',editor:{allowBlank:true},flex:1},
 		{text : '<s:text name="erpCabinet.name" />',dataIndex : 'name',name:'name',align : 'center',editor:{allowBlank:true},flex:1},
 		{text : '<s:text name="erpCabinet.mainMater" />',dataIndex : 'mainMater',name:'mainMater',align : 'center',editor:{allowBlank:true},flex:1},
@@ -44,7 +45,8 @@
 		        		"room":"",
 		        		"name":"",
 		        		"mainMater":"",
-		        		"decompose":""
+		        		"decompose":"",
+		        		"decompose_id":"",
 		        	}
 		        	cabinet_ds.insert(0,data);
 		        }  

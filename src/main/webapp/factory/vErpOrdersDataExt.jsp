@@ -3,6 +3,7 @@
 	var mainFields = [
 		{text : 'id',dataIndex : 'id',name : 'id',width : 40,hidden : true}
 		,{text : 'uid',dataIndex : 'uid',name : 'uid',width : 40,hidden : true}
+		,{text : 'decomposeStatus',dataIndex : 'decomposeStatus',name : 'decomposeStatus',width : 40,hidden : true}
 		,{
 			text : '<s:text name="vErpOrders.ordersCode" />',
 			dataIndex:'ordersCode',
@@ -69,8 +70,13 @@
 			tooltip:'财务审核',
 			handler : function(grid, rowIndex, colIndex) {
 				var rec = grid.getStore().getAt(rowIndex);	
-				var status = erpOrdersStatusDs.findRecord('text', '待审核-工厂财务').get('value')
-				updateStatus("factory/erpOrders!save",rec,'发送财务审核','您是否确认发送此订单到财务审核，请仔细核对订单！',status,"订单发送成功!")
+				if(rec.get("decomposeStatus")==1){
+					var status = erpOrdersStatusDs.findRecord('text', '待审核-工厂财务').get('value')
+					updateStatus("factory/erpOrders!save",rec,'发送财务审核','您是否确认发送此订单到财务审核，请仔细核对订单！',status,"订单发送成功!")
+				}else{
+					Ext.Msg.alert('错误', "请指定分解员");
+				}
+				
 				/*if(rec.get("status")==2){
 					var status = erpOrdersStatusDs.findRecord('text', '财务审核').get('value')
 					updateStatus("factory/erpOrders!save",rec,'发送财务审核','您是否确认发送此订单到财务审核，请仔细核对订单！',status,"订单发送成功!")

@@ -22,5 +22,8 @@
 		<property name="decompose" type="java.lang.String">
 			<column name="decompose" length="200" not-null="true"/>
 		</property>
+		<property name="decomposeId" type="java.lang.Long">
+			<column name="decompose_id" length="8" not-null="true"/>
+		</property>
 	</class>
 </hibernate-mapping>

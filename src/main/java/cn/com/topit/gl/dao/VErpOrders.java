@@ -14,6 +14,21 @@ public class VErpOrders implements GenericPojo,java.io.Serializable {
 	private Integer cabinetQuantity;
 	private String ordersCode;
 	private String updateTime;
+	private Integer decomposeStatus;
+	private Integer resolveStatus;
+	
+	public Integer getDecomposeStatus() {
+		return decomposeStatus;
+	}
+	public void setDecomposeStatus(Integer decomposeStatus) {
+		this.decomposeStatus = decomposeStatus;
+	}
+	public Integer getResolveStatus() {
+		return resolveStatus;
+	}
+	public void setResolveStatus(Integer resolveStatus) {
+		this.resolveStatus = resolveStatus;
+	}
 	public Long getId() {
 		return id;
 	}

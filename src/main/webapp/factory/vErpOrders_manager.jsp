@@ -23,6 +23,7 @@
 			Ext.Date.defaultFormat='Y-m-d';
 			win = getWindow(winTitle,winWidth,winHeight,500,400,form);
 			batchWin=getWindow('批量修改',320,160,320,160,batchForm);
+			decomposeWin=getWindow('指派分解员',320,160,320,160,decomposeForm);
 			ds = getDs(mainFields, 'factory/vErpOrders!managerExt', baseSql,order);
 			ds.load();
 			sm = Ext.create('Ext.selection.CheckboxModel', {
@@ -30,6 +31,8 @@
 					selectionchange : function(sm, selections) {
 						grid.down('#del').setDisabled(selections.length != 1 );
 						grid.down('#tbar_btn_edit').setDisabled(selections.length != 1);
+						grid.down('#decompose').setDisabled(selections.length != 1 );
+						
 						//grid.down('#add').setDisabled(selections.length == 0);
 						//grid.down('#tbar_btn_batch').setDisabled(selections.length == 0);
 					}
@@ -98,6 +101,19 @@
 							}
 						},
 						'->','-'
+						<sec:authorize url="/factory/vErpOrders!decompose">
+						,Ext.create('Ext.Button', {
+							text : '指定分解员',
+							tooltip : '指定分解员',
+							disabled : true,
+							//iconCls : 'add',
+							itemId : 'decompose',
+							handler : function(){
+								var rec=(sm.getSelection())[0];
+								editWin(decomposeWin,winTitle+'指定分解员',sm)
+							}
+						})
+						</sec:authorize>
 						<sec:authorize url="/factory/vErpOrders!open">
 						,Ext.create('Ext.Button', {
 							text : '创建经销商订单',

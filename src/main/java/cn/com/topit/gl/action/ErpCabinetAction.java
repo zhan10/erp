@@ -51,4 +51,38 @@ public class ErpCabinetAction<ErpCabinet> extends GenericActionSupport {
 			}
 		}
 	}
+	public void decomposeSave() {
+		HttpServletResponse response = ServletActionContext.getResponse();
+		cn.com.topit.gl.dao.ErpCabinet erpCabinet = null;
+		// String json = UTF2GBK.unicodeToUtf8(extJson);//
+		// extjs中json.encode编码为unicode，要转换为utf-8
+		String json = (extJson);
+		JSONObject jsonO = JSONObject.fromObject(json);	
+		
+		response.reset();
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("text/html");
+		log.info(json);
+		try {
+				String decompose = jsonO.getString("decompose");
+				Long decomposeId = jsonO.getLong("decomposeId");
+				Long ordersId = jsonO.getLong("id");
+				int i = service.decompose(decompose, decomposeId, ordersId);
+				response.getWriter().print("topit_ext_id!" + i);
+				
+				/*response.getWriter().print(
+						"topit_ext_id!" + erpCabinet.getId());*/
+				// System.out.println("topit_ext_id!" + workbench.getId());
+		} catch (Exception e) {
+			e.printStackTrace();
+			log.error("保存出错" + e.getMessage());
+			try {
+				response.getWriter().print(
+						"{success:false,errMsg:" + e.getMessage() + "}");
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+	}
 }

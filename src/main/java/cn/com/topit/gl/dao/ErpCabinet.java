@@ -9,7 +9,18 @@ public class ErpCabinet implements GenericPojo,java.io.Serializable {
 	private String name;
 	private String mainMater;
 	private String decompose;
+	private Long decomposeId;
 	
+	
+
+	public Long getDecomposeId() {
+		return decomposeId;
+	}
+
+	public void setDecomposeId(Long decomposeId) {
+		this.decomposeId = decomposeId;
+	}
+
 	public Long getOrdersId() {
 		return ordersId;
 	}
