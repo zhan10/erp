@@ -57,6 +57,9 @@
     </property>  
     <property name="mappingResources"> 
       <list> 
+      	<value>cn/com/topit/gl/dao/ErpType.hbm.xml</value>
+      	<value>cn/com/topit/gl/dao/ErpMetals.hbm.xml</value>
+      	<value>cn/com/topit/gl/dao/ErpCabinets.hbm.xml</value>
       	<value>cn/com/topit/gl/dao/ErpCabinet.hbm.xml</value>
       	<value>cn/com/topit/gl/dao/VErpOrders.hbm.xml</value>
       	<value>cn/com/topit/gl/dao/ErpOrders.hbm.xml</value>

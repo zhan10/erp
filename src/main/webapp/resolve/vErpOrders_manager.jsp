@@ -22,12 +22,15 @@
 			Ext.QuickTips.init();
 			Ext.Date.defaultFormat='Y-m-d';
 			win = getWindow(winTitle,winWidth,winHeight,500,400,form);
+			inventoryWin = getWindow(winTitle,400,160,400,160,inventoryForm);
+			
 			batchWin=getWindow('批量修改',320,160,320,160,batchForm);
 			ds = getDs(mainFields, 'resolve/vErpOrders!managerExt', baseSql,order);
 			ds.load();
 			sm = Ext.create('Ext.selection.CheckboxModel', {
 				listeners : {
 					selectionchange : function(sm, selections) {
+						grid.down('#inventory').setDisabled(selections.length != 1 );
 						//grid.down('#del').setDisabled(selections.length != 1 );
 						//grid.down('#tbar_btn_edit').setDisabled(selections.length != 1);
 						//grid.down('#add').setDisabled(selections.length == 0);
@@ -97,7 +100,20 @@
 								ds.loadPage(1);
 							}
 						},
-						'->'
+						'->','-'
+						<sec:authorize url="/resolve/vErpOrders!inventory">
+						,Ext.create('Ext.Button', {
+							text : '上传物料清单',
+							tooltip : '上传物料清单',
+							disabled : true,
+							//iconCls : 'add',
+							itemId : 'inventory',
+							handler : function(){
+								var rec=(sm.getSelection())[0];
+								editWin(inventoryWin,winTitle+'——上传物料',sm)
+							}
+						})
+						</sec:authorize>
 					]
 				});
 				bbar = getBbar(ds);

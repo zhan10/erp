@@ -179,6 +179,74 @@
 			}
 			} ]
 			});
+	inventoryForm = Ext.widget('form', {
+		itemId : 'inventoryForm',
+		autoScroll : true,
+		overflowX : 'scroll',
+		overflowY : 'scroll',
+		frame : true,
+		layout : {
+			type : 'vbox',
+			align : 'stretch'
+		},
+		border : false,
+		bodyPadding : 10,
+		defaultType : 'textfield',
+		fieldDefaults : {
+			labelAlign : 'right',
+			labelWidth : 100
+		},
+		defaults : {
+			margins : '0 0 10 0'
+		},
+		items : [
+			{itemId:'id',name:'id',hidden:true},
+			{
+				xtype : 'container',
+				layout : 'hbox',
+				defaultType : 'textfield',
+				items : [
+					{
+						xtype : 'filefield',
+						flex : 1,
+						name : 'uploadFile',
+					    itemId : 'uploadFile',
+						emptyText : '请选择上传文件...',
+						fieldLabel : '物料清单',
+						buttonText : '',
+						buttonConfig : {
+							iconCls : 'uploadPic'
+						},
+						validator:function(value){
+							// 文件类型判断
+					        var arrType = value.split('.');
+					        var docType = arrType[arrType.length-1].toLowerCase();
+					        if(docType == 'xls' || docType == 'xlsx'){
+					        	return true;
+					        }
+					        return '文件类型必须为xls或xlsx';
+						}
+					}
+				]
+			},
+		],
+		buttons : [ {
+			text : '保存',
+			itemId : 'btnSave',
+			handler : function() {
+				var saveForm = this.up('form');
+				if(saveForm.getForm().isValid()){
+					saveFile(saveForm, 'uploadFile', fileTypes,'resolve/erpOrders!materialSave', grid);
+				}
+			}	
+		}, {
+			text : '关闭',
+			itemId : 'btnClose',
+			handler : function() {
+				this.up('window').hide();
+			}
+		}]
+		});
 	function saveDB(json,paramForm, url, paramGrid, func) {
 		var saveFormJson = Ext.JSON.encode(json);
 		//alert(saveFormJson)

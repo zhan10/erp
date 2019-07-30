@@ -24,4 +24,4 @@ var searchForm;
 var searchWin;
 var batchWin;//批量修改
 var batchForm;
-var fileTypes = "jpg,png,gif,jpeg"; 
+var fileTypes = "jpg,png,gif,jpeg,xls,xlsx"; 

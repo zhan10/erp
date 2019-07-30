@@ -21,5 +21,23 @@
         <param name="noCache">true</param> 
       </result>
     </action>
+    <action name="erpCabinets" class="erpCabinetsAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="erpMetals" class="erpMetalsAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="erpType" class="erpTypeAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
   </package>
 </struts>

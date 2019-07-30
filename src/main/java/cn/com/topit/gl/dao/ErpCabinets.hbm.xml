@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.topit.gl.dao.ErpCabinets" table="erp_cabinets" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="numbering" type="java.lang.Long">
+			<column name="numbering" length="8" not-null="true"/>
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="name" length="200" not-null="true"/>
+		</property>
+		<property name="width" type="java.lang.Double">
+			<column name="width"  precision="18"  scale="8" />
+		</property>
+		<property name="height" type="java.lang.Double">
+			<column name="height"  precision="18"  scale="8" />
+		</property>
+		<property name="deepth" type="java.lang.Double">
+			<column name="deepth"  precision="18"  scale="8" />
+		</property>
+		<property name="number" type="java.lang.Long">
+			<column name="number" length="8" not-null="true"/>
+		</property>
+		<property name="color" type="java.lang.String">
+			<column name="color" length="200" not-null="true"/>
+		</property>
+		<property name="acreage" type="java.lang.Double">
+			<column name="acreage"  precision="18"  scale="8" />
+		</property>
+		<property name="require" type="java.lang.String">
+			<column name="require" length="200" not-null="true"/>
+		</property>
+		<property name="explain" type="java.lang.String">
+			<column name="explain" length="200" not-null="true"/>
+		</property>
+		<property name="doorDirection" type="java.lang.String">
+			<column name="door_direction" length="200" not-null="true"/>
+		</property>
+		<property name="doorForm" type="java.lang.String">
+			<column name="door_form" length="200" not-null="true"/>
+		</property>
+		<property name="typeId" type="java.lang.Long">
+			<column name="type_id" length="8" not-null="true"/>
+		</property>
+	</class>
+</hibernate-mapping>
