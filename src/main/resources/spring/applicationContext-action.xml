@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">  
+   <bean id="vErpOrdersAction" class="cn.com.topit.gl.action.VErpOrdersAction" scope="request"> 
+    <property name="service" ref="vErpOrdersService"/> 
+  </bean>
   <bean id="erpTypeAction" class="cn.com.topit.gl.action.ErpTypeAction" scope="request"> 
   	<property name="service" ref="erpTypeService"/> 
   </bean>
@@ -17,11 +20,11 @@
   <bean id="erpCabinetAction" class="cn.com.topit.gl.action.ErpCabinetAction" scope="request"> 
     <property name="service" ref="erpCabinetService"/> 
   </bean>
-  <bean id="vErpOrdersAction" class="cn.com.topit.gl.action.VErpOrdersAction" scope="request"> 
-    <property name="service" ref="vErpOrdersService"/> 
-  </bean>
   <bean id="erpOrdersAction" class="cn.com.topit.gl.action.ErpOrdersAction" scope="request"> 
     <property name="service" ref="erpOrdersService"/> 
+    <property name="cabinetsService" ref="erpCabinetsService"/>
+    <property name="metalsService" ref="erpMetalsService"/>
+    <property name="typeService" ref="erpTypeService"/>
   </bean>
   <bean id="vInventoryAction" class="cn.com.topit.gl.action.VInventoryAction" scope="request"> 
     <property name="service" ref="vInventoryService"/> 

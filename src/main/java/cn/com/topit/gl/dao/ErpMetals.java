@@ -6,7 +6,7 @@ public class ErpMetals implements GenericPojo,java.io.Serializable {
 	private Long id;
 	private String name;
 	private String model;
-	private Long number;
+	private Double number;
 	private String unit;
 	private String materCode;
 	private String remark;
@@ -53,12 +53,12 @@ public class ErpMetals implements GenericPojo,java.io.Serializable {
 	}
 
 
-	public Long getNumber() {
+	public Double getNumber() {
 		return number;
 	}
 
 
-	public void setNumber(Long number) {
+	public void setNumber(Double number) {
 		this.number = number;
 	}
 

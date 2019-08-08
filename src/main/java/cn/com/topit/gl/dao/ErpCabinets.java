@@ -4,7 +4,7 @@ import java.util.Date;
 import cn.com.topit.base.GenericPojo;
 public class ErpCabinets implements GenericPojo,java.io.Serializable {
 	private Long id;
-	private Long numbering;
+	private String numbering;
 	private String name;
 	//长
 	private Double width;
@@ -20,8 +20,19 @@ public class ErpCabinets implements GenericPojo,java.io.Serializable {
 	private String doorDirection;
 	private String doorForm;
 	private Long typeId;
+	private Long ordersId;
 	
 	
+	public Long getOrdersId() {
+		return ordersId;
+	}
+
+
+	public void setOrdersId(Long ordersId) {
+		this.ordersId = ordersId;
+	}
+
+
 	public Long getTypeId() {
 		return typeId;
 	}
@@ -42,12 +53,12 @@ public class ErpCabinets implements GenericPojo,java.io.Serializable {
 	}
 
 
-	public Long getNumbering() {
+	public String getNumbering() {
 		return numbering;
 	}
 
 
-	public void setNumbering(Long numbering) {
+	public void setNumbering(String numbering) {
 		this.numbering = numbering;
 	}
 

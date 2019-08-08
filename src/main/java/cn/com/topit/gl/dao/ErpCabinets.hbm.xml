@@ -7,8 +7,8 @@
 			<column name="id" />
 			<generator class="identity" />
 		</id>
-		<property name="numbering" type="java.lang.Long">
-			<column name="numbering" length="8" not-null="true"/>
+		<property name="numbering" type="java.lang.String">
+			<column name="numbering" length="200" not-null="true"/>
 		</property>
 		<property name="name" type="java.lang.String">
 			<column name="name" length="200" not-null="true"/>
@@ -45,6 +45,9 @@
 		</property>
 		<property name="typeId" type="java.lang.Long">
 			<column name="type_id" length="8" not-null="true"/>
+		</property>
+		<property name="ordersId" type="java.lang.Long">
+			<column name="orders_id" length="8" not-null="true"/>
 		</property>
 	</class>
 </hibernate-mapping>
