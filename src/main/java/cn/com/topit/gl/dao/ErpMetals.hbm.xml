@@ -28,5 +28,8 @@
 		<property name="ordersId" type="java.lang.Long">
 			<column name="orders_id" length="8" not-null="true"/>
 		</property>
+		<property name="materid" type="java.lang.String">
+			<column name="materid" length="50" not-null="true"/>
+		</property>
 	</class>
 </hibernate-mapping>

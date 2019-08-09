@@ -647,9 +647,9 @@ Ext.data.Store.prototype.createComparator = function(sorters){
 					});
 				
 			},
-			failure : function(form, result) {			
-				        Ext.Msg.alert('保存出错', result.errMsg);
-				    }
+			failure : function(form, result) {	
+				Ext.Msg.alert('保存出错', result.result.errMsg);
+			}
 		});
 
 	}

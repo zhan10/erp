@@ -6,7 +6,10 @@
 	<script type="text/javascript" src="jsComm/commonality.js"></script>
 	<script type="text/javascript" src="ini/getErpOrdersStatusDs.js"></script>
 	<%@ include file="cabinetGrid.jsp"%>
+	<%@ include file="metalsGrid.jsp"%>
+	<%@ include file="cabinetsGrid.jsp"%>
 	<%@ include file="../c/cb_users.jsp"%>
+	<%@ include file="../c/cb_erpType.jsp"%>
 	<%@ include file="vErpOrdersDefine.jsp"%>
 	<%@ include file="vErpOrdersDataExt.jsp"%>
 	<%@ include file="vErpOrdersFormExt.jsp"%>
@@ -23,7 +26,8 @@
 			Ext.Date.defaultFormat='Y-m-d';
 			win = getWindow(winTitle,winWidth,winHeight,500,400,form);
 			inventoryWin = getWindow(winTitle,400,160,400,160,inventoryForm);
-			
+			metalsWin = getWindow(winTitle,800,400,800,400,metalsForm);
+			cabinetsWin = getWindow(winTitle,1200,600,1200,600,cabinetsForm);
 			batchWin=getWindow('批量修改',320,160,320,160,batchForm);
 			ds = getDs(mainFields, 'resolve/vErpOrders!managerExt', baseSql,order);
 			ds.load();
@@ -211,14 +215,9 @@
 				});
 				grid = getGrid('grid',gridTitle,ds,mainColumns, sm, tbar, bbar);
 				grid.on('itemdblclick', function(grid,rec) {
-					//showWinByRec(win,winTitle+'——查看',rec);
-					editWin(win,winTitle+'——修改', sm)
-					form.down('#name').setReadOnly(true);
-					form.down('#mobile').setReadOnly(true);
-					form.down('#address').setReadOnly(true);
-					form.down('#uid').setReadOnly(true);
-					form.down('#code').setReadOnly(true);
-					form.down('#cabinetQuantity').setReadOnly(true);
+					showWinByRec(win,winTitle+'——查看',rec);
+					Ext.apply(cb_erpType_ds.proxy.extraParams,{whereSql : ' and ordersId='+rec.get("id")});
+					cb_erpType_ds.loadPage(1);
 					openForm(rec)
 				});
 				grid.on('itemcontextmenu',function(view, rec, node, index, e) {

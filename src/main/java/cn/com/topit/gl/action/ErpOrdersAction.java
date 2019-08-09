@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -105,9 +107,7 @@ public class ErpOrdersAction<ErpOrders> extends GenericActionSupport {
 		try {
 			Long ymId = null;
 			Long id = jsonObject.getLong("id");
-			typeService.deleteBySql(" and ordersId="+id);
-			cabinetsService.deleteBySql(" and ordersId="+id);
-			metalsService.deleteBySql(" and ordersId="+id);
+			String ordersCode = jsonObject.getString("ordersCode");
 			String realpath = ServletActionContext.getServletContext()
 					.getRealPath("\\pics\\marketing");
 			File savefile = new File(realpath);
@@ -120,6 +120,18 @@ public class ErpOrdersAction<ErpOrders> extends GenericActionSupport {
             Workbook workBook = getWorkbok(savefile);
             //获取所有页
             int sheetsNumber = workBook.getNumberOfSheets();
+            Sheet sheet1 = workBook.getSheetAt(0);
+            Row row1 = sheet1.getRow(1);
+            String code = row1.getCell(1).toString();
+            if(!code.equals(ordersCode)) {
+            	throw new Exception("订单号不正确，请核实");
+//            	response.getWriter().print(
+//						"{success:false,errMsg:"+"订单号不正确，请核实。"+ "}");
+//            	return;
+            }
+            typeService.deleteBySql(" and ordersId="+id);
+			cabinetsService.deleteBySql(" and ordersId="+id);
+			metalsService.deleteBySql(" and ordersId="+id);
             for(int i=0;i<sheetsNumber;i++) {
             	//选择页
             	Sheet sheet = workBook.getSheetAt(i);
@@ -224,10 +236,12 @@ public class ErpOrdersAction<ErpOrders> extends GenericActionSupport {
 	                    }
                     	String wModel = row.getCell(2).toString();
                     	Cell wNumber = row.getCell(4);
-                    	Double wNumber1 = Double.valueOf(wNumber.toString());
-                    	
-                    	String wMaterCode = row.getCell(5).toString();
-                    	String wRemark = row.getCell(6).toString();
+                    	Double wNumber1 = Double.valueOf(wNumber.toString());             	
+                    	String wMaterCode = row.getCell(5).toString();            
+                    	Cell cMaterid = row.getCell(6);
+                    	cMaterid.setCellType(CellType.STRING);
+                    	String wMaterid = row.getCell(6).getStringCellValue();
+                    	String wRemark = row.getCell(7).toString();
                     	Long wOrdersId = id;
                     	//物料配件单
                     	JSONObject json2 = new JSONObject();
@@ -236,6 +250,7 @@ public class ErpOrdersAction<ErpOrders> extends GenericActionSupport {
                     	json2.put("model", wModel);
                     	json2.put("number", wNumber1);
                     	json2.put("materCode", wMaterCode);
+                    	json2.put("materid", wMaterid);
                     	json2.put("remark", wRemark);
                     	json2.put("ordersId", wOrdersId);
                     	metalsService.saveByJSONObject(json2);
@@ -250,7 +265,7 @@ public class ErpOrdersAction<ErpOrders> extends GenericActionSupport {
 			log.error("保存出错" + e.getMessage());
 			try {
 				response.getWriter().print(
-						"{success:false,errMsg:" + e.getMessage() + "}");
+						"{'success':false,'errMsg':'" + e.getMessage() + "'}");
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

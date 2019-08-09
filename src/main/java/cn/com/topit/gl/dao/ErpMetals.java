@@ -11,8 +11,19 @@ public class ErpMetals implements GenericPojo,java.io.Serializable {
 	private String materCode;
 	private String remark;
 	private Long ordersId;
-
+	private String materid;
 	
+	
+	public String getMaterid() {
+		return materid;
+	}
+
+
+	public void setMaterid(String materid) {
+		this.materid = materid;
+	}
+
+
 	public Long getOrdersId() {
 		return ordersId;
 	}
