@@ -1,5 +1,23 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <script>
+function add(typeId,name){
+	var con = Ext.create('Ext.container.Container', {
+	    layout: 'hbox',
+	    itemId : 'erpType'+typeId,
+	    defaultType : 'textfield',
+		items : [  
+			{
+	            xtype: 'button',
+	            text: name,
+	            handler: function () {
+	            	Ext.apply(cabinets_ds.proxy.extraParams,{whereSql : ' and typeId='+typeId});
+	            	cabinets_ds.loadPage(1);  
+	            }
+	        } 
+		]
+	})
+	Ext.getCmp('erpTypeButs').add(con)
+}
 	form = Ext.widget('form', {
 		itemId : 'form',
 		autoScroll : true,
@@ -119,6 +137,30 @@
 			},cabinet_grid
 		],
 		buttons : [ {
+			text : '物料单',
+			handler : function() {
+				var id = form.down('#id').getValue();
+				/*Ext.apply(metals_ds.proxy.extraParams,{whereSql : ' and ordersId='+id});
+				metals_ds.loadPage(1);  */
+				Ext.getCmp('erpTypeButs').removeAll();
+				cabinets_ds.removeAll()
+				for(var i=0;i<cb_erpType_ds.getCount();i++){
+					var typeId = cb_erpType_ds.getAt(i).get("id")
+					var name = cb_erpType_ds.getAt(i).get("name")
+					add(typeId,name)
+				};
+				cabinetsForm.getForm()
+				cabinetsWin.show();
+			}
+		},{
+			text : '五金单',
+			handler : function() {
+				var id = form.down('#id').getValue();
+				Ext.apply(metals_ds.proxy.extraParams,{whereSql : ' and ordersId='+id});
+				metals_ds.loadPage(1);  
+				metalsWin.show();
+			}
+		},{
 			text : '保存',
 			itemId : 'btnSave',
 			handler : function() {
@@ -179,6 +221,75 @@
 			}
 			} ]
 			});
+	metalsForm = Ext.widget('form', {
+		itemId : 'metalsForm',
+		autoScroll : true,
+		overflowX : 'scroll',
+		overflowY : 'scroll',
+		frame : true,
+		layout : {
+			type : 'vbox',
+			align : 'stretch'
+		},
+		border : false,
+		bodyPadding : 10,
+		defaultType : 'textfield',
+		fieldDefaults : {
+			labelAlign : 'right',
+			labelWidth : 100
+		},
+		defaults : {
+			margins : '0 0 10 0'
+		},
+		items : [
+			metals_grid
+		],
+		buttons : [ {
+			text : '关闭',
+			itemId : 'btnClose',
+			handler : function() {
+				this.up('window').hide();
+			}
+		}]
+	});
+	cabinetsForm = Ext.widget('form', {
+		itemId : 'cabinetsForm',
+		autoScroll : true,
+		overflowX : 'scroll',
+		overflowY : 'scroll',
+		frame : true,
+		layout : {
+			type : 'vbox',
+			align : 'stretch'
+		},
+		border : false,
+		bodyPadding : 10,
+		defaultType : 'textfield',
+		fieldDefaults : {
+			labelAlign : 'right',
+			labelWidth : 100
+		},
+		defaults : {
+			margins : '0 0 10 0'
+		},
+		items : [
+			{
+				xtype : 'container',
+				layout : 'hbox',
+				id:'erpTypeButs',
+				defaultType : 'textfield',
+				items : []
+			},
+			cabinets_grid
+		],
+		buttons : [ {
+			text : '关闭',
+			itemId : 'btnClose',
+			handler : function() {
+				this.up('window').hide();
+			}
+		}]
+	});
 	function saveDB(json,paramForm, url, paramGrid, func) {
 		var saveFormJson = Ext.JSON.encode(json);
 		//alert(saveFormJson)

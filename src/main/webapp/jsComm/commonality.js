@@ -11,6 +11,7 @@ function randomNumber() {
 function updateStatus(url,rec,title,content,status,succeedContent) {
 	var id = rec.get("id");
 	var timestamp = (new Date()).getTime();
+	Ext.MessageBox.buttonText.yes = '是'
 	Ext.MessageBox.confirm(title, content, function(btn) {
 		if (btn == 'yes') {
 			Ext.Msg.wait('请等候', '保存数据', '保存数据进行中...');

@@ -187,10 +187,10 @@
 				var contextMenu = Ext.create('Ext.menu.Menu', {
 					 items: [
 						showAction,'-'
-						/* <sec:authorize url="/warehouse/vErpOrders!add">,addAction,copyAddAction</sec:authorize>*/
+						/* <sec:authorize url="/warehouse/vErpOrders!add">,addAction,copyAddAction</sec:authorize>
 						<sec:authorize url="/warehouse/vErpOrders!cabinetAdd">,cabinetAddAction</sec:authorize>
 						<sec:authorize url="/warehouse/vErpOrders!edit">,editAction</sec:authorize> 
-						<sec:authorize url="/warehouse/vErpOrders!del">,delAction</sec:authorize> 
+						<sec:authorize url="/warehouse/vErpOrders!del">,delAction</sec:authorize> */
 					 ]
 				});
 				grid = getGrid('grid',gridTitle,ds,mainColumns, sm, tbar, bbar);

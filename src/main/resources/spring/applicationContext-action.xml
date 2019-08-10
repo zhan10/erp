@@ -25,6 +25,7 @@
     <property name="cabinetsService" ref="erpCabinetsService"/>
     <property name="metalsService" ref="erpMetalsService"/>
     <property name="typeService" ref="erpTypeService"/>
+    <property name="materService" ref="materService"/>
   </bean>
   <bean id="vInventoryAction" class="cn.com.topit.gl.action.VInventoryAction" scope="request"> 
     <property name="service" ref="vInventoryService"/> 

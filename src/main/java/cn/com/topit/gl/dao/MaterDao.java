@@ -16,7 +16,7 @@ public class MaterDao extends GenericDaoImpl<Mater, Long>{
 			log.info("finding " + type.getClass().getName() + " with whereSql: "
 					+ whereSql);
 			try {
-				String queryString = "select materid as id,matername as name from " + tableName
+				String queryString = "select materid as id,matername as name,atct from " + tableName
 						+ " where 1=1 " + whereSql;
 				return (List) (sessionFactory.getCurrentSession().createQuery(
 						queryString).list());

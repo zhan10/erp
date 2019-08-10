@@ -66,11 +66,26 @@
 		width:50,
 		items:[{
 			icon:'img/toolbar/post_go.gif',
-			tooltip:'仓库管理',
+			tooltip:'下一步',
 			handler : function(grid, rowIndex, colIndex) {
 				var rec = grid.getStore().getAt(rowIndex);	
 				var status = erpOrdersStatusDs.findRecord('text', '待发料').get('value')
 				updateStatus("plan/erpOrders!save",rec,'发送仓库','您是否确认发送此订单到仓库管理，请仔细核对订单！',status,"订单发送成功!")
+				/*if(rec.get("status")==2){
+					var status = erpOrdersStatusDs.findRecord('text', '财务审核').get('value')
+					updateStatus("plan/erpOrders!save",rec,'发送财务审核','您是否确认发送此订单到财务审核，请仔细核对订单！',status,"订单发送成功!")
+				}else{
+					var status = erpOrdersStatusDs.findRecord('text', '财务二审').get('value')
+					updateStatus("plan/erpOrders!save",rec,'发送财务二审','您是否确认发送此订单到财务二审，请仔细核对订单！',status,"订单发送成功!")
+				}*/
+			}
+		},{
+			icon:'img/toolbar/drop-no.gif',
+			tooltip:'Pass',
+			handler : function(grid, rowIndex, colIndex) {
+				var rec = grid.getStore().getAt(rowIndex);	
+				var status = erpOrdersStatusDs.findRecord('text', '分解中').get('value')
+				updateStatus("plan/erpOrders!save",rec,'驳回','您是否确认驳回此订单至分解中，请仔细核对订单！',status,"订单驳回成功!")
 				/*if(rec.get("status")==2){
 					var status = erpOrdersStatusDs.findRecord('text', '财务审核').get('value')
 					updateStatus("plan/erpOrders!save",rec,'发送财务审核','您是否确认发送此订单到财务审核，请仔细核对订单！',status,"订单发送成功!")

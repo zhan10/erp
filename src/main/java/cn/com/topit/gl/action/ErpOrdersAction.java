@@ -26,6 +26,8 @@ import cn.com.topit.gl.service.ErpCabinetsService;
 import cn.com.topit.gl.service.ErpMetalsService;
 import cn.com.topit.gl.service.ErpOrdersService;
 import cn.com.topit.gl.service.ErpTypeService;
+import cn.com.topit.gl.service.InventoryService;
+import cn.com.topit.gl.service.MaterService;
 import net.sf.json.JSONObject;
 public class ErpOrdersAction<ErpOrders> extends GenericActionSupport {
 	private static final long serialVersionUID = 1L;
@@ -34,6 +36,7 @@ public class ErpOrdersAction<ErpOrders> extends GenericActionSupport {
 	private ErpCabinetsService cabinetsService;
 	private ErpMetalsService metalsService;
 	private ErpTypeService typeService;
+	private MaterService materService;
 	public void setService(ErpOrdersService service) {
 		this.service = service;
 		super.setAbstractService(service);
@@ -50,10 +53,20 @@ public class ErpOrdersAction<ErpOrders> extends GenericActionSupport {
 		this.typeService = typeService;
 		super.setAbstractService(typeService);
 	}
+	public void setMaterService(MaterService materService) {
+		this.materService = materService;
+		super.setAbstractService(materService);
+	}
+
+
 
 	private File uploadFile;
 	private String uploadFileName;
-
+	private double atct;
+	private String materid;
+	public void updateAtct() {
+		materService.updateAtct(atct, materid);
+	}
 	public void save() {
 	    HttpServletResponse response = ServletActionContext.getResponse();
 	    cn.com.topit.gl.dao.ErpOrders erp = null;
@@ -237,7 +250,7 @@ public class ErpOrdersAction<ErpOrders> extends GenericActionSupport {
                     	String wModel = row.getCell(2).toString();
                     	Cell wNumber = row.getCell(4);
                     	Double wNumber1 = Double.valueOf(wNumber.toString());             	
-                    	String wMaterCode = row.getCell(5).toString();            
+                    	String wUnit = row.getCell(5).toString();            
                     	Cell cMaterid = row.getCell(6);
                     	cMaterid.setCellType(CellType.STRING);
                     	String wMaterid = row.getCell(6).getStringCellValue();
@@ -249,7 +262,7 @@ public class ErpOrdersAction<ErpOrders> extends GenericActionSupport {
                     	json2.put("name", wName);
                     	json2.put("model", wModel);
                     	json2.put("number", wNumber1);
-                    	json2.put("materCode", wMaterCode);
+                    	json2.put("unit", wUnit);
                     	json2.put("materid", wMaterid);
                     	json2.put("remark", wRemark);
                     	json2.put("ordersId", wOrdersId);
@@ -301,4 +314,17 @@ public class ErpOrdersAction<ErpOrders> extends GenericActionSupport {
 	public void setUploadFileName(String uploadFileName) {
 		this.uploadFileName = uploadFileName;
 	}
+	public double getAtct() {
+		return atct;
+	}
+	public void setAtct(double atct) {
+		this.atct = atct;
+	}
+	public String getMaterid() {
+		return materid;
+	}
+	public void setMaterid(String materid) {
+		this.materid = materid;
+	}
+	
 }
