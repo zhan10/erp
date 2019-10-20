@@ -3,6 +3,18 @@
 
 <struts>
   <package name="cn.com.topit.gl.finance" namespace="/finance" extends="cn.com.topit.gl">   
+  <action name="vErpOrders" class="vErpOrdersAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
+    <action name="erpOrders" class="erpOrdersAction">
+      <result type="json" name="managerExt"> 
+        <param name="root">records</param>  
+        <param name="noCache">true</param> 
+      </result>
+    </action>
   	<action name="receipt" class="receiptAction">
       <result type="json" name="managerExt"> 
         <param name="root">records</param>  

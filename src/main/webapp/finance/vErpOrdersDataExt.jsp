@@ -40,7 +40,8 @@
 					var status = erpOrdersStatusDs.findRecord('text', '复尺中').get('value')
 					updateStatus("finance/erpOrders!save",rec,'财务审核','您是否确认此订单审核完成，请仔细核对订单记录！',status,"订单审核成功!")
 				}else{
-					Ext.Msg.alert('错误', '操作错误，不能进行该操作！');
+					var status = erpOrdersStatusDs.findRecord('text', '待分配').get('value')
+					updateStatus("finance/erpOrders!save",rec,'分配发送','您是否确认送此订单，请仔细核对订单记录！',status,"订单发送成功!")
 				}
 				
 			}

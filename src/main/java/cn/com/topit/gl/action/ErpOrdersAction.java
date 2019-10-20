@@ -135,7 +135,11 @@ public class ErpOrdersAction<ErpOrders> extends GenericActionSupport {
             int sheetsNumber = workBook.getNumberOfSheets();
             Sheet sheet1 = workBook.getSheetAt(0);
             Row row1 = sheet1.getRow(1);
-            String code = row1.getCell(1).toString();
+            //String code = row1.getCell(1).toString();
+            
+            Cell cell = row1.getCell(1);
+            cell.setCellType(CellType.STRING);
+        	String code = row1.getCell(1).getStringCellValue();
             if(!code.equals(ordersCode)) {
             	throw new Exception("订单号不正确，请核实");
 //            	response.getWriter().print(

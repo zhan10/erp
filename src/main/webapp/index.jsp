@@ -42,21 +42,22 @@
   				<a class="icon icon-hexagon invisible"></a>
 	  			<a class="icon icon-hexagon invisible"></a>
 	  			<!-- <a class="icon icon-hexagon a5b4d8"></a> -->
+	  			<a href="all/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe604;<b>全局订单</b></i></a>
 	  			<a href="produce/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe604;<b>订单管理</b></i></a>
 	  			<a href="design/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe604;<b>设计管理</b></i></a>
-	  			<a class="decorate"><img src="img/oms-1.png" alt="tu" /></a>
+	  			<!-- <a class="decorate"><img src="img/oms-1.png" alt="tu" /></a> -->
 	  			<!-- <a class="icon icon-hexagon invisible"></a> -->
 	  			<a href="factory/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe604;<b>工厂客服</b></i></a>
 	  			<!-- <a class="icon icon-hexagon a5b4d8"></a> -->
   			</div>
   			<div class="clearfix row2">
-  				<a href="inventory/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe604;<b>库存管理</b></i></a>
+  				<a href="finished/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe604;<b>成品管理</b></i></a>
   				<a class="decorate"><img src="img/oms-1.png" alt="tu" /></a>
   				<a href="resolve/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe604;<b>分解管理</b></i></a>
   				<a href="plan/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe604;<b>计划管理</b></i></a>
-  				<a href="inventory/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe604;<b>采购管理</b></i></a>
+  				<!-- <a href="inventory/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe604;<b>采购管理</b></i></a> -->
 		  		<!-- <a class="decorate"><img src="img/oms-2.png" alt="tu" /></a> -->
-		  		
+		  		<a href="inventory/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe604;<b>库存管理</b></i></a>
 		  		<a href="mater/index.jsp" class="icon blue">&#xe602;<i class="icon">&#xe604;<b>材料管理</b></i></a>
 		  		<!-- <a class="icon icon-hexagon a5b4d8"></a> -->
 		  		<!-- <a class="icon icon-hexagon a5b4d8"></a> -->

@@ -33,6 +33,8 @@
 	<include file="struts/plant.xml"></include>
 	<include file="struts/resolve.xml"></include>
 	<include file="struts/plan.xml"></include>
+	<include file="struts/all.xml"></include>
+	<include file="struts/finished.xml"></include>
 	
 	<package name="cn.com.topit.gl" extends="struts-default,json-default">
 		<global-results>

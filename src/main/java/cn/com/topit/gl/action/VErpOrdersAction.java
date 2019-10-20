@@ -15,4 +15,7 @@ public class VErpOrdersAction<VErpOrders> extends GenericActionSupport {
 	public String manager1() throws Exception {
 		return "manager1";
 	}
+	public String manager2() throws Exception {
+		return "manager2";
+	}
 }

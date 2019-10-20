@@ -1,11 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">  
+   <bean id="vErpOrdersAction" class="cn.com.topit.gl.action.VErpOrdersAction" scope="request"> 
+    <property name="service" ref="vErpOrdersService"/> 
+  </bean>
+  <bean id="erpTypeAction" class="cn.com.topit.gl.action.ErpTypeAction" scope="request"> 
+  	<property name="service" ref="erpTypeService"/> 
+  </bean>
+  <bean id="erpMetalsAction" class="cn.com.topit.gl.action.ErpMetalsAction" scope="request"> 
+  	<property name="service" ref="erpMetalsService"/> 
+  </bean>
+  <bean id="erpFactoryAction" class="cn.com.topit.gl.action.ErpFactoryAction" scope="request"> 
+  	<property name="service" ref="erpOrdersService"/> 
+  	<property name="cabinetService" ref="erpCabinetService"/> 
+  </bean>
+  <bean id="erpCabinetsAction" class="cn.com.topit.gl.action.ErpCabinetsAction" scope="request"> 
+    <property name="service" ref="erpCabinetsService"/> 
+  </bean>
+  <bean id="erpCabinetAction" class="cn.com.topit.gl.action.ErpCabinetAction" scope="request"> 
+    <property name="service" ref="erpCabinetService"/> 
+  </bean>
+  <bean id="erpOrdersAction" class="cn.com.topit.gl.action.ErpOrdersAction" scope="request"> 
+    <property name="service" ref="erpOrdersService"/> 
+    <property name="cabinetsService" ref="erpCabinetsService"/>
+    <property name="metalsService" ref="erpMetalsService"/>
+    <property name="typeService" ref="erpTypeService"/>
+    <property name="materService" ref="materService"/>
+  </bean>
   <bean id="vInventoryAction" class="cn.com.topit.gl.action.VInventoryAction" scope="request"> 
     <property name="service" ref="vInventoryService"/> 
   </bean>
   <bean id="inventoryAction" class="cn.com.topit.gl.action.InventoryAction" scope="request"> 
     <property name="service" ref="inventoryService"/> 
+    <property name="materService" ref="materService"/> 
   </bean>
   <bean id="materAction" class="cn.com.topit.gl.action.MaterAction" scope="request"> 
     <property name="service" ref="materService"/> 
